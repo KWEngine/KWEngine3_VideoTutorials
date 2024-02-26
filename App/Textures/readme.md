@@ -1,0 +1,1 @@
+Hier werden alle Texturen gelagert, die nicht Teil eines 3D-Modells sind.
