@@ -21,7 +21,7 @@ namespace KWEngine3_Tutorial.App.Worlds
             SetColorAmbient(1f, 1f, 1f);
             SetCameraPosition(0f, 10f, 0f);
             SetCameraTarget(0f, 0f, 0f);
-            SetBackgroundFillColor(1f, 0f, 1f);
+            SetBackgroundFillColor(0.5f, 0f, 0.5f);
 
             Player p = new Player();
             p.Name = "Player #1";

@@ -19,6 +19,11 @@ namespace KWEngine3_Tutorial.App.Worlds.ClassesWorld02
 
         public override void Act()
         {
+            HandleMovement();
+        }
+
+        private void HandleMovement()
+        {
             if (_id == 1)
             {
                 if (Keyboard.IsKeyDown(Keys.A))
@@ -46,7 +51,7 @@ namespace KWEngine3_Tutorial.App.Worlds.ClassesWorld02
                     MoveOffset(0f, +0.01f, 0f);
                 }
             }
-            else if(_id == 2)
+            else if (_id == 2)
             {
                 if (Keyboard.IsKeyDown(Keys.Left))
                 {
@@ -73,7 +78,6 @@ namespace KWEngine3_Tutorial.App.Worlds.ClassesWorld02
                     MoveOffset(0f, +0.01f, 0f);
                 }
             }
-
         }
     }
 }

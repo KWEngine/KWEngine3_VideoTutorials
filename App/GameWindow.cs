@@ -7,7 +7,7 @@ namespace KWEngine3_ExampleProject.App
     {
         public GameWindow() : base(1280, 720)
         {
-            World02_GameObjects world = new World02_GameObjects();
+            World03_MultipleClasses world = new World03_MultipleClasses();
             SetWorld(world);
         }
     }
