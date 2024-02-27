@@ -10,36 +10,53 @@ namespace KWEngine3_Tutorial.App.Worlds.ClassesWorld06
 {
     public class Player : GameObject
     {
+        private Vector3 _currentTargetPosition = Vector3.Zero;
+        private bool _isCurrentTargetSet = false;
+
         public override void Act()
         {
-            HandleMovement();
+            if (_isCurrentTargetSet == false)
+            {
+                TurnTowardsMouse();
+            }
+            else
+            {
+                MoveTowardsTarget();
+            }
+
+            CheckClickOnTarget();
         }
 
-        private void HandleMovement()
+        private void TurnTowardsMouse()
         {
-            if (Keyboard.IsKeyDown(Keys.A))
+            Vector3 mousePosition = HelperIntersection.GetMouseIntersectionPointOnPlane(Plane.XZ, 0f);
+            TurnTowardsXZ(mousePosition);
+        }
+
+        private void CheckClickOnTarget()
+        {
+            if(Mouse.IsButtonPressed(MouseButton.Left) && HelperIntersection.IsMouseCursorOnAnyFast<Box>(out Box b))
             {
-                MoveOffset(-0.01f, 0f, 0f);
+                TurnTowardsXZ(b.Position);
+                _currentTargetPosition = b.Position;
+                _isCurrentTargetSet = true;
             }
-            if (Keyboard.IsKeyDown(Keys.D))
+        }
+
+        private void MoveTowardsTarget()
+        {
+            float distanceToTarget = GetDistanceTo(_currentTargetPosition, true);
+            Console.WriteLine(  distanceToTarget);
+            if (distanceToTarget > 0.25f)
             {
-                MoveOffset(+0.01f, 0f, 0f);
+                Move(0.01f);
+                SetAnimationID(2);
+                SetAnimationPercentageAdvance(0.005f);
             }
-            if (Keyboard.IsKeyDown(Keys.W))
+            else
             {
-                MoveOffset(0f, 0f, -0.01f);
-            }
-            if (Keyboard.IsKeyDown(Keys.S))
-            {
-                MoveOffset(0f, 0f, +0.01f);
-            }
-            if (Keyboard.IsKeyDown(Keys.Q))
-            {
-                MoveOffset(0f, -0.01f, 0f);
-            }
-            if (Keyboard.IsKeyDown(Keys.E))
-            {
-                MoveOffset(0f, +0.01f, 0f);
+                SetAnimationID(0);
+                _isCurrentTargetSet = false;
             }
         }
     }

@@ -7,7 +7,7 @@ namespace KWEngine3_ExampleProject.App
     {
         public GameWindow() : base(1280, 720)
         {
-            World06_MouseActions world = new World06_MouseActions();
+            World07_Backgrounds world = new World07_Backgrounds();
             SetWorld(world);
         }
     }

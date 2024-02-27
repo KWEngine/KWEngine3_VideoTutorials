@@ -3030,6 +3030,21 @@
             Gibt die (relative) Mitte des Fensters in Pixeln an
             </summary>
         </member>
+        <member name="M:KWEngine3.GLWindow.SetCursor(System.String)">
+            <summary>
+            Ersetzt den aktuellen Mauscursor durch den angegebenen Cursor
+            </summary>
+            <param name="cursorName">Name, unter dem der Cursor importiert wurde (wenn dieser Wert null ist, wird der Standardcursor geladen)</param>
+        </member>
+        <member name="M:KWEngine3.GLWindow.LoadCursorImage(System.String,System.String,System.Single,System.Single)">
+            <summary>
+            Importiert eine eigene Mauscursorgrafik und legt die Grafik unter dem angegebenen Namen in der Engine-Datenbank ab (gültige Dateiformate: PNG, CUR)
+            </summary>
+            <param name="name">Name der Grafik</param>
+            <param name="filename">Relativer Pfad zu der zu importierenden Datei</param>
+            <param name="tipX">Relative X-Position der Cursorspitze (von 0 bis 1, Standardwert: 0.5f)</param>
+            <param name="tipY">Relative Y-Position der Cursorspitze (von 0 bis 1, Standardwert: 0.5f)</param>
+        </member>
         <member name="T:KWEngine3.Helper.FlowField">
             <summary>
             Klasse zum Erstellen einer FlowField-Instanz für KI-Navigation
@@ -4273,6 +4288,13 @@
             Setzt die Hintergrundfarbe der Welt
             </summary>
             <param name="color">Farbwerte (RGB, jeweils zwischen 0 und 1)</param>
+        </member>
+        <member name="M:KWEngine3.World.GetBackgroundImageSize">
+            <summary>
+            Erfragt die Auflösung der aktuell gewählten Hintergrundtextur
+            </summary>
+            <returns>Auflösung der Hintergrundtextur in Pixeln</returns>
+            <remarks>Wenn kein Hintergrundbild festgelegt wurde, wird der Nullvektor (0|0) zurückgegeben</remarks>
         </member>
         <member name="M:KWEngine3.World.SetBackgroundSkybox(System.String,System.Single,KWEngine3.SkyboxType)">
             <summary>
