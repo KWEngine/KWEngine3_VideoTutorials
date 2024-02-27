@@ -7,7 +7,7 @@ namespace KWEngine3_ExampleProject.App
     {
         public GameWindow() : base(1280, 720)
         {
-            World04_CollisionDetection world = new World04_CollisionDetection();
+            World06_MouseActions world = new World06_MouseActions();
             SetWorld(world);
         }
     }
