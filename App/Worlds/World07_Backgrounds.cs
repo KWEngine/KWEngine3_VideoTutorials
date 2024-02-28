@@ -11,6 +11,7 @@ namespace KWEngine3_Tutorial.App.Worlds
 {
     public class World07_Backgrounds : World
     {
+        private bool _animateBackground = true;
         private bool _isBackground2d = false;
         private float _background2dOffset = 0f;
 
@@ -30,8 +31,7 @@ namespace KWEngine3_Tutorial.App.Worlds
                     _isBackground2d = true;
                 }
             }
-
-            if(_isBackground2d)
+            if(_isBackground2d == true && _animateBackground == true)
             {
                 SetBackground2DOffset(_background2dOffset, 0f);
                 _background2dOffset += 0.0005f;
@@ -40,7 +40,6 @@ namespace KWEngine3_Tutorial.App.Worlds
 
         public override void Prepare()
         {
-            SetColorAmbient(1f, 1f, 1f);
             SetCameraPosition(10f, 5f, 10f);
             SetCameraTarget(0f, 2f, 0f);
             SetCameraFOV(120);
@@ -59,7 +58,9 @@ namespace KWEngine3_Tutorial.App.Worlds
             b2.SetColor(0f, 1f, 1f);
             AddGameObject(b2);
 
+            SetColorAmbient(0.5f, 0.5f, 0.5f);
             SetBackgroundSkybox("./App/Textures/background_skybox.png", 0f, SkyboxType.CubeMap);
+            SetBackgroundBrightnessMultiplier(2f);
         }
     }
 }

@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using KWEngine3;
 using KWEngine3.GameObjects;
 using KWEngine3.Helper;
+using Newtonsoft.Json.Bson;
 using OpenTK.Mathematics;
 using OpenTK.Windowing.GraphicsLibraryFramework;
 
@@ -20,6 +22,7 @@ namespace KWEngine3_Tutorial.App.Worlds.ClassesWorld02
         public override void Act()
         {
             HandleMovement();
+            HandleRotation();
         }
 
         private void HandleMovement()
@@ -77,6 +80,14 @@ namespace KWEngine3_Tutorial.App.Worlds.ClassesWorld02
                 {
                     MoveOffset(0f, +0.01f, 0f);
                 }
+            }
+        }
+
+        private void HandleRotation()
+        {
+            if(Keyboard.IsKeyDown(Keys.R))
+            {
+                AddRotationY(0.5f, true);
             }
         }
     }
