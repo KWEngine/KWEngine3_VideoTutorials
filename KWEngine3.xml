@@ -3345,6 +3345,16 @@
             Helferklasse für Kollisionen und Schnittoperationen
             </summary>
         </member>
+        <member name="M:KWEngine3.Helper.HelperIntersection.GetIntersectionPointOnPlaneFromScreenSpace(System.Int32,System.Int32,KWEngine3.Plane,System.Single)">
+            <summary>
+            Ermittelt für die angegebenen Bildschirmkoordinaten, wo diese Koordinaten in der 3D-Welt liegen
+            </summary>
+            <param name="screenposX">X-Bildschirmkoordinate (relativ zum Anwendungsfenster, in Pixeln)</param>
+            <param name="screenposY">Y-Bildschirmkoordinate (relativ zum Anwendungsfenster, in Pixeln)</param>
+            <param name="planeNormal">Gibt an, wie die Fläche ausgerichtet ist, auf die die Bildschirmkoordinate projeziert wird</param>
+            <param name="planeHeight">Gibt die Höhe der Fläche an, auf die die Bildschirmkoordinate projeziert wird</param>
+            <returns>Schnittpunkt in 3D-Weltkoordinaten</returns>
+        </member>
         <member name="M:KWEngine3.Helper.HelperIntersection.IsAnyObjectBelowPositionFast(OpenTK.Mathematics.Vector3,System.Single,KWEngine3.Helper.RayIntersection@,System.Type[])">
             <summary>
             Schießt einen Strahl von der angegebene Position nach unten und prüft, ob die quaderförmige Hitbox eines Objekts des angegebenen Typs geschnitten wird

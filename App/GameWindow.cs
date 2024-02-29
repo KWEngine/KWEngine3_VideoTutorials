@@ -7,7 +7,7 @@ namespace KWEngine3_ExampleProject.App
     {
         public GameWindow() : base(1280, 720)
         {
-            World10_ParticleFX world = new World10_ParticleFX();
+            World11a_WorldSwitch world = new World11a_WorldSwitch();
             SetWorld(world);
         }
     }

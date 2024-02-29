@@ -23,8 +23,10 @@ namespace KWEngine3_Tutorial.App.Worlds
                 ex.SetColorEmissive(1f, 0f, 1f, 2f);
                 AddExplosionObject(ex);
 
-                HelperIntersection.get
-
+                Vector3 pos = new Vector3(-4f, 0f, -3f);
+                ParticleObject po = new ParticleObject(2, ParticleType.BurstFire1);
+                po.SetPosition(pos);
+                AddParticleObject(po);
 
                 _timestampSpawn = WorldTime;
             }
