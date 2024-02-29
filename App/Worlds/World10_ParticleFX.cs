@@ -13,10 +13,21 @@ namespace KWEngine3_Tutorial.App.Worlds
     public class World10_ParticleFX : World
     {
         private Player _p;
-
+        private float _timestampSpawn = 0f;
         public override void Act()
         {
-            
+            if(WorldTime - _timestampSpawn > 3f)
+            {
+                ExplosionObject ex = new ExplosionObject(32, 0.5f, 4f, 2f, ExplosionType.HeartRingY);
+                ex.SetPosition(_p.Position);
+                ex.SetColorEmissive(1f, 0f, 1f, 2f);
+                AddExplosionObject(ex);
+
+                HelperIntersection.get
+
+
+                _timestampSpawn = WorldTime;
+            }
         }
 
         public override void Prepare()

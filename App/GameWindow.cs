@@ -7,7 +7,7 @@ namespace KWEngine3_ExampleProject.App
     {
         public GameWindow() : base(1280, 720)
         {
-            World09_HUDObjects world = new World09_HUDObjects();
+            World10_ParticleFX world = new World10_ParticleFX();
             SetWorld(world);
         }
     }
