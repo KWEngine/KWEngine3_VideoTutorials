@@ -23,7 +23,7 @@ namespace KWEngine3_Tutorial.App.Worlds.ClassesWorld09
                 else
                 {
                     SetAnimationID(0);
-                    SetAnimationPercentageAdvance(0.01f);
+                    SetAnimationPercentageAdvance(0.001f);
                 }
             }
         }
