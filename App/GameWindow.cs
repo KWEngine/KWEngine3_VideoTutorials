@@ -7,7 +7,7 @@ namespace KWEngine3_ExampleProject.App
     {
         public GameWindow() : base(1280, 720)
         {
-            World11a_WorldSwitch world = new World11a_WorldSwitch();
+            World12_PlannedEvents world = new World12_PlannedEvents();
             SetWorld(world);
         }
     }

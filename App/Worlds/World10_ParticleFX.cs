@@ -4,7 +4,6 @@ using KWEngine3;
 using KWEngine3.GameObjects;
 using KWEngine3.Helper;
 using KWEngine3_Tutorial.App.Worlds.ClassesWorld10;
-using OpenTK.Graphics.ES11;
 using OpenTK.Mathematics;
 using OpenTK.Windowing.GraphicsLibraryFramework;
 

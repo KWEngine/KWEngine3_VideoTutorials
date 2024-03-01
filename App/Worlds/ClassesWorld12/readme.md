@@ -1,0 +1,1 @@
+﻿Für Welt 12 werden keine zusätzlichen Klassen benötigt.
