@@ -1139,6 +1139,12 @@
             <param name="y">Rotation um lokale y-Achse in Grad</param>
             <param name="z">Rotation um lokale z-Achse in Grad</param>
         </member>
+        <member name="M:KWEngine3.GameObjects.EngineObject.AddRotation(OpenTK.Mathematics.Quaternion)">
+            <summary>
+            Fügt die übergebene Rotation der bestehenden hinzu
+            </summary>
+            <param name="additionalRotation">hinzuzufügende Rotatation</param>
+        </member>
         <member name="M:KWEngine3.GameObjects.EngineObject.AddRotationX(System.Single,System.Boolean)">
             <summary>
             Erhöht die Rotation um die x-Achse
@@ -3659,6 +3665,15 @@
             Helferklasse für Rotationsberechnungen
             </summary>
         </member>
+        <member name="M:KWEngine3.Helper.HelperRotation.GetRotationForSlope(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)">
+            <summary>
+            Ermittelt die Rotation, die angenommen werden müsste, um sich entsprechend der durch slopeStart und slopeEnd beschriebenen Schräge auszurichten
+            </summary>
+            <param name="slopeStart">Anfangshöhe der Schräge</param>
+            <param name="slopeEnd">Endhöhe der Schräge</param>
+            <param name="currentLAV">Aktueller Look-At-Vektor des Objekts</param>
+            <returns>Berechnete Rotation als Quaternion</returns>
+        </member>
         <member name="M:KWEngine3.Helper.HelperRotation.RotateVector(OpenTK.Mathematics.Vector3,System.Single,KWEngine3.Plane)">
             <summary>
             Berechnet den Vektor, der entsteht, wenn der übergebene Vektor um die angegebenen Grad rotiert wird
@@ -3776,7 +3791,7 @@
             auf dem durch den Ebenenvektor (surface normal) definierten Boden gerade zu stehen
             </summary>
             <param name="lav">Aktueller Look-At-Vektor</param>
-            <param name="surfaceNormal">Ebenenvektor</param>
+            <param name="surfaceNormal">Ebenenvektor (muss normalisiert sein!)</param>
             <returns>Neue zur Ebene passende Rotation (als Quaternion)</returns>
         </member>
         <member name="M:KWEngine3.Helper.HelperVector.GetUpVectorFromLookAtVector(OpenTK.Mathematics.Vector3)">
