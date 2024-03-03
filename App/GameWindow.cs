@@ -7,7 +7,7 @@ namespace KWEngine3_ExampleProject.App
     {
         public GameWindow() : base(1280, 720)
         {
-            World16_FlowFieldNavigation world = new World16_FlowFieldNavigation();
+            World15_2DSprites world = new World15_2DSprites();
             SetWorld(world);
         }
     }
