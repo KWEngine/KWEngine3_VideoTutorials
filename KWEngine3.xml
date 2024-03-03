@@ -3674,6 +3674,14 @@
             <param name="currentLAV">Aktueller Look-At-Vektor des Objekts</param>
             <returns>Berechnete Rotation als Quaternion</returns>
         </member>
+        <member name="M:KWEngine3.Helper.HelperRotation.GetAngleForSlope(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)">
+            <summary>
+            Erfragt den Steigungswinkel für die angegebenen beiden Punkte der Steigung
+            </summary>
+            <param name="slopeStart">Startpunkt der Steigung</param>
+            <param name="slopeEnd">Endpunkt der Steigung</param>
+            <returns>Steigungswinkel (in Grad)</returns>
+        </member>
         <member name="M:KWEngine3.Helper.HelperRotation.RotateVector(OpenTK.Mathematics.Vector3,System.Single,KWEngine3.Plane)">
             <summary>
             Berechnet den Vektor, der entsteht, wenn der übergebene Vektor um die angegebenen Grad rotiert wird
@@ -3776,6 +3784,78 @@
             <summary>
             Helferklasse für Vektoroperationen
             </summary>
+        </member>
+        <member name="M:KWEngine3.Helper.HelperVector.GetDeltaBetweenVectors(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)">
+            <summary>
+            Berechnet den Vektor, der vom angegebenen Startpunkt zum angegebenen Endpunkt zeigt
+            </summary>
+            <param name="start">Startpunkt</param>
+            <param name="end">Endpunkt</param>
+            <returns>Delta-Vektor</returns>
+        </member>
+        <member name="M:KWEngine3.Helper.HelperVector.GetDeltaBetweenVectorsXZ(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)">
+            <summary>
+            Berechnet den Vektor auf XZ-Ebene, der vom angegebenen Startpunkt zum angegebenen Endpunkt zeigt
+            </summary>
+            <param name="start">Startpunkt</param>
+            <param name="end">Endpunkt</param>
+            <returns>Delta-Vektor</returns>
+        </member>
+        <member name="M:KWEngine3.Helper.HelperVector.GetDeltaBetweenVectorsXY(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)">
+            <summary>
+            Berechnet den Vektor auf XY-Ebene, der vom angegebenen Startpunkt zum angegebenen Endpunkt zeigt
+            </summary>
+            <param name="start">Startpunkt</param>
+            <param name="end">Endpunkt</param>
+            <returns>Delta-Vektor</returns>
+        </member>
+        <member name="M:KWEngine3.Helper.HelperVector.GetDistanceBetweenVectors(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)">
+            <summary>
+            Berechnet die Distanz zwischen zwei Vektoren
+            </summary>
+            <param name="start">Startpunkt</param>
+            <param name="end">Endpunkt</param>
+            <returns>Distanz</returns>
+        </member>
+        <member name="M:KWEngine3.Helper.HelperVector.GetDistanceBetweenVectorsXZ(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)">
+            <summary>
+            Berechnet die Distanz zwischen zwei Vektoren auf der XZ-Ebene
+            </summary>
+            <param name="start">Startpunkt</param>
+            <param name="end">Endpunkt</param>
+            <returns>Distanz</returns>
+        </member>
+        <member name="M:KWEngine3.Helper.HelperVector.GetDistanceBetweenVectorsXY(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)">
+            <summary>
+            Berechnet die Distanz zwischen zwei Vektoren auf der XY-Ebene
+            </summary>
+            <param name="start">Startpunkt</param>
+            <param name="end">Endpunkt</param>
+            <returns>Distanz</returns>
+        </member>
+        <member name="M:KWEngine3.Helper.HelperVector.GetDirectionFromVectorToVector(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)">
+            <summary>
+            Berechnet den normalisierten Richtungsvektor, der vom Startpunkt zum Endpunkt führt
+            </summary>
+            <param name="start">Startpunkt</param>
+            <param name="end">Endpunkt</param>
+            <returns>Richtungsvektor (normalisiert)</returns>
+        </member>
+        <member name="M:KWEngine3.Helper.HelperVector.GetDirectionFromVectorToVectorXZ(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)">
+            <summary>
+            Berechnet den normalisierten Richtungsvektor, der auf XZ-Ebene vom Startpunkt zum Endpunkt führt
+            </summary>
+            <param name="start">Startpunkt</param>
+            <param name="end">Endpunkt</param>
+            <returns>Richtungsvektor (normalisiert)</returns>
+        </member>
+        <member name="M:KWEngine3.Helper.HelperVector.GetDirectionFromVectorToVectorXY(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)">
+            <summary>
+            Berechnet den normalisierten Richtungsvektor, der auf XY-Ebene vom Startpunkt zum Endpunkt führt
+            </summary>
+            <param name="start">Startpunkt</param>
+            <param name="end">Endpunkt</param>
+            <returns>Richtungsvektor (normalisiert)</returns>
         </member>
         <member name="M:KWEngine3.Helper.HelperVector.ReflectVector(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)">
             <summary>
@@ -4646,9 +4726,24 @@
             Blickrichtung der Kamera
             </summary>
         </member>
+        <member name="P:KWEngine3.World.CameraLookAtVectorXZ">
+            <summary>
+            Blickrichtung der Kamera ohne die Y-Achse zu berücksichtigen
+            </summary>
+        </member>
+        <member name="P:KWEngine3.World.CameraLookAtVectorLocalUpXZ">
+            <summary>
+            Blickrichtung der Kamera nach oben ohne die Y-Achse zu berücksichtigen
+            </summary>
+        </member>
         <member name="P:KWEngine3.World.CameraLookAtVectorLocalUp">
             <summary>
             Blickrichtung der Kamera nach oben
+            </summary>
+        </member>
+        <member name="P:KWEngine3.World.CameraLookAtVectorLocalRightXZ">
+            <summary>
+            Blickrichtung der Kamera nach rechts ohne die Y-Achse zu berücksichtigen
             </summary>
         </member>
         <member name="P:KWEngine3.World.CameraLookAtVectorLocalRight">
