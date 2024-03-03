@@ -3076,6 +3076,11 @@
             Gibt an, ob die Instanz zu Debugging-Zwecken sichtbar gemacht werden soll
             </summary>
         </member>
+        <member name="P:KWEngine3.Helper.FlowField.TargetPosition">
+            <summary>
+            Gibt die letztbekannte Zielposition innerhalb des Feldes an
+            </summary>
+        </member>
         <member name="M:KWEngine3.Helper.FlowField.#ctor(System.Single,System.Single,System.Single,System.Int32,System.Int32,System.Single,System.Int32,System.Type[])">
             <summary>
             Erzeugt ein FlowField für die angegebenen GameObject-Typen
