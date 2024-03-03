@@ -24,7 +24,7 @@ namespace KWEngine3_Tutorial.App.Worlds.ClassesWorld16
         {
             if(Mouse.IsButtonPressed(MouseButton.Left))
             {
-                Vector3 mousePos = HelperIntersection.GetMouseIntersectionPointOnPlane(Plane.XZ, 1f);
+                Vector3 mousePos = HelperIntersection.GetMouseIntersectionPointOnPlane(Plane.XZ, 2.5f);
                 FlowField f = CurrentWorld.GetFlowField();
                 if(f != null && f.ContainsXZ(mousePos))
                 {

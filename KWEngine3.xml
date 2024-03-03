@@ -166,6 +166,21 @@
             Frees all graphics resources used by the renderer.
             </summary>
         </member>
+        <member name="T:KWEngine3.FlowFieldMode">
+            <summary>
+            Modus, der bestimmt, wie genau das FlowField Hindernisse erkennt (Standard: Simple)
+            </summary>
+        </member>
+        <member name="F:KWEngine3.FlowFieldMode.Simple">
+            <summary>
+            Pro Zelle wird ein Strahl in der Zellenmitte verwendet, um Hindernisse zu finden (ungenau, aber schneller)
+            </summary>
+        </member>
+        <member name="F:KWEngine3.FlowFieldMode.Box">
+            <summary>
+            Pro Zelle wird die gesamte Zelle als Hitbox mit den Hitboxen anderer Objekte verglichen (genauer, aber langsamer)
+            </summary>
+        </member>
         <member name="T:KWEngine3.FoliageType">
             <summary>
             Art des Bodengewächses
@@ -3081,7 +3096,12 @@
             Gibt die letztbekannte Zielposition innerhalb des Feldes an
             </summary>
         </member>
-        <member name="M:KWEngine3.Helper.FlowField.#ctor(System.Single,System.Single,System.Single,System.Int32,System.Int32,System.Single,System.Int32,System.Type[])">
+        <member name="P:KWEngine3.Helper.FlowField.Mode">
+            <summary>
+            Messmodus für die Erstellung der Streckenkosten (Simple oder Box)
+            </summary>
+        </member>
+        <member name="M:KWEngine3.Helper.FlowField.#ctor(System.Single,System.Single,System.Single,System.Int32,System.Int32,System.Single,System.Int32,KWEngine3.FlowFieldMode,System.Type[])">
             <summary>
             Erzeugt ein FlowField für die angegebenen GameObject-Typen
             </summary>
@@ -3092,9 +3112,10 @@
             <param name="cellCountZ">Anzahl Zellen in Z-Richtung</param>
             <param name="cellRadius">Radius je Zelle</param>
             <param name="fieldHeight">Höhe des Felds</param>
+            <param name="mode">Genauigkeit bei der Messung der Hindernisse (Simple oder Box)</param>
             <param name="types">Liste der Klassen, die das FlowField scannen soll</param>
         </member>
-        <member name="M:KWEngine3.Helper.FlowField.#ctor(OpenTK.Mathematics.Vector3,System.Int32,System.Int32,System.Single,System.Int32,System.Type[])">
+        <member name="M:KWEngine3.Helper.FlowField.#ctor(OpenTK.Mathematics.Vector3,System.Int32,System.Int32,System.Single,System.Int32,KWEngine3.FlowFieldMode,System.Type[])">
             <summary>
             Erzeugt ein FlowField für die angegebenen GameObject-Typen
             </summary>
@@ -3103,6 +3124,7 @@
             <param name="cellCountZ">Anzahl Zellen in Z-Richtung</param>
             <param name="cellRadius">Radius je Zelle</param>
             <param name="fieldHeight">Höhe des Felds</param>
+            <param name="mode">Genauigkeit bei der Messung der Hindernisse (Simple oder Box)</param>
             <param name="types">Liste der Klassen, die das FlowField scannen soll</param>
             <exception cref="T:System.Exception">Eine genannte Klasse erbt nicht von GameObject</exception>
         </member>

@@ -21,9 +21,9 @@ namespace KWEngine3_Tutorial.App.Worlds
             KWEngine.LoadModel("Robot", "./App/Models/robotERS.fbx");
             KWEngine.BuildTerrainModel("Terrain #1", "./App/Textures/heightmap_world13.png", "./App/Textures/sand_albedo.dds", 40f, 3f, 40f);
 
-            SetCameraPosition(0f, 30f, 30f);
-            SetCameraTarget(0f, 0f, 5f);
-            SetCameraFOV(90f);
+            SetCameraPosition(0f, 125f, 125f);
+            SetCameraTarget(0f, 0f, 0f);
+            SetCameraFOV(10f);
             SetColorAmbient(0.25f, 0.25f, 0.25f);
 
             Player p = new Player();
@@ -40,6 +40,7 @@ namespace KWEngine3_Tutorial.App.Worlds
             c.SetColorEmissive(0f, 1f, 1f, 3f);
             c.IsCollisionObject = true;
             c.IsShadowCaster = false;
+            c.IsAffectedByLight = false;
             AddGameObject(c);
 
             LightObject sun = new LightObject(LightType.Sun, ShadowQuality.Medium);
@@ -57,8 +58,8 @@ namespace KWEngine3_Tutorial.App.Worlds
 
         private void CreateFlowField()
         {
-            FlowField f = new FlowField(0f, 2.5f, 0f, 40, 40, 0.5f, 5, typeof(Wall));
-            f.IsVisible = true;
+            FlowField f = new FlowField(0f, 2.5f, 0f, 40, 40, 0.5f, 5, FlowFieldMode.Box, typeof(Wall));
+            f.IsVisible = false;
             SetFlowField(f);
         }
 

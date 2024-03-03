@@ -17,8 +17,8 @@ namespace KWEngine3_Tutorial.App.Worlds.ClassesWorld16
             {
                 if(f.HasTarget)
                 {
-                    MoveAlongVector(f.GetBestDirectionForPosition(this.Position), 0.01f);
-                    if(HelperVector.GetDistanceBetweenVectorsXZ(f.TargetPosition, this.Position) < 0.01f)
+                    MoveAlongVector(f.GetBestDirectionForPosition(this.Position), 0.05f);
+                    if(HelperVector.GetDistanceBetweenVectorsXZ(f.TargetPosition, this.Position) < 0.001f)
                     {
                         f.UnsetTarget();
                     }
@@ -34,7 +34,7 @@ namespace KWEngine3_Tutorial.App.Worlds.ClassesWorld16
             RayTerrainIntersection rti = RaytraceTerrainBelowPosition(this.Position + new Vector3(0f, 3f, 0f));
             if (rti.IsValid)
             {
-                this.SetPosition(rti.IntersectionPoint + new Vector3(0f, 3f, 0f));
+                this.SetPosition(rti.IntersectionPoint + new Vector3(0f, 0.5f, 0f));
             }
         }
 
