@@ -23,41 +23,51 @@ namespace KWEngine3_Tutorial.App.Worlds
             SetCameraFOV(10);
 
             SetColorAmbient(1f, 1f, 1f);
-            SetBackgroundFillColor(0f, 0f, 1f);
+            SetBackgroundFillColor(1f, 1f, 1f);
 
             Player p = new Player();
             p.SetModel("KWQuad");
-            p.SetPosition(0f, 0.5f, 0f);
+            p.SetPosition(-2f, 0.5f, 0f);
             p.SetScale(1f, 1f, 1f);
-            //p.SetHitboxScale(0.25f, 0.825f, 1f);
+            p.SetHitboxScale(0.3333f, 1f, 1f);
             p.SetTexture("./App/Textures/spritesheet.png");
             p.SetTextureRepeat(1f / 7f, 1f / 3f);
-            p.SetTextureOffset(0, 1);
-            //p.HasTransparencyTexture = true;
+            p.SetTextureOffset(0, 0);
+            p.HasTransparencyTexture = true;
+            p.SetTextureClip(0.333f, 0.15f);
             p.IsCollisionObject = true;
             p.BlendTextureStates = false;
             AddGameObject(p);
 
-            Platform platform1 = new Platform();
-            platform1.SetModel("KWQuad");
-            platform1.SetTexture("./App/Textures/brick_albedo.png");
-            platform1.SetScale(10f, 1f, 1f);
-            platform1.SetPosition(0f, -0.5f, 0f);
-            platform1.SetTextureRepeat(10f, 1f);
-            platform1.IsCollisionObject = true;
-            AddGameObject(platform1);
+            Platform platformLeft = new Platform();
+            platformLeft.SetModel("KWQuad");
+            platformLeft.SetTexture("./App/Textures/brick_albedo.png");
+            platformLeft.SetScale(10f, 1f, 1f);
+            platformLeft.SetPosition(-5f, -0.5f, 0f);
+            platformLeft.SetTextureRepeat(10f, 1f);
+            platformLeft.SetColor(1f, 1f, 0f);
+            platformLeft.IsCollisionObject = true;
+            AddGameObject(platformLeft);
 
-            Platform platform2 = new Platform();
-            platform2.SetModel("KWQuad");
-            platform2.SetTexture("./App/Textures/brick_albedo.png");
-            platform2.SetScale(1f, 0.125f, 1f);
-            platform2.SetPosition(-3f, 0.125f / 2f, 0f);
-            platform2.SetTextureRepeat(1f, 0.25f);
-            platform2.SetTextureOffset(0, 0.125f);
-            platform2.IsCollisionObject = true;
-            AddGameObject(platform2);
+            Platform platformRight = new Platform();
+            platformRight.SetModel("KWQuad");
+            platformRight.SetTexture("./App/Textures/brick_albedo.png");
+            platformRight.SetScale(10f, 1f, 1f);
+            platformRight.SetPosition(5f, -0.5f, 0f);
+            platformRight.SetTextureRepeat(10f, 1f);
+            platformRight.SetColor(0f, 1f, 1f);
+            platformRight.IsCollisionObject = true;
+            AddGameObject(platformRight);
 
-
+            Platform platformHigh = new Platform();
+            platformHigh.SetModel("KWQuad");
+            platformHigh.SetTexture("./App/Textures/brick_albedo.png");
+            platformHigh.SetScale(1f, 0.125f, 1f);
+            platformHigh.SetPosition(-3f, 1.5f + 0.125f / 2f, 0f);
+            platformHigh.SetTextureRepeat(1f, 0.125f);
+            platformHigh.SetTextureOffset(0, 0.125f);
+            platformHigh.IsCollisionObject = true;
+            AddGameObject(platformHigh);
         }
     }
 }
