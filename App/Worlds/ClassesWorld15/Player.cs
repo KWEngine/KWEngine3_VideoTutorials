@@ -12,7 +12,7 @@ namespace KWEngine3_Tutorial.App.Worlds.ClassesWorld15
     {
         private int _mode = 0;
         private float _velocityY = 0f;
-        private const float GRAVITY = 0.01f;
+        private const float GRAVITY = 0.001f;
         public override void Act()
         {
             if (Keyboard.IsKeyDown(Keys.A))
@@ -29,7 +29,7 @@ namespace KWEngine3_Tutorial.App.Worlds.ClassesWorld15
                 if (Keyboard.IsKeyPressed(Keys.Space))
                 {
                     _mode = 1;
-                    _velocityY = 0.3f;
+                    _velocityY = 0.1f;
                 }
             }
             else // in air
@@ -57,20 +57,22 @@ namespace KWEngine3_Tutorial.App.Worlds.ClassesWorld15
 
                 if (rayIntersectionLeft.IsValid || rayIntersectionRight.IsValid)
                 {
+                    bool adjusted = false;
                     if (rayIntersectionLeft.IsValid)
                     {
                         if (rayIntersectionLeft.Distance <= 0.25f)
                         {
-                            SetPositionY(AABBLow + (0.25f - rayIntersectionLeft.Distance));
+                            SetPositionY(rayIntersectionLeft.IntersectionPoint.Y + this.Scale.Y * 0.5f); // * 0.825f);
                             _mode = 0;
                             _velocityY = 0f;
+                            adjusted = true;
                         }
                     }
-                    if (rayIntersectionRight.IsValid)
+                    if (rayIntersectionRight.IsValid && adjusted == false)
                     {
                         if (rayIntersectionRight.Distance <= 0.25f)
                         {
-                            SetPositionY(AABBLow + (0.25f - rayIntersectionRight.Distance));
+                            SetPositionY(rayIntersectionLeft.IntersectionPoint.Y + this.Scale.Y * 0.5f); // * 0.825f);
                             _mode = 0;
                             _velocityY = 0f;
                         }
