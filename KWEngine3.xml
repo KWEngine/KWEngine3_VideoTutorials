@@ -166,6 +166,26 @@
             Frees all graphics resources used by the renderer.
             </summary>
         </member>
+        <member name="T:KWEngine3.PositionMode">
+            <summary>
+            Gibt an, auf welchen Fixpunkt sich die SetPosition()-Methode bezieht, wenn sie aufgerufen wird (Standardwert: Position)
+            </summary>
+        </member>
+        <member name="F:KWEngine3.PositionMode.Position">
+            <summary>
+            Bezieht sich auf die tatsächliche Position des Objekts (Standard)
+            </summary>
+        </member>
+        <member name="F:KWEngine3.PositionMode.CenterOfHitbox">
+            <summary>
+            Bezieht sich auf den Mittelpunkt der Hitbox
+            </summary>
+        </member>
+        <member name="F:KWEngine3.PositionMode.BottomOfAABBHitbox">
+            <summary>
+            Bezieht sich auf die unterste Kante der achsenparallelen Hitbox (z.B. für 2D-Platformer)
+            </summary>
+        </member>
         <member name="T:KWEngine3.FlowFieldMode">
             <summary>
             Modus, der bestimmt, wie genau das FlowField Hindernisse erkennt (Standard: Simple)
@@ -1548,6 +1568,15 @@
             Konstruktormethode, der der 3D-Modellname mitgegeben werden kann
             </summary>
             <param name="modelname">Name des zu verwendenden 3D-Modells</param>
+        </member>
+        <member name="M:KWEngine3.GameObjects.GameObject.SetPosition(System.Single,System.Single,System.Single,KWEngine3.PositionMode)">
+            <summary>
+            Setzt die Position des Objekts
+            </summary>
+            <param name="x">Position auf x-Achse</param>
+            <param name="y">Position auf y-Achse</param>
+            <param name="z">Position auf z-Achse</param>
+            <param name="mode">Bestimmt, auf welchen Fixpunkt des Objekts sich die Positionsangaben beziehen sollen</param>
         </member>
         <member name="M:KWEngine3.GameObjects.GameObject.GetIntersectionWithTerrain">
             <summary>
