@@ -1033,6 +1033,13 @@
             <param name="y">y</param>
             /// <param name="meshId">ID des 3D-Modellanteils (Standard: 0)</param>
         </member>
+        <member name="M:KWEngine3.GameObjects.EngineObject.SetTextureClip(System.Single,System.Single)">
+            <summary>
+            Beschneidet den durch SetTextureRepeat() und SetTextureOffset() gewählten Texturteil weiter (für den Fall, dass z.B. Spritesheets einen zu großen Rand pro Zelle haben) 
+            </summary>
+            <param name="x">Beschneidung auf x-Achse (positiver Wert = Beschnitt nach innen, negativer Wert = Beschnitt nach außen)</param>
+            <param name="y">Beschneidung auf y-Achse (positiver Wert = Beschnitt nach innen, negativer Wert = Beschnitt nach außen)</param>
+        </member>
         <member name="M:KWEngine3.GameObjects.EngineObject.SetTextureRepeat(System.Single,System.Single)">
             <summary>
             Setzt die Texturwiederholung auf dem Objekt (Standard: 1)
