@@ -6,7 +6,7 @@ using KWEngine3.Helper;
 using OpenTK.Mathematics;
 using OpenTK.Windowing.GraphicsLibraryFramework;
 
-namespace KWEngine3_Tutorial.App.Worlds.ClassesWorld16
+namespace KWEngine3_Tutorial.App.Worlds.ClassesWorldADV01
 {
     public class Player : GameObject
     {

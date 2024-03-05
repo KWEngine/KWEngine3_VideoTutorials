@@ -1075,6 +1075,16 @@
             <param name="y">y</param>
             <param name="meshIndex">Nullbasierter Index des zu ändernden Meshs/Materials</param>
         </member>
+        <member name="P:KWEngine3.GameObjects.EngineObject.TextureRepeat">
+            <summary>
+            Erfragt die aktuellen Werte für die Texturwiederholung
+            </summary>
+        </member>
+        <member name="P:KWEngine3.GameObjects.EngineObject.TextureOffset">
+            <summary>
+            Erfragt die aktuellen Werte für die Texturverschiebung
+            </summary>
+        </member>
         <member name="M:KWEngine3.GameObjects.EngineObject.SetScale(System.Single)">
             <summary>
             Setzt die Größenskalierung des Objekts (muss > 0 sein)

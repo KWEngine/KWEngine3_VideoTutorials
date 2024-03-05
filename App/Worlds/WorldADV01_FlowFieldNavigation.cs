@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using KWEngine3;
 using KWEngine3.GameObjects;
 using KWEngine3.Helper;
-using KWEngine3_Tutorial.App.Worlds.ClassesWorld16;
+using KWEngine3_Tutorial.App.Worlds.ClassesWorldADV01;
 using OpenTK.Mathematics;
 using OpenTK.Windowing.GraphicsLibraryFramework;
 
 namespace KWEngine3_Tutorial.App.Worlds
 {
-    public class World16_FlowFieldNavigation : World
+    public class WorldADV01_FlowFieldNavigation : World
     {
         public override void Act()
         {

@@ -13,6 +13,22 @@ namespace KWEngine3_Tutorial.App.Worlds.ClassesWorld15
         private int _mode = 0;
         private float _velocityY = 0f;
         private const float GRAVITY = 0.001f;
+        private float _timestampLastTextureSwitch = 0f;
+        private bool _isLookingLeft = false;
+
+        public Player()
+        {
+            SetModel("KWQuad");
+            SetScale(1f, 1f, 1f);
+            SetHitboxScale(0.3333f, 1f, 1f);
+            SetTexture("./App/Textures/spritesheet.png");
+            SetTextureRepeat(1f/7f, 1f/3f);
+            SetTextureOffset(0, 0);
+            HasTransparencyTexture = true;
+            SetTextureClip(0.333f, 0.15f);
+            IsCollisionObject = true;
+            BlendTextureStates = false;
+        }
 
         public override void Act()
         {
@@ -21,11 +37,13 @@ namespace KWEngine3_Tutorial.App.Worlds.ClassesWorld15
             {
                 MoveAlongVector(LookAtVectorLocalRight, -0.01f);
                 isMoving = true;
+                _isLookingLeft = true;
             }
             if (Keyboard.IsKeyDown(Keys.D))
             {
                 MoveAlongVector(LookAtVectorLocalRight, +0.01f);
                 isMoving = true;
+                _isLookingLeft = false;
             }
 
             if (_mode == 0) // mode 0 = stand on ground
@@ -50,19 +68,47 @@ namespace KWEngine3_Tutorial.App.Worlds.ClassesWorld15
 
         private void HandleAnimation(bool isMoving)
         {
-            if (_mode == 0)
+            if(_isLookingLeft)
             {
-                if(isMoving)
-                {
+                SetTextureRepeat(-Math.Abs(TextureRepeat.X), TextureRepeat.Y);
+            }
+            else
+            {
+                SetTextureRepeat(Math.Abs(TextureRepeat.X), TextureRepeat.Y);
+            }
 
+            if (WorldTime - _timestampLastTextureSwitch > 1f / 10f)
+            {
+                float textureOffsetX = TextureOffset.X;
+                float textureOffsetY = TextureOffset.Y;
+                
+                if (_mode == 0)
+                {
+                    if (isMoving)
+                    {
+                        textureOffsetY = 1f;
+                    }
+                    else
+                    {
+                        textureOffsetY = 0f;
+                    }
+                    textureOffsetX = (textureOffsetX + 1) % 7;
                 }
+                else
+                {
+                    textureOffsetX = 1;
+                    textureOffsetY = 1;
+                }
+
+                SetTextureOffset(textureOffsetX, textureOffsetY);
+                _timestampLastTextureSwitch = WorldTime;
             }
         }
 
         private void HandleGroundDetection()
         {
             Vector3 rayPositionLeft = new Vector3(AABBLeft, AABBLow, Position.Z);
-            Vector3 rayPositionRight = new Vector3(AABBLeft, AABBLow, Position.Z);
+            Vector3 rayPositionRight = new Vector3(AABBRight, AABBLow, Position.Z);
             RayIntersection rayLeft = RaytraceObjectsNearbyFast(rayPositionLeft, -Vector3.UnitY).FirstOrDefault();
             RayIntersection rayRight = RaytraceObjectsNearbyFast(rayPositionRight, -Vector3.UnitY).FirstOrDefault();
             if (_mode == 0)
@@ -82,13 +128,13 @@ namespace KWEngine3_Tutorial.App.Worlds.ClassesWorld15
                 {
                     _mode = 0;
                     _velocityY = 0f;
-                    SetPositionY(rayLeft.IntersectionPoint.Y + this.Scale.Y * 0.5f);
+                    SetPositionY(rayLeft.IntersectionPoint.Y, PositionMode.BottomOfAABBHitbox);
                 }
                 else if (rayRight.IsValid && AABBLow - rayRight.IntersectionPoint.Y <= 0f && _velocityY < 0f)
                 {
                     _mode = 0;
                     _velocityY = 0f;
-                    SetPositionY(rayLeft.IntersectionPoint.Y + this.Scale.Y * 0.5f);
+                    SetPositionY(rayLeft.IntersectionPoint.Y, PositionMode.BottomOfAABBHitbox);
                 }
             }
         }

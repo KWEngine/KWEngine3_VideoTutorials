@@ -25,20 +25,6 @@ namespace KWEngine3_Tutorial.App.Worlds
             SetColorAmbient(1f, 1f, 1f);
             SetBackgroundFillColor(1f, 1f, 1f);
 
-            Player p = new Player();
-            p.SetModel("KWQuad");
-            p.SetPosition(-2f, 0.5f, 0f);
-            p.SetScale(1f, 1f, 1f);
-            p.SetHitboxScale(0.3333f, 1f, 1f);
-            p.SetTexture("./App/Textures/spritesheet.png");
-            p.SetTextureRepeat(1f / 7f, 1f / 3f);
-            p.SetTextureOffset(0, 0);
-            p.HasTransparencyTexture = true;
-            p.SetTextureClip(0.333f, 0.15f);
-            p.IsCollisionObject = true;
-            p.BlendTextureStates = false;
-            AddGameObject(p);
-
             Platform platformLeft = new Platform();
             platformLeft.SetModel("KWQuad");
             platformLeft.SetTexture("./App/Textures/brick_albedo.png");
@@ -68,6 +54,10 @@ namespace KWEngine3_Tutorial.App.Worlds
             platformHigh.SetTextureOffset(0, 0.125f);
             platformHigh.IsCollisionObject = true;
             AddGameObject(platformHigh);
+
+            Player p = new Player();
+            p.SetPosition(0f, 0f, 0f, PositionMode.BottomOfAABBHitbox);
+            AddGameObject(p);
         }
     }
 }
