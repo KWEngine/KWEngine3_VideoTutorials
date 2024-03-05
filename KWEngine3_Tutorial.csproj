@@ -135,8 +135,4 @@
     </None>
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="App\Worlds\ClassesWorldADV02\" />
-  </ItemGroup>
-
 </Project>
