@@ -7,7 +7,7 @@ namespace KWEngine3_ExampleProject.App
     {
         public GameWindow() : base(1280, 720)
         {
-            World15_2DSprites world = new World15_2DSprites();
+            World16_FirstPersonView world = new();
             SetWorld(world);
         }
     }
