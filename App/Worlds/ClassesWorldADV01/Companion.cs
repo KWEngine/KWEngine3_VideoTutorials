@@ -12,18 +12,7 @@ namespace KWEngine3_Tutorial.App.Worlds.ClassesWorldADV01
     {
         public override void Act()
         {
-            FlowField f = CurrentWorld.GetFlowField();
-            if (f != null)
-            {
-                if(f.HasTarget)
-                {
-                    MoveAlongVector(f.GetBestDirectionForPosition(this.Position), 0.05f);
-                    if(HelperVector.GetDistanceBetweenVectorsXZ(f.TargetPosition, this.Position) < 0.001f)
-                    {
-                        f.UnsetTarget();
-                    }
-                }
-            }
+            // TODO...
 
             HandleTerrain();
             HandleCollisions();

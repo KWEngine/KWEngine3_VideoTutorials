@@ -21,7 +21,6 @@ namespace KWEngine3_Tutorial.App.Worlds.ClassesWorld13
             SetTexture("./App/Textures/wall_normal.png", TextureType.Normal, 2); // vorne/hinten
             IsShadowCaster = true;
             IsCollisionObject = true;
-            FlowFieldCost = 255;
         }
 
         public override void Act()

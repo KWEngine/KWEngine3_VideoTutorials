@@ -17,21 +17,9 @@ namespace KWEngine3_Tutorial.App.Worlds.ClassesWorldADV01
             HandleTerrain();
             HandleCollisions();
 
-            HandleMouseClick();
+            // TODO...
         }
 
-        private void HandleMouseClick()
-        {
-            if(Mouse.IsButtonPressed(MouseButton.Left))
-            {
-                Vector3 mousePos = HelperIntersection.GetMouseIntersectionPointOnPlane(Plane.XZ, 2.5f);
-                FlowField f = CurrentWorld.GetFlowField();
-                if(f != null && f.ContainsXZ(mousePos))
-                {
-                    f.SetTarget(mousePos);
-                }
-            }
-        }
 
         private void HandleCollisions()
         {

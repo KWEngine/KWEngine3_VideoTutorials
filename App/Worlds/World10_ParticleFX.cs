@@ -11,26 +11,9 @@ namespace KWEngine3_Tutorial.App.Worlds
 {
     public class World10_ParticleFX : World
     {
-        private Player _p;
-        private float _timestampSpawn = 0f;
         public override void Act()
         {
             if (Keyboard.IsKeyPressed(Keys.Escape)) { Window.SetWorld(new WorldSelect()); return; }
-
-            if (WorldTime - _timestampSpawn > 3f)
-            {
-                ExplosionObject ex = new ExplosionObject(32, 0.5f, 4f, 2f, ExplosionType.HeartRingY);
-                ex.SetPosition(_p.Position);
-                ex.SetColorEmissive(1f, 0f, 1f, 2f);
-                AddExplosionObject(ex);
-
-                Vector3 pos = new Vector3(-4f, 0f, -3f);
-                ParticleObject po = new ParticleObject(2, ParticleType.BurstFire1);
-                po.SetPosition(pos);
-                AddParticleObject(po);
-
-                _timestampSpawn = WorldTime;
-            }
         }
 
         public override void Prepare()
@@ -41,13 +24,6 @@ namespace KWEngine3_Tutorial.App.Worlds
             SetCameraTarget(0f, 0f, 0f);
             SetColorAmbient(1f, 1f, 1f);
             SetBackgroundFillColor(0.25f, 0.25f, 0.25f);
-
-            _p = new Player();
-            _p.SetModel("Robot");
-            _p.Name = "Player #1";
-            _p.SetPosition(0f, 0f, 0f);
-            _p.SetScale(1f);
-            AddGameObject(_p);
         }
     }
 }

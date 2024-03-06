@@ -12,7 +12,7 @@ namespace KWEngine3_Tutorial.App.Worlds.ClassesWorld03
     {
         public override void Act()
         {
-            HandleMovement();
+            
         }
 
         private void HandleMovement()

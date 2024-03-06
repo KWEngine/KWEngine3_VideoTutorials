@@ -19,7 +19,6 @@ namespace KWEngine3_Tutorial.App.Worlds
         public override void Prepare()
         {
             KWEngine.LoadModel("Robot", "./App/Models/robotERS.fbx");
-            KWEngine.BuildTerrainModel("Terrain #1", "./App/Textures/heightmap_world13.png", "./App/Textures/sand_albedo.dds", 40f, 3f, 40f);
 
             SetCameraPosition(0f, 125f, 125f);
             SetCameraTarget(0f, 0f, 0f);
@@ -31,10 +30,8 @@ namespace KWEngine3_Tutorial.App.Worlds
             p.SetPosition(0f, 3f, 5f);
             p.SetScale(2f);
             p.IsCollisionObject = true;
-            p.IsShadowCaster = true;
             AddGameObject(p);
 
-            CreateTerrainAndFoliage();
             CreateWalls();
         }
 
@@ -65,26 +62,6 @@ namespace KWEngine3_Tutorial.App.Worlds
             w3.SetTextureRepeat(4.0f, 2.0f, 1);                                       // links/rechts
             w3.SetTextureRepeat(4.0f, 2.0f, 2);                                       // vorne/hinten
             AddGameObject(w3);
-        }
-
-        private void CreateTerrainAndFoliage()
-        {
-            TerrainObject t = new TerrainObject("Terrain #1");
-            t.SetTexture("./App/Textures/sand_normal.dds", TextureType.Normal);
-            t.SetTextureRepeat(5f, 5f);
-            t.IsShadowCaster = true;
-            AddTerrainObject(t);
-
-            FoliageObject f = new FoliageObject(FoliageType.GrassDry);
-            f.SetInstanceCount(10000);
-            f.AttachToTerrain(t);
-            f.SetPosition(-10f, 0f, 12.5f);
-            f.SetScale(5f, 1.5f, 5f);
-            f.SetPatchSize(17.5f, 12.5f);
-            f.SetSwayFactor(0.1f);
-            f.IsShadowReceiver = true;
-            f.IsSizeReducedAtCorners = true;
-            AddFoliageObject(f);
         }
     }
 }

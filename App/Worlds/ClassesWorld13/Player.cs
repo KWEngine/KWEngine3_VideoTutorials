@@ -14,7 +14,6 @@ namespace KWEngine3_Tutorial.App.Worlds.ClassesWorld13
         {
             HandleMouseCursor();
             HandleMovement();
-            HandleTerrain();
             HandleCollisions();
         }
 
@@ -23,10 +22,7 @@ namespace KWEngine3_Tutorial.App.Worlds.ClassesWorld13
             List<Intersection> intersections = GetIntersections();
             foreach (Intersection intersection in intersections)
             {
-                if(intersection.Object is Wall)
-                {
-                    MoveOffset(intersection.MTV);
-                }
+                MoveOffset(intersection.MTV);
             }
         }
 
@@ -34,15 +30,6 @@ namespace KWEngine3_Tutorial.App.Worlds.ClassesWorld13
         {
             Vector3 mousePos = HelperIntersection.GetMouseIntersectionPointOnPlane(Plane.XZ, 1f);
             TurnTowardsXZ(mousePos);
-        }
-
-        private void HandleTerrain()
-        {
-            RayTerrainIntersection rti = RaytraceTerrainBelowPosition(this.Position + new Vector3(0f, 3f, 0f));
-            if(rti.IsValid)
-            {
-                this.SetPosition(rti.IntersectionPoint);
-            }
         }
 
         private void HandleMovement()

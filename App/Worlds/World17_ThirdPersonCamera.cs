@@ -42,14 +42,6 @@ namespace KWEngine3_Tutorial.App.Worlds
             p.IsShadowCaster = true;
             AddGameObject(p);
 
-            MouseCursorGrab();
-
-            HUDObject crosshair = new HUDObjectImage("./App/Textures/crosshair.png");
-            crosshair.Name = "Crosshair";
-            crosshair.CenterOnScreen();
-            crosshair.SetScale(32f);
-            AddHUDObject(crosshair);
-
             LightObject sun = new LightObject(LightType.Sun, ShadowQuality.High);
             sun.SetPosition(-25f, 50f, 10f);
             sun.SetTarget(0f, 0f, 0f);

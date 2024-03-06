@@ -13,15 +13,6 @@ namespace KWEngine3_Tutorial.App.Worlds.ClassesWorld04
         public override void Act()
         {
             HandleMovement();
-
-            List<Intersection> intersections = GetIntersections();
-            foreach (Intersection intersection in intersections)
-            {
-                if(intersection.Object is Enemy)
-                {
-                    MoveOffset(intersection.MTV);
-                }
-            }
         }
 
         private void HandleMovement()

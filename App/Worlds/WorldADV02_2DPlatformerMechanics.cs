@@ -54,10 +54,6 @@ namespace KWEngine3_Tutorial.App.Worlds
             platformHigh.SetTextureOffset(0, 0.125f);
             platformHigh.IsCollisionObject = true;
             AddGameObject(platformHigh);
-
-            Player p = new Player();
-            p.SetPosition(0f, 0f, 0f, PositionMode.BottomOfAABBHitbox);
-            AddGameObject(p);
         }
     }
 }

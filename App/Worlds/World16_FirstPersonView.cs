@@ -22,7 +22,6 @@ namespace KWEngine3_Tutorial.App.Worlds
             SetColorAmbient(0.5f, 0.5f, 0.5f);
             SetBackgroundBrightnessMultiplier(2f);
             
-
             Platform platform = new Platform();
             platform.SetModel("KWCube");
             platform.SetTexture("./App/Textures/sand_albedo.dds");
@@ -49,24 +48,6 @@ namespace KWEngine3_Tutorial.App.Worlds
             p.IsCollisionObject = true;
             p.IsShadowCaster = false;
             AddGameObject(p);
-
-            SetCameraToFirstPersonGameObject(p, Settings.CAM_OFFSET);
-            SetCameraFOV(120);
-            MouseCursorGrab();
-            KWEngine.MouseSensitivity = 0.05f;
-
-            KWEngine.LoadModel("Gun", "./App/Models/BrowningHP.gltf");
-            ViewSpaceWeapon fpw = new ViewSpaceWeapon();
-            fpw.SetModel("Gun");
-            fpw.SetOffset(0.1f, -0.15f, 0.2f);
-            fpw.SetScale(0.333f);
-            SetViewSpaceGameObject(fpw);
-
-            HUDObject crosshair = new HUDObjectImage("./App/Textures/crosshair.png");
-            crosshair.Name = "Crosshair";
-            crosshair.CenterOnScreen();
-            crosshair.SetScale(32f);
-            AddHUDObject(crosshair);
 
             LightObject sun = new LightObject(LightType.Sun, ShadowQuality.High);
             sun.SetPosition(-25f, 50f, 10f);

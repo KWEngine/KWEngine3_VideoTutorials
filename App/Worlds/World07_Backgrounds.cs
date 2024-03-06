@@ -11,33 +11,10 @@ namespace KWEngine3_Tutorial.App.Worlds
 {
     public class World07_Backgrounds : World
     {
-        private bool _animateBackground = true;
-        private bool _isBackground2d = false;
-        private float _background2dOffset = 0f;
 
         public override void Act()
         {
             if (Keyboard.IsKeyPressed(Keys.Escape)) { Window.SetWorld(new WorldSelect()); return; }
-
-            if (Keyboard.IsKeyPressed(Keys.B))
-            {
-                if (_isBackground2d)
-                {
-                    SetBackgroundSkybox("./App/Textures/background_skybox.png", 0f, SkyboxType.CubeMap);
-                    _isBackground2d = false;
-                }
-                else
-                {
-                    SetBackground2D("./App/Textures/background_2d.png");
-                    SetBackground2DRepeat(GetBackgroundImageSize().X / Window.Width, GetBackgroundImageSize().Y / Window.Height);
-                    _isBackground2d = true;
-                }
-            }
-            if(_isBackground2d == true && _animateBackground == true)
-            {
-                SetBackground2DOffset(_background2dOffset, 0f);
-                _background2dOffset += 0.0005f;
-            }
         }
 
         public override void Prepare()
@@ -59,10 +36,6 @@ namespace KWEngine3_Tutorial.App.Worlds
             b2.SetScale(8f, 4f, 8f);
             b2.SetColor(0f, 1f, 1f);
             AddGameObject(b2);
-
-            SetColorAmbient(0.5f, 0.5f, 0.5f);
-            SetBackgroundSkybox("./App/Textures/background_skybox.png", 0f, SkyboxType.CubeMap);
-            SetBackgroundBrightnessMultiplier(2f);
         }
     }
 }

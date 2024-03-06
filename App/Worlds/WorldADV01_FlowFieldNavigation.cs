@@ -34,15 +34,6 @@ namespace KWEngine3_Tutorial.App.Worlds
             p.IsShadowCaster = true;
             AddGameObject(p);
 
-            Companion c = new Companion();
-            c.SetModel("KWSphere");
-            c.SetColor(1f, 0f, 0f);
-            c.SetColorEmissive(0f, 1f, 1f, 3f);
-            c.IsCollisionObject = true;
-            c.IsShadowCaster = false;
-            c.IsAffectedByLight = false;
-            AddGameObject(c);
-
             LightObject sun = new LightObject(LightType.Sun, ShadowQuality.Medium);
             sun.SetPosition(-50f, 50f, 50f);
             sun.SetTarget(0f, 0f, 0f);
@@ -53,14 +44,6 @@ namespace KWEngine3_Tutorial.App.Worlds
 
             CreateTerrainAndFoliage();
             CreateWalls();
-            CreateFlowField();
-        }
-
-        private void CreateFlowField()
-        {
-            FlowField f = new FlowField(0f, 2.5f, 0f, 40, 40, 0.5f, 5, FlowFieldMode.Box, typeof(Wall));
-            f.IsVisible = false;
-            SetFlowField(f);
         }
 
         private void CreateWalls()

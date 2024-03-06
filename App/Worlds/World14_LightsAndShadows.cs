@@ -31,16 +31,7 @@ namespace KWEngine3_Tutorial.App.Worlds
             p.SetPosition(0f, 3f, 5f);
             p.SetScale(2f);
             p.IsCollisionObject = true;
-            p.IsShadowCaster = true;
             AddGameObject(p);
-
-            LightObject sun = new LightObject(LightType.Sun, ShadowQuality.Medium);
-            sun.SetPosition(-50f, 50f, 50f);
-            sun.SetTarget(0f, 0f, 0f);
-            sun.SetNearFar(50f, 150f);
-            sun.SetFOV(75f);
-            sun.SetColor(1f, 1f, 1f, 3f);
-            AddLightObject(sun);
 
             CreateTerrainAndFoliage();
             CreateWalls();

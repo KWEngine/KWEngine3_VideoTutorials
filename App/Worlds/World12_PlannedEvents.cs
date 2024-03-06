@@ -22,26 +22,6 @@ namespace KWEngine3_Tutorial.App.Worlds
             SetCameraTarget(0f, 0f, 0f);
             SetColorAmbient(1f, 1f, 1f);
             SetBackgroundFillColor(0.25f, 0.25f, 0.25f);
-
-
-            ExplosionDetails details = new ExplosionDetails();
-            details.Position = new Vector3(4f, 0f, 0f);
-            details.Radius = 8f;
-            WorldEvent e = new WorldEvent(2.5f, "Explosion", details);
-            AddWorldEvent(e);
-        }
-
-        protected override void OnWorldEvent(WorldEvent e)
-        {
-            if (e.Description == "Explosion")
-            {
-                ExplosionDetails details = e.Tag as ExplosionDetails;
-
-                ExplosionObject ex = new ExplosionObject(64, 0.5f, details.Radius, 5f, ExplosionType.SkullRingY);
-                ex.SetPosition(details.Position);
-                AddExplosionObject(ex);
-            }
-
         }
     }
 }
