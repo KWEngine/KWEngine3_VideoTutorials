@@ -7,7 +7,7 @@ namespace KWEngine3_ExampleProject.App
     {
         public GameWindow() : base(1280, 720)
         {
-            World17_ThirdPersonCamera world = new();
+            WorldSelect world = new WorldSelect();
             SetWorld(world);
         }
     }

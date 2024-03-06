@@ -46,7 +46,6 @@ namespace KWEngine3_Tutorial.App.Worlds.ClassesWorld06
         private void MoveTowardsTarget()
         {
             float distanceToTarget = GetDistanceTo(_currentTargetPosition, true);
-            Console.WriteLine(  distanceToTarget);
             if (distanceToTarget > 0.25f)
             {
                 Move(0.01f);

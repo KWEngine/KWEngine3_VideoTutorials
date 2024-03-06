@@ -13,7 +13,7 @@ namespace KWEngine3_Tutorial.App.Worlds
     {
         public override void Act()
         {
-            
+            if (Keyboard.IsKeyPressed(Keys.Escape)) Window.SetWorld(new WorldSelect());
         }
 
         public override void Prepare()
@@ -27,12 +27,14 @@ namespace KWEngine3_Tutorial.App.Worlds
             p.Name = "Player #1";
             p.SetPosition(+2f, 0f, 0f);
             p.SetScale(2f);
+            p.SetColor(1f, 1f, 0f);
             AddGameObject(p);
 
             Player p2 = new Player(2);
             p2.Name = "Player #2";
             p2.SetPosition(-2f, 0f, 0f);
             p2.SetScale(2f);
+            p2.SetColor(0f, 1f, 0f);
             AddGameObject(p2);
         }
     }

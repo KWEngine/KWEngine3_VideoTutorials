@@ -21,6 +21,8 @@ namespace KWEngine3_Tutorial.App.Worlds
 
         public override void Act()
         {
+            if (Keyboard.IsKeyPressed(Keys.Escape)) { Window.SetWorld(new WorldSelect()); return; }
+
             if (Keyboard.IsKeyPressed(Keys.F1))
             {
                 PlayerInfo switchInfo = new PlayerInfo();

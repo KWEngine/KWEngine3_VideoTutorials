@@ -15,7 +15,9 @@ namespace KWEngine3_Tutorial.App.Worlds
         private float _timestampSpawn = 0f;
         public override void Act()
         {
-            if(WorldTime - _timestampSpawn > 3f)
+            if (Keyboard.IsKeyPressed(Keys.Escape)) { Window.SetWorld(new WorldSelect()); return; }
+
+            if (WorldTime - _timestampSpawn > 3f)
             {
                 ExplosionObject ex = new ExplosionObject(32, 0.5f, 4f, 2f, ExplosionType.HeartRingY);
                 ex.SetPosition(_p.Position);

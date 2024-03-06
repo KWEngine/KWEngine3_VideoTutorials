@@ -48,7 +48,7 @@ namespace KWEngine3_Tutorial.App.Worlds.ClassesWorldADV02
 
             if (_mode == 0) // mode 0 = stand on ground
             {
-                if (Keyboard.IsKeyPressed(Keys.Space))
+                if (Keyboard.IsKeyPressed(Keys.W))
                 {
                     _mode = 1;
                     _velocityY = 0.06f;
@@ -124,17 +124,35 @@ namespace KWEngine3_Tutorial.App.Worlds.ClassesWorldADV02
             }
             else
             {
+                int rayState = 0;
+                float newYPosition;
+                float rayDistanceLeft = float.MaxValue;
+                float rayDistanceRight = float.MaxValue;
                 if (rayLeft.IsValid && AABBLow - rayLeft.IntersectionPoint.Y <= 0f && _velocityY < 0f)
                 {
-                    _mode = 0;
-                    _velocityY = 0f;
-                    SetPositionY(rayLeft.IntersectionPoint.Y, PositionMode.BottomOfAABBHitbox);
+                    rayDistanceLeft = MathHelper.Min(rayLeft.Distance, rayDistanceLeft);
+                    rayState = 1;
                 }
                 else if (rayRight.IsValid && AABBLow - rayRight.IntersectionPoint.Y <= 0f && _velocityY < 0f)
                 {
+                    rayDistanceRight = MathHelper.Min(rayRight.Distance, rayDistanceRight);
+                    rayState = 1;
+                }
+
+                if(rayDistanceLeft <= rayDistanceRight)
+                {
+                    newYPosition = rayLeft.IntersectionPoint.Y;
+                }
+                else
+                {
+                    newYPosition = rayRight.IntersectionPoint.Y;
+                }
+
+                if(rayState > 0)
+                {
                     _mode = 0;
                     _velocityY = 0f;
-                    SetPositionY(rayLeft.IntersectionPoint.Y, PositionMode.BottomOfAABBHitbox);
+                    SetPositionY(newYPosition, PositionMode.BottomOfAABBHitbox);
                 }
             }
         }

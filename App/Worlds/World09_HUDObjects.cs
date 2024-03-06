@@ -15,6 +15,8 @@ namespace KWEngine3_Tutorial.App.Worlds
 
         public override void Act()
         {
+            if (Keyboard.IsKeyPressed(Keys.Escape)) { Window.SetWorld(new WorldSelect()); return; }
+
             HUDObjectText coordinates = GetHUDObjectTextByName("HUDCoordinates");
             if(coordinates != null)
             {
