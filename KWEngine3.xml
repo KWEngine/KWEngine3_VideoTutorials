@@ -3745,6 +3745,44 @@
             Helferklasse für Rotationsberechnungen
             </summary>
         </member>
+        <member name="M:KWEngine3.Helper.HelperRotation.SetMeshPreRotationYZX(KWEngine3.GameObjects.GameObject,System.Int32,System.Single,System.Single,System.Single)">
+            <summary>
+            Setzt die Vorab-Rotation eines Objekts für ein bestimmten Objektteil (Mesh) auf die angegebenen Gradzahlen (funktioniert nur für Objekte ohne Animationen)
+            </summary>
+            <remarks>Die Rotation wird in der Reihenfolge Y-&gt;Z-&gt;X durchgeführt</remarks>
+            <param name="g">Betroffenes Objekt</param>
+            <param name="meshId">Mesh-ID des 3D-Modells (beginnend bei 0)</param>
+            <param name="rotX">Rotation um die X-Achse (in Grad)</param>
+            <param name="rotY">Rotation um die Y-Achse (in Grad)</param>
+            <param name="rotZ">Rotation um die Z-Achse (in Grad)</param>
+        </member>
+        <member name="M:KWEngine3.Helper.HelperRotation.AddMeshPreRotationX(KWEngine3.GameObjects.GameObject,System.Int32,System.Single)">
+            <summary>
+            Fügt einem bestimmten Mesh eines Objekts eine Rotation um die X-Achse zusätzlich zur bestehenden Rotation hinzu (funktioniert nur für Objekte ohne Animationen)
+            </summary>
+            <remarks>Die Rotation wird in der Reihenfolge Y-&gt;Z-&gt;X durchgeführt</remarks>
+            <param name="g">Betroffenes GameObject</param>
+            <param name="meshId">Mesh-ID des 3D-Modells (beginnend bei 0 für den ersten Mesh)</param>
+            <param name="degrees">Hinzufügende Grad für die Achse</param>
+        </member>
+        <member name="M:KWEngine3.Helper.HelperRotation.AddMeshPreRotationY(KWEngine3.GameObjects.GameObject,System.Int32,System.Single)">
+            <summary>
+            Fügt einem bestimmten Mesh eines Objekts eine Rotation um die Y-Achse zusätzlich zur bestehenden Rotation hinzu (funktioniert nur für Objekte ohne Animationen)
+            </summary>
+            <remarks>Die Rotation wird in der Reihenfolge Y-&gt;Z-&gt;X durchgeführt</remarks>
+            <param name="g">Betroffenes GameObject</param>
+            <param name="meshId">Mesh-ID des 3D-Modells (beginnend bei 0 für den ersten Mesh)</param>
+            <param name="degrees">Hinzufügende Grad für die Achse</param>
+        </member>
+        <member name="M:KWEngine3.Helper.HelperRotation.AddMeshPreRotationZ(KWEngine3.GameObjects.GameObject,System.Int32,System.Single)">
+            <summary>
+            Fügt einem bestimmten Mesh eines Objekts eine Rotation um die Z-Achse zusätzlich zur bestehenden Rotation hinzu (funktioniert nur für Objekte ohne Animationen)
+            </summary>
+            <remarks>Die Rotation wird in der Reihenfolge Y-&gt;Z-&gt;X durchgeführt</remarks>
+            <param name="g">Betroffenes GameObject</param>
+            <param name="meshId">Mesh-ID des 3D-Modells (beginnend bei 0 für den ersten Mesh)</param>
+            <param name="degrees">Hinzufügende Grad für die Achse</param>
+        </member>
         <member name="M:KWEngine3.Helper.HelperRotation.GetRotationForSlope(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)">
             <summary>
             Ermittelt die Rotation, die angenommen werden müsste, um sich entsprechend der durch slopeStart und slopeEnd beschriebenen Schräge auszurichten
