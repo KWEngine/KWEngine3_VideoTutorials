@@ -4395,6 +4395,27 @@
             Aktuelle Welt
             </summary>
         </member>
+        <member name="M:KWEngine3.KWEngine.PrintHitboxesForModel(System.String)">
+            <summary>
+            Gibt die Namen aller Hitboxen des angegebenen Modells auf der Editorkonsole aus
+            </summary>
+            <param name="modelname">Modellname</param>
+        </member>
+        <member name="M:KWEngine3.KWEngine.GetHitboxesForModel(System.String)">
+            <summary>
+            Gibt die Namen aller Hitboxen des angegebenen Modells auf der Editorkonsole aus
+            </summary>
+            <param name="modelname">Modellname</param>
+            <returns>Liste der Hitboxnamen</returns>
+        </member>
+        <member name="M:KWEngine3.KWEngine.SetHitboxEnabledForModel(System.String,System.String,System.Boolean)">
+            <summary>
+            Setzt die benannte Hitbox des Modells aktiv oder inaktiv
+            </summary>
+            <param name="modelname">Name des importierten 3D-Modells</param>
+            <param name="hitboxname">Name der zu ändernden Hitbox</param>
+            <param name="state">Status (true = aktiv, false = inaktiv)</param>
+        </member>
         <member name="P:KWEngine3.KWEngine.EditModeActive">
             <summary>
             Gibt an, ob der Edit-Modus aktiv ist
@@ -4487,13 +4508,19 @@
             <param name="height">Höhe</param>
             <param name="depth">Tiefe</param>
         </member>
-        <member name="M:KWEngine3.KWEngine.LoadModel(System.String,System.String,System.String)">
+        <member name="M:KWEngine3.KWEngine.LoadAnimationIntoModel(System.String,System.String)">
+            <summary>
+            Lädt die unter dem Dateinamen zu findenden Animationen in das (zuvor unter dem Namen angegebenen) 3D-Modell
+            </summary>
+            <param name="modelname">Name des bereits importierten Modells</param>
+            <param name="filename">Dateiname der zu importierenden Datei</param>
+        </member>
+        <member name="M:KWEngine3.KWEngine.LoadModel(System.String,System.String)">
             <summary>
             Lädt ein Modell aus einer Datei
             </summary>
             <param name="name">Name des Modells</param>
             <param name="filename">Datei des Modells</param>
-            <param name="callerName">(wird für interne Zwecke benötigt)</param>
         </member>
         <member name="M:KWEngine3.KWEngine.GetModelBoneNames(System.String)">
             <summary>
