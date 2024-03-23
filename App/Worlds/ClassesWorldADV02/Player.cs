@@ -107,52 +107,29 @@ namespace KWEngine3_Tutorial.App.Worlds.ClassesWorldADV02
 
         private void HandleGroundDetection()
         {
-            Vector3 rayPositionLeft = new Vector3(AABBLeft, AABBLow, Position.Z);
-            Vector3 rayPositionRight = new Vector3(AABBRight, AABBLow, Position.Z);
-            RayIntersection rayLeft = RaytraceObjectsNearbyFast(rayPositionLeft, -Vector3.UnitY).FirstOrDefault();
-            RayIntersection rayRight = RaytraceObjectsNearbyFast(rayPositionRight, -Vector3.UnitY).FirstOrDefault();
-            if (_mode == 0)
+            RayIntersectionExtSet result = RaytraceObjectsBelowPosition(RayMode.TwoRays2DPlatformerY, 1f, -0.05f, 0.01f, typeof(Platform));
+            if(result.IsValid)
             {
-                if (rayLeft.IsValid == false && rayRight.IsValid == false)
+                if(_mode == 0)
                 {
-                    _mode = 1;
+                    SetPositionY(result.IntersectionPointNearest.Y, PositionMode.BottomOfAABBHitbox);
                 }
-                else if (rayLeft.IsValid && rayLeft.Distance > 0.01f && rayRight.IsValid && rayRight.Distance > 0.01f)
+                else
                 {
-                    _mode = 1;
+                    if(result.DistanceMin <= 0.025f)
+                    {
+                        SetPositionY(result.IntersectionPointNearest.Y, PositionMode.BottomOfAABBHitbox);
+                        _mode = 0;
+                        _velocityY = 0f;
+                    }
                 }
             }
             else
             {
-                int rayState = 0;
-                float newYPosition;
-                float rayDistanceLeft = float.MaxValue;
-                float rayDistanceRight = float.MaxValue;
-                if (rayLeft.IsValid && AABBLow - rayLeft.IntersectionPoint.Y <= 0f && _velocityY < 0f)
+                if(_mode == 0)
                 {
-                    rayDistanceLeft = MathHelper.Min(rayLeft.Distance, rayDistanceLeft);
-                    rayState = 1;
-                }
-                else if (rayRight.IsValid && AABBLow - rayRight.IntersectionPoint.Y <= 0f && _velocityY < 0f)
-                {
-                    rayDistanceRight = MathHelper.Min(rayRight.Distance, rayDistanceRight);
-                    rayState = 1;
-                }
-
-                if(rayDistanceLeft <= rayDistanceRight)
-                {
-                    newYPosition = rayLeft.IntersectionPoint.Y;
-                }
-                else
-                {
-                    newYPosition = rayRight.IntersectionPoint.Y;
-                }
-
-                if(rayState > 0)
-                {
-                    _mode = 0;
+                    _mode = 1;
                     _velocityY = 0f;
-                    SetPositionY(newYPosition, PositionMode.BottomOfAABBHitbox);
                 }
             }
         }
