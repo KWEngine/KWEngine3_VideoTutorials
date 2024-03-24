@@ -7,8 +7,7 @@ namespace KWEngine3_ExampleProject.App
     {
         public GameWindow() : base(1280, 720)
         {
-            WorldSelect world = new WorldSelect();
-            SetWorld(world);
+            SetWorld(new World01_Intro());
         }
     }
 }
