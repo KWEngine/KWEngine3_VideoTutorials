@@ -11,6 +11,6 @@ namespace KWEngine3_Tutorial.App.Worlds.ClassesWorld11
     public class PlayerInfo
     {
         public Vector3 Position;
-        public Vector3 Scale;
+        public string Model;
     }
 }

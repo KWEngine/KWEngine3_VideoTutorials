@@ -13,7 +13,6 @@ namespace KWEngine3_Tutorial.App.Worlds
     {
         public override void Act()
         {
-            if (Keyboard.IsKeyPressed(Keys.Escape)) Window.SetWorld(new WorldSelect());
         }
 
         public override void Prepare()
@@ -24,6 +23,21 @@ namespace KWEngine3_Tutorial.App.Worlds
 
             SetColorAmbient(1f, 1f, 1f);
             SetBackgroundFillColor(1f, 1f, 1f);
+
+            Platform platform1 = new Platform();
+            platform1.SetModel("KWQuad");
+            platform1.SetTexture("./App/Textures/brick_albedo.png");
+            AddGameObject(platform1);
+
+            Player p = new Player();
+            p.SetModel("KWQuad");
+            p.SetTexture("./App/Textures/spritesheet.png");
+            p.SetPosition(0f, 1f, 0f);
+            p.HasTransparencyTexture = true;
+            p.SetTextureRepeat(1f / 7f, 1f / 3f);
+            p.SetTextureClip(0.25f, 0.15f);
+            p.BlendTextureStates = false;
+            AddGameObject(p);
         }
     }
 }

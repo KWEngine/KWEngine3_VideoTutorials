@@ -12,7 +12,18 @@ namespace KWEngine3_Tutorial.App.Worlds.ClassesWorld03
     {
         public override void Act()
         {
-            
+            Player p = CurrentWorld.GetGameObjectByName<Player>("Player #1");
+            if (p != null)
+            {
+                Vector3 playerPosition = p.Position;
+                TurnTowardsXZ(playerPosition);
+
+                if(GetDistanceTo(playerPosition) > 3f)
+                {
+                    Move(0.01f);
+                }
+            }
+
         }
     }
 }

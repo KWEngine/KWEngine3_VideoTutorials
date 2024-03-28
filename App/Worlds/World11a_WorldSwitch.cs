@@ -13,17 +13,39 @@ namespace KWEngine3_Tutorial.App.Worlds
     {
         public override void Act()
         {
-            if (Keyboard.IsKeyPressed(Keys.Escape)) { Window.SetWorld(new WorldSelect()); return; }
+            if(Keyboard.IsKeyPressed(Keys.Space))
+            {
+                Player p = GetGameObjectByName<Player>("Player #1");
+                if(p != null)
+                {
+                    PlayerInfo pInfo = new PlayerInfo();
+                    pInfo.Position = p.Position;
+                    pInfo.Model = p.GetModelName();
+
+                    World11b_WorldSwitch w11b = new World11b_WorldSwitch();
+                    w11b.SetPlayerInfo(pInfo);
+                    Window.SetWorld(w11b);
+                }
+
+                
+            }
         }
 
         public override void Prepare()
         {
             KWEngine.LoadModel("Robot", "./App/Models/robotERS.fbx");
 
-            SetCameraPosition(0f, 10f, 0f);
-            SetCameraTarget(0f, 0f, 0f);
+            SetCameraPosition(0f, 2.5f, 2.5f);
+            SetCameraTarget(0f, 1f, 0f);
             SetColorAmbient(1f, 1f, 1f);
             SetBackgroundFillColor(0.0f, 0.25f, 0.5f);
+
+            Player p = new Player();
+            p.Name = "Player #1";
+            p.SetModel("Robot");
+            // ?
+            // ?
+            AddGameObject(p);
         }
     }
 }

@@ -69,6 +69,13 @@ namespace KWEngine3_Tutorial.App.Worlds.ClassesWorld13
                     SetAnimationPercentage(0f);
                 }
             }
+
+            RayTerrainIntersection rti = RaytraceTerrainBelowPosition(this.Center);
+            if(rti.IsValid)
+            {
+                float height = rti.IntersectionPoint.Y;
+                SetPositionY(height);
+            }
         }
     }
 }

@@ -13,7 +13,6 @@ namespace KWEngine3_Tutorial.App.Worlds
     {
         public override void Act()
         {
-            if (Keyboard.IsKeyPressed(Keys.Escape)) Window.SetWorld(new WorldSelect());
         }
 
         public override void Prepare()
@@ -30,11 +29,27 @@ namespace KWEngine3_Tutorial.App.Worlds
             p.SetModel("Robot");
             p.SetPosition(0f, 3f, 5f);
             p.SetScale(2f);
+            p.IsShadowCaster = true;
             p.IsCollisionObject = true;
             AddGameObject(p);
 
             CreateTerrainAndFoliage();
             CreateWalls();
+
+            LightObject sun = new LightObject(LightType.Sun, ShadowQuality.High);
+            sun.SetPosition(-50f, 50f, 50f);
+            sun.SetTarget(0f, 0f, 0f);
+            sun.SetNearFar(50f, 150f);
+            sun.SetFOV(75f);
+            sun.SetColor(1f, 1f, 1f, 3f);
+            AddLightObject(sun);
+
+            LightObject pointLight = new LightObject(LightType.Point);
+            pointLight.SetColor(1f, 0f, 0f, 5f);
+            pointLight.SetPosition(0f, 3f, 0f);
+            pointLight.SetNearFar(0.1f, 3f);
+            AddLightObject(pointLight);
+
         }
 
         private void CreateWalls()
@@ -45,6 +60,7 @@ namespace KWEngine3_Tutorial.App.Worlds
             w1.SetTextureRepeat(4.0f, 1.0f, 0);                                       // oben/unten
             w1.SetTextureRepeat(4.0f, 2.0f, 1);                                       // links/rechts
             w1.SetTextureRepeat(4.0f, 2.0f, 2);                                       // vorne/hinten
+            w1.IsShadowCaster = true;
             AddGameObject(w1);
 
             Wall w2 = new Wall();
@@ -54,6 +70,7 @@ namespace KWEngine3_Tutorial.App.Worlds
             w2.SetTextureRepeat(4.0f, 2.0f, 0);                                       // oben/unten
             w2.SetTextureRepeat(4.0f, 2.0f, 1);                                       // links/rechts
             w2.SetTextureRepeat(4.0f, 2.0f, 2);                                       // vorne/hinten
+            w2.IsShadowCaster = true;
             AddGameObject(w2);
 
             Wall w3 = new Wall();
@@ -63,6 +80,7 @@ namespace KWEngine3_Tutorial.App.Worlds
             w3.SetTextureRepeat(4.0f, 2.0f, 0);                                       // oben/unten
             w3.SetTextureRepeat(4.0f, 2.0f, 1);                                       // links/rechts
             w3.SetTextureRepeat(4.0f, 2.0f, 2);                                       // vorne/hinten
+            w3.IsShadowCaster = true;
             AddGameObject(w3);
         }
 

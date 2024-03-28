@@ -18,7 +18,18 @@ namespace KWEngine3_Tutorial.App.Worlds
 
         public override void Prepare()
         {
+            SetBackgroundFillColor(1f, 1f, 1f);
+            SetColorAmbient(1f, 1f, 1f);
+            SetCameraPosition(0f, 0f, 10f);
+            SetCameraTarget(0f, 0f, 0f);
 
+            Player p = new Player();
+            p.SetModel("KWCube"); // alternativ: KWSphere
+            p.Name = "Player #1";
+            p.SetScale(2f, 2f, 2f);
+            p.SetPosition(0f, 0f, 0f);
+            p.SetColor(1f, 1f, 0f);
+            AddGameObject(p);
         }
     }
 }

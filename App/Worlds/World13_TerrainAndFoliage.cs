@@ -13,12 +13,19 @@ namespace KWEngine3_Tutorial.App.Worlds
     {
         public override void Act()
         {
-            if (Keyboard.IsKeyPressed(Keys.Escape)) Window.SetWorld(new WorldSelect());
+
         }
 
         public override void Prepare()
         {
             KWEngine.LoadModel("Robot", "./App/Models/robotERS.fbx");
+            KWEngine.BuildTerrainModel(
+                "Terrain1",
+                "./App/Textures/heightmap_world13.png",
+                "./App/Textures/sand_albedo.dds",
+                50f,
+                3f,
+                50f);
 
             SetCameraPosition(0f, 125f, 125f);
             SetCameraTarget(0f, 0f, 0f);
@@ -33,6 +40,18 @@ namespace KWEngine3_Tutorial.App.Worlds
             AddGameObject(p);
 
             CreateWalls();
+
+            TerrainObject to = new TerrainObject("Terrain1");
+            to.IsCollisionObject = true;
+            AddTerrainObject(to);
+
+            FoliageObject fo = new FoliageObject(FoliageType.GrassFresh, 10000);
+            fo.AttachToTerrain(to);
+            fo.SetPosition(-12.5f, 0f, 12.5f);
+            fo.SetScale(3f, 2f, 2f);
+            fo.SetPatchSize(17.5f, 12.5f);
+            fo.SetSwayFactor(0.15f);
+            AddFoliageObject(fo);
         }
 
         private void CreateWalls()

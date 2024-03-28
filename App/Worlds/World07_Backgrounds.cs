@@ -11,14 +11,16 @@ namespace KWEngine3_Tutorial.App.Worlds
 {
     public class World07_Backgrounds : World
     {
-
         public override void Act()
         {
-            if (Keyboard.IsKeyPressed(Keys.Escape)) { Window.SetWorld(new WorldSelect()); return; }
+            
         }
 
         public override void Prepare()
         {
+            SetBackgroundSkybox("./App/Textures/background_skybox.png", 0f, SkyboxType.CubeMap);
+            SetBackgroundBrightnessMultiplier(4f);
+            SetColorAmbient(0.25f, 0.25f, 0.25f);
             SetCameraPosition(10f, 5f, 10f);
             SetCameraTarget(0f, 2f, 0f);
             SetCameraFOV(120);

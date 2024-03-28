@@ -13,13 +13,26 @@ namespace KWEngine3_Tutorial.App.Worlds
     {
         public override void Act()
         {
-            if (Keyboard.IsKeyPressed(Keys.Escape)) { Window.SetWorld(new WorldSelect()); return; }
+            if(Mouse.IsButtonPressed(MouseButton.Left))
+            {
+                Vector3 mousePosition = HelperIntersection.GetMouseIntersectionPointOnPlane(Plane.XZ, 0f);
+                ExplosionObject e = new ExplosionObject(64, 1f, 4f, 2f, ExplosionType.DollarRingY);
+                e.SetAlgorithm(ExplosionAnimation.WhirlwindUp);
+                e.SetColorEmissive(1f, 1f, 1f, 0.1f);
+                e.SetPosition(mousePosition);
+                AddExplosionObject(e);
+            }
+            else if(Mouse.IsButtonPressed(MouseButton.Right))
+            {
+                ParticleObject p = new ParticleObject(4f, ParticleType.BurstOneUps);
+                p.SetPosition(0f, 0f, 0f);
+                p.SetColor(0f, 1f, 0f, 1f);
+                AddParticleObject(p);
+            }
         }
 
         public override void Prepare()
         {
-            KWEngine.LoadModel("Robot", "./App/Models/robotERS.fbx");
-
             SetCameraPosition(0f, 10f, 0f);
             SetCameraTarget(0f, 0f, 0f);
             SetColorAmbient(1f, 1f, 1f);

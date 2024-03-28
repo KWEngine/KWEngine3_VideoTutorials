@@ -13,12 +13,31 @@ namespace KWEngine3_Tutorial.App.Worlds
     {
         public override void Act()
         {
-            if (Keyboard.IsKeyPressed(Keys.Escape)) Window.SetWorld(new WorldSelect());
+            
         }
 
         public override void Prepare()
         {
-           
+            SetBackgroundFillColor(1f, 1f, 1f);
+            SetColorAmbient(1f, 1f, 1f);
+            SetCameraPosition(0f, 0f, 10f);
+            SetCameraTarget(0f, 0f, 0f);
+
+            Player p = new Player(1);
+            p.SetModel("KWCube"); // alternativ: KWSphere
+            p.Name = "Player #1";
+            p.SetScale(2f, 2f, 2f);
+            p.SetPosition(-2f, 0f, 0f);
+            p.SetColor(1f, 1f, 0f);
+            AddGameObject(p);
+
+            Player p2 = new Player(2);
+            p2.SetModel("KWCube"); // alternativ: KWSphere
+            p2.Name = "Player #2";
+            p2.SetScale(2f, 2f, 2f);
+            p2.SetPosition(2f, 0f, 0f);
+            p2.SetColor(1f, 0f, 1f);
+            AddGameObject(p2);
         }
     }
 }

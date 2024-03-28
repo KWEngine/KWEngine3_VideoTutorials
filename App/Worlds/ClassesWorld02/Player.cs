@@ -12,8 +12,74 @@ namespace KWEngine3_Tutorial.App.Worlds.ClassesWorld02
 {
     public class Player : GameObject
     {
+        private int _id = 1;
+
+        public Player(int id)
+        {
+            _id = id;
+        }
+
         public override void Act()
         {
+            HandleMovement();
+        }
+
+        private void HandleMovement()
+        {
+            if(_id == 1)
+            {
+                if (Keyboard.IsKeyDown(Keys.A))
+                {
+                    MoveOffset(-0.01f, 0.0f, 0.0f);
+                }
+                if (Keyboard.IsKeyDown(Keys.D))
+                {
+                    MoveOffset(+0.01f, 0.0f, 0.0f);
+                }
+                if (Keyboard.IsKeyDown(Keys.W))
+                {
+                    MoveOffset(0.0f, +0.01f, 0.0f);
+                }
+                if (Keyboard.IsKeyDown(Keys.S))
+                {
+                    MoveOffset(0.0f, -0.01f, 0.0f);
+                }
+                if (Keyboard.IsKeyDown(Keys.Q))
+                {
+                    MoveOffset(0.0f, 0.0f, -0.01f);
+                }
+                if (Keyboard.IsKeyDown(Keys.E))
+                {
+                    MoveOffset(0.0f, 0.0f, +0.01f);
+                }
+            }
+            else
+            {
+                if (Keyboard.IsKeyDown(Keys.Left))
+                {
+                    MoveOffset(-0.01f, 0.0f, 0.0f);
+                }
+                if (Keyboard.IsKeyDown(Keys.Right))
+                {
+                    MoveOffset(+0.01f, 0.0f, 0.0f);
+                }
+                if (Keyboard.IsKeyDown(Keys.Up))
+                {
+                    MoveOffset(0.0f, +0.01f, 0.0f);
+                }
+                if (Keyboard.IsKeyDown(Keys.Down))
+                {
+                    MoveOffset(0.0f, -0.01f, 0.0f);
+                }
+                if (Keyboard.IsKeyDown(Keys.PageDown))
+                {
+                    MoveOffset(0.0f, 0.0f, -0.01f);
+                }
+                if (Keyboard.IsKeyDown(Keys.PageUp))
+                {
+                    MoveOffset(0.0f, 0.0f, +0.01f);
+                }
+            }
             
         }
     }

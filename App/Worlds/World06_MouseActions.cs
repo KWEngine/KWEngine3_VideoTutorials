@@ -13,15 +13,16 @@ namespace KWEngine3_Tutorial.App.Worlds
     {
         public override void Act()
         {
-            if (Keyboard.IsKeyPressed(Keys.Escape)) Window.SetWorld(new WorldSelect());
         }
 
         public override void Prepare()
         {
-            KWEngine.LoadModel("Robot", "./App/Models/robotERS.fbx");
+            Window.LoadCursorImage("ComicHand", "./App/Textures/cursor_hand.cur", 0.05f, 0.0f);
+            Window.SetCursor("ComicHand");
 
+            KWEngine.LoadModel("Robot", "./App/Models/robotERS.fbx");
             SetColorAmbient(1f, 1f, 1f);
-            SetCameraPosition(0f, 10f, 0f);
+            SetCameraPosition(0f, 5f, 5f);
             SetCameraTarget(0f, 0f, 0f);
             SetBackgroundFillColor(0.5f, 0f, 0.5f);
 
@@ -32,6 +33,16 @@ namespace KWEngine3_Tutorial.App.Worlds
             p.SetScale(2f);
             p.SetAnimationID(0);
             AddGameObject(p);
+
+            Box b1 = new Box();
+            b1.SetPosition(-3f, -0.125f, 2f);
+            b1.SetScale(1f, 0.25f, 1f);
+            AddGameObject(b1);
+
+            Box b2 = new Box();
+            b2.SetPosition(+3f, -0.125f, 2f);
+            b2.SetScale(1f, 0.25f, 1f);
+            AddGameObject(b2);
         }
     }
 }

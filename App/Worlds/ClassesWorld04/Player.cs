@@ -13,6 +13,23 @@ namespace KWEngine3_Tutorial.App.Worlds.ClassesWorld04
         public override void Act()
         {
             HandleMovement();
+            HandleCollision();
+        }
+
+        private void HandleCollision()
+        {
+            List<Intersection> intersections = GetIntersections();
+            foreach (Intersection intersection in intersections)
+            {
+                if(intersection.Object is Enemy)
+                {
+                    MoveOffset(intersection.MTV);
+                }
+                else if(intersection.Object is Ghost)
+                {
+
+                }
+            }
         }
 
         private void HandleMovement()

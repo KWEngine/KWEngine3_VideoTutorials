@@ -11,19 +11,36 @@ namespace KWEngine3_Tutorial.App.Worlds
 {
     public class World11b_WorldSwitch : World
     {
+        private PlayerInfo _pInfo;
+
         public override void Act()
         {
-            if (Keyboard.IsKeyPressed(Keys.Escape)) { Window.SetWorld(new WorldSelect()); return; }
+
         }
 
         public override void Prepare()
         {
             KWEngine.LoadModel("Robot", "./App/Models/robotERS.fbx");
 
-            SetCameraPosition(0f, 10f, 0f);
-            SetCameraTarget(0f, 0f, 0f);
+            SetCameraPosition(0f, 2.5f, 2.5f);
+            SetCameraTarget(0f, 1f, 0f);
             SetColorAmbient(1f, 1f, 1f);
             SetBackgroundFillColor(0.5f, 0.25f, 0.0f);
+
+            Player p = new Player();
+            p.Name = "Player #1";
+            p.SetModel("Robot");
+            if(_pInfo != null)
+            {
+                p.SetModel(_pInfo.Model);
+                p.SetPosition(_pInfo.Position);
+            }
+            AddGameObject(p);
+        }
+
+        public void SetPlayerInfo(PlayerInfo pInfo)
+        {
+            _pInfo = pInfo;
         }
     }
 }
