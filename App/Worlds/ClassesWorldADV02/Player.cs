@@ -57,7 +57,7 @@ namespace KWEngine3_Tutorial.App.Worlds.ClassesWorldADV02
             }
             else // mode 1 = in air
             {
-                _velocityY -= GRAVITY;
+                _velocityY = Math.Max(_velocityY - GRAVITY, -0.5f);
                 MoveOffset(0f, _velocityY, 0f);
             }
 
