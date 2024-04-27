@@ -1916,13 +1916,22 @@
             <param name="other">anderes GameObjekt</param>
             <returns>1, wenn das aufrufende Objekt näher an der Kamera ist, sonst -1</returns>
         </member>
-        <member name="M:KWEngine3.GameObjects.GameObject.SetHitboxToCapsuleForMesh(System.Int32,KWEngine3.CapsuleHitboxMode,KWEngine3.CapsuleHitboxType)">
+        <member name="M:KWEngine3.GameObjects.GameObject.SetHitboxToCapsule(System.Boolean,KWEngine3.CapsuleHitboxType)">
             <summary>
             Ersetzt die eigentliche Hitbox-Form mit der für Spielfiguren gängigen Kapselform
             </summary>
-            <param name="meshIndex">Index des 3D-Mesh, für das die Hitbox getauscht werden soll</param>
-            <param name="mode">Modus zur Bestimmung der richtigen Hitbox-Orientierung</param>
-            <param name="type">Art/Form der Kapsel</param>
+            <param name="adjustFootLevelToZero">Legt die Höhe der Unterkante stets auf Y=0 fest (wenn true)</param>
+            <param name="type">Variation der Kapsel</param>
+        </member>
+        <member name="M:KWEngine3.GameObjects.GameObject.SetHitboxToCapsule(System.Single,System.Single,System.Single,OpenTK.Mathematics.Vector3,KWEngine3.CapsuleHitboxType)">
+            <summary>
+            Ersetzt die eigentliche Hitbox-Form mit der für Spielfiguren gängigen Kapselform
+            </summary>
+            <param name="width">Breite der Kapsel (X-Achse)</param>
+            <param name="height">Höhe der Kapsel (Y-Achse)</param>
+            <param name="depth">Tiefe der Kapsel (Z-Achse)</param>
+            <param name="offset">Verschiebung der Kapsel</param>
+            <param name="type">Variation der Kapsel</param>
         </member>
         <member name="P:KWEngine3.GameObjects.GameObject.AnimationPercentage">
             <summary>
