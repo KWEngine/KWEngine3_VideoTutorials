@@ -4966,6 +4966,13 @@
             </summary>
             <param name="g">Objekt</param>
         </member>
+        <member name="M:KWEngine3.World.RemoveGameObjectsOfType``1(System.Boolean)">
+            <summary>
+            Löscht alle aktuell in der Welt befindlichen GameObject-Instanzen des angegebenen Typs
+            </summary>
+            <typeparam name="T">Zu suchender Datentyp (Klasse)</typeparam>
+            <param name="includeSubtypes">wenn true, werden auch Unterklassen des angegebenen Typs berücksichtigt</param>
+        </member>
         <member name="M:KWEngine3.World.AddRenderObject(KWEngine3.GameObjects.RenderObject)">
             <summary>
             Löscht das angegebene Objekt aus der Welt
