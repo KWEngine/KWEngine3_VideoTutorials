@@ -216,9 +216,9 @@
             Verwendet vier Strahlen entlang der lokalen negativen Y-Achse der Instanz (für 3D-Platformer)
             </summary>
         </member>
-        <member name="F:KWEngine3.RayMode.SevenRaysY">
+        <member name="F:KWEngine3.RayMode.FiveRaysY">
             <summary>
-            Verwendet sieben Strahlen entlang der lokalen negativen Y-Achse der Instanz (für 3D-Platformer)
+            Verwendet fünf Strahlen entlang der lokalen negativen Y-Achse der Instanz (für 3D-Platformer)
             </summary>
         </member>
         <member name="T:KWEngine3.ColliderType">
