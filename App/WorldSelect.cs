@@ -17,7 +17,7 @@ namespace KWEngine3_Tutorial.App.Worlds
                                                             "HUD-Objekte anzeigen", "Partikeleffekte", "Welten wechseln", "Events planen",
                                                             "Terrain und Bodengewächse", "Licht und Schatten", "2D-Objekte animieren", "First-Person-Ansicht",
                                                             "Third-Person-Ansicht"};
-        private List<string> _worldNamesAdv = new List<string>() { "Wegfindungs-KI", "2D-Player-Controller" };
+        private List<string> _worldNamesAdv = new List<string>() { "Wegfindungs-KI", "2D-Player-Controller", "3D-Player-Controller" };
 
         public override void Act()
         {
@@ -57,7 +57,7 @@ namespace KWEngine3_Tutorial.App.Worlds
             float sizePerHUDObject = 600;
             float currentX = 64f;
             float currentY = 64f;
-            for(int i = 1; i <= 17; i++)
+            for(int i = 1; i <= _worldNamesStd.Count; i++)
             {
                 HUDObjectText h = new HUDObjectText("World #" + i.ToString().PadLeft(2) + ": " + _worldNamesStd[i - 1]);
                 h.Name = i.ToString();
@@ -92,7 +92,7 @@ namespace KWEngine3_Tutorial.App.Worlds
             
             currentY += 32f;
             currentX = 64f;
-            for (int i = 1; i <= 2; i++)
+            for (int i = 1; i <= _worldNamesAdv.Count; i++)
             {
                 HUDObjectText h = new HUDObjectText("World #ADV" + i.ToString().PadLeft(2) + ": " + _worldNamesAdv[i - 1]);
                 h.Name = "ADV" + i.ToString();
@@ -158,6 +158,8 @@ namespace KWEngine3_Tutorial.App.Worlds
                 Window.SetWorld(new WorldADV01_FlowFieldNavigation());
             else if(index == 2)
                 Window.SetWorld(new WorldADV02_2DPlatformerMechanics());
+            else if(index == 3)
+                Window.SetWorld(new WorldADV03_3DCharacterController());
         }
     }
 }
