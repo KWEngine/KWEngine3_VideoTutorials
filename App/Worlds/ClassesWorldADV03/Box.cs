@@ -13,7 +13,6 @@ namespace KWEngine3_Tutorial.App.Worlds.ClassesWorldADV03
 
         public override void Act()
         {
-            /*
             if (WorldTime > _timestampLastMovement)
             {
                 if (_up)
@@ -37,7 +36,6 @@ namespace KWEngine3_Tutorial.App.Worlds.ClassesWorldADV03
                     }
                 }
             }
-            */
         }
     }
 }

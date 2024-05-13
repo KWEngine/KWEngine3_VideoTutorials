@@ -23,13 +23,16 @@ namespace KWEngine3_Tutorial.App.Worlds.ClassesWorldADV03
         // Konstanten:
         private const float VELOCITY_JUMP = 0.05f;
         private const float VELOCITY_REDUCTION = 1.033f;
+        private const float VELOCITY_XZ_SPEED = 0.0005f;
+        private const float VELOCITY_XZ_SPEED_SLOPE = 0.00045f;
+        private const float VELOCITY_XZ_MIN = 0.0000001f;
+        private const float VELOCITY_XZ_MAX = 0.02f;
         private const float GRAVITY = 0.0005f;
         public static readonly Vector3 PLAYER_START = new Vector3(0f, 0f, 0f);
 
         // Für die Steuerung der Spielfigur benötigte Eigenschaften:
         private Vector2 _velocityXZ = Vector2.Zero;
         private float _velocityY = 0f;
-        private float _playerSpeed = 0.02f;
 
         private State _currentState = State.OnGround;
 
@@ -114,7 +117,7 @@ namespace KWEngine3_Tutorial.App.Worlds.ClassesWorldADV03
                 // Auch in der Luft muss geprüft werden, ob sich ein Bodenobjekt nahe den Füßen
                 // der Spielfigur befindet. Hier muss ein Objekt sich aber näher als 0.05f Einheiten
                 // unterhalb der Figur befinden, damit die Figur dies als gültigen Boden erkennt:
-                RayIntersectionExtSet set = RaytraceObjectsBelowPosition(RayMode.FourRaysY, 0.75f, -0.5f, 0.001f, typeof(Immovable), typeof(Box));
+                RayIntersectionExtSet set = RaytraceObjectsBelowPosition(RayMode.FourRaysY, 0.75f, -0.5f, 0.1f, typeof(Immovable), typeof(Box));
 
                 // Wurde ein Boden gefunden, ist die Ergebnismenge "valide":
                 if (set.IsValid == true)
@@ -156,7 +159,7 @@ namespace KWEngine3_Tutorial.App.Worlds.ClassesWorldADV03
                     // der Korrekturvektor nach unten. Das bedeutet, dass die Spielfigur
                     // ein Objekt von unten berührt. In diesem Fall muss die Aufwärts-
                     // geschwindigkeit (_velocityY) zurückgesetzt werden:
-                    if (Vector3.Dot(Vector3.NormalizeFast(i.MTV), KWEngine.WorldUp) < -0.5f)
+                    if (_velocityY > 0f && Vector3.Dot(Vector3.NormalizeFast(i.MTV), KWEngine.WorldUp) < -0.5f)
                     {
                         _velocityY = 0f;
                     }
@@ -249,7 +252,7 @@ namespace KWEngine3_Tutorial.App.Worlds.ClassesWorldADV03
             // Auf die aktuelle Geschwindigkeit wird dann die Eingabegeschwindigkeit (verrechnet
             // mit der Geschwindigkeitsminderung) addiert und ergibt die für den aktuellen Frame
             // gültige Endgeschwindigkeit:
-            _velocityXZ += inputVelocity * 0.0005f + inputVelocity * dotVelocitySlope * 0.00045f;
+            _velocityXZ += inputVelocity * VELOCITY_XZ_SPEED + inputVelocity * dotVelocitySlope * VELOCITY_XZ_SPEED_SLOPE;
 
             // Wenn die Eingabegeschwindigkeit größer 0 ist (der Spieler also irgendeine der 
             // Bewegungstasten gedrückt hat), dann wird die Spielfigur auch in die entsprechende
@@ -263,9 +266,9 @@ namespace KWEngine3_Tutorial.App.Worlds.ClassesWorldADV03
             // definierte Maximalgeschwindigkeit sein, begrenze den Geschwindigkeitsvektor
             // (_velocityXZ) auf die Maximalgeschwindigkeit:
             float velocitySum = _velocityXZ.LengthFast;
-            if (velocitySum > _playerSpeed)
+            if (velocitySum > VELOCITY_XZ_MAX)
             {
-                _velocityXZ = Vector2.NormalizeFast(_velocityXZ) * _playerSpeed;
+                _velocityXZ = Vector2.NormalizeFast(_velocityXZ) * VELOCITY_XZ_MAX;
             }
 
             // Wende die berechnete Geschwindigkeit des aktuellen Frames auf die Spielfigur an:
@@ -275,7 +278,7 @@ namespace KWEngine3_Tutorial.App.Worlds.ClassesWorldADV03
             // Anteil, damit die Spielfigur langsam zum Stillstand kommt, wenn keine Bewegungs-
             // tasten mehr gedrückt werden:
             _velocityXZ /= VELOCITY_REDUCTION;
-            if (_velocityXZ.LengthSquared < 0.0000001f)
+            if (_velocityXZ.LengthSquared < VELOCITY_XZ_MIN)
                 _velocityXZ = Vector2.Zero;
         }
 

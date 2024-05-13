@@ -29,7 +29,7 @@ namespace KWEngine3_Tutorial.App.Worlds
             p.SetModel("Player");
             p.IsCollisionObject = true;
             p.IsShadowCaster = true;
-            p.SetHitboxToCapsule(true, CapsuleHitboxType.Sloped);
+            //p.SetHitboxToCapsule(true, CapsuleHitboxType.Sloped);
             p.SetPosition(Player.PLAYER_START);
             p.SetScale(0.5f);
             p.SetHitboxScale(0.75f, 1.0f, 1.5f);
