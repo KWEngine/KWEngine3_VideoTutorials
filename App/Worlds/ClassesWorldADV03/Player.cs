@@ -63,7 +63,7 @@ namespace KWEngine3_Tutorial.App.Worlds.ClassesWorldADV03
 
             // Passe die Animationen der Spielfigur dem aktuellen
             // Status (_currentState) an:
-            HandleAnimation();
+            HandleAnimations();
 
             // Falls die Spielfigur vom Rand der Welt fällt, 
             // setze sie wieder zurück auf den Ausgangspunkt:
@@ -282,7 +282,7 @@ namespace KWEngine3_Tutorial.App.Worlds.ClassesWorldADV03
                 _velocityXZ = Vector2.Zero;
         }
 
-        private void HandleAnimation()
+        private void HandleAnimations()
         {
             // Setze die Animationen gemäß des aktuellen Zustands, wenn das 3D-Modell
             // der Spielfigur über Animationen verfügt:
