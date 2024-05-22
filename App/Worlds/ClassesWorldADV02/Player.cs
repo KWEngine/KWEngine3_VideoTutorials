@@ -32,6 +32,8 @@ namespace KWEngine3_Tutorial.App.Worlds.ClassesWorldADV02
 
         public override void Act()
         {
+            HandleGroundDetection();
+
             bool isMoving = false;
             if (Keyboard.IsKeyDown(Keys.A))
             {
@@ -61,7 +63,7 @@ namespace KWEngine3_Tutorial.App.Worlds.ClassesWorldADV02
                 MoveOffset(0f, _velocityY, 0f);
             }
 
-            HandleGroundDetection();
+            
             HandleCollisions();
             HandleAnimation(isMoving);
         }
@@ -116,7 +118,7 @@ namespace KWEngine3_Tutorial.App.Worlds.ClassesWorldADV02
                 }
                 else
                 {
-                    if(result.DistanceMin <= 0.025f)
+                    if(result.DistanceMin <= 0.01f && _velocityY <= 0)
                     {
                         SetPositionY(result.IntersectionPointNearest.Y, PositionMode.BottomOfAABBHitbox);
                         _mode = 0;
