@@ -3163,6 +3163,14 @@
             <param name="vSync">Begrenzung der FPS an die Bildwiederholrate des Monitors?</param>
             <param name="ppQuality">Qualität der Post-Processing-Pipeline (Standard: hohe Qualität)</param>
         </member>
+        <member name="M:KWEngine3.GLWindow.#ctor(System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            Standardkonstruktor für den Fenstermodus
+            </summary>
+            <param name="width">Breite des Fensterinhalts in Pixeln</param>
+            <param name="height">Höhe des Fenterinhalts in Pixeln</param>
+            <param name="vSync">Begrenzung der FPS an die Bildwiederholrate des Monitors?</param>
+        </member>
         <member name="M:KWEngine3.GLWindow.#ctor(System.Int32,System.Int32,System.Boolean,KWEngine3.PostProcessingQuality,KWEngine3.WindowMode)">
             <summary>
             Standardkonstruktor für den Fenstermodus
@@ -3172,6 +3180,17 @@
             <param name="vSync">Begrenzung der FPS an die Bildwiederholrate des Monitors?</param>
             <param name="ppQuality">Qualität der Post-Processing-Pipeline (Standard: hohe Qualität)</param>
             <param name="windowMode">Art des Fensters (Standard oder rahmenlos)</param>
+        </member>
+        <member name="M:KWEngine3.GLWindow.#ctor(System.Int32,System.Int32,System.Boolean,KWEngine3.PostProcessingQuality,KWEngine3.WindowMode,OpenTK.Windowing.Common.MonitorHandle)">
+            <summary>
+            Standardkonstruktor für den Fenstermodus
+            </summary>
+            <param name="width">Breite des Fensterinhalts in Pixeln</param>
+            <param name="height">Höhe des Fenterinhalts in Pixeln</param>
+            <param name="vSync">Begrenzung der FPS an die Bildwiederholrate des Monitors?</param>
+            <param name="ppQuality">Qualität der Post-Processing-Pipeline (Standard: hohe Qualität)</param>
+            <param name="windowMode">Art des Fensters (Standard oder rahmenlos)</param>
+            <param name="monitorHandle">Handle des Monitors, auf dem das Fenster geöffnet werden soll</param>
         </member>
         <member name="P:KWEngine3.GLWindow.IsMouseInWindow">
             <summary>
