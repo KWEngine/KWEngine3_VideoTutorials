@@ -4924,6 +4924,30 @@
             Basisklasse für Spielwelten
             </summary>
         </member>
+        <member name="P:KWEngine3.World.FadeColor">
+            <summary>
+            Gibt die globale Mischfarbe an, mit der der Bildschirminhalt gemischt wird, wenn FadeFactor kleiner als 1.0 ist
+            </summary>
+        </member>
+        <member name="M:KWEngine3.World.SetFadeColor(System.Single,System.Single,System.Single)">
+            <summary>
+            Setzt die globale Mischfarbe, mit der der Bildschirminhalt gemischt wird, wenn FadeFactor kleiner als 1.0 ist
+            </summary>
+            <param name="r">Rotanteil (von 0 bis 1)</param>
+            <param name="g">Grünanteil (von 0 bis 1)</param>
+            <param name="b">Blauanteil (von 0 bis 1)</param>
+        </member>
+        <member name="P:KWEngine3.World.FadeFactor">
+            <summary>
+            Gibt den aktuellen Mischfaktor an (Standard: 1.0 für vollständige Darstellung des Bildschirminhalts)
+            </summary>
+        </member>
+        <member name="M:KWEngine3.World.SetFadeFactor(System.Single)">
+            <summary>
+            Setzt den Mischfaktor zwischen globaler Mischfarbe und dem Bildschirminhalt. Ist f == 1.0, wird der Bildschirminhalt vollständig angezeigt.
+            </summary>
+            <param name="f">Mischfaktor (muss zwischen 0.0 und 1.0 liegen)</param>
+        </member>
         <member name="P:KWEngine3.World.IsPrepared">
             <summary>
             Gibt an, ob die Welt bereits via Prepare()-Methode abschließend vorbereitet wurde
