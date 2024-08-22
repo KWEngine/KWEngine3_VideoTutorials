@@ -3013,6 +3013,11 @@
             Basisklasse für Objekte, die im First-Person-Modus zu sehen sind (Waffen, etc.)
             </summary>
         </member>
+        <member name="P:KWEngine3.GameObjects.ViewSpaceGameObject.DepthTestingEnabled">
+            <summary>
+            Gibt an, ob das Objekt andere Objekte schneiden kann (true) oder immer über anderen Objekten gezeichnet wird (false)
+            </summary>
+        </member>
         <member name="M:KWEngine3.GameObjects.ViewSpaceGameObject.#ctor">
             <summary>
             Standardkonstruktormethode (erzeugt einen Würfel)
