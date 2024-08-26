@@ -60,6 +60,7 @@ namespace KWEngine3_Tutorial.App.Worlds
             fpw.SetModel("Gun");
             fpw.SetOffset(0.1f, -0.15f, 0.2f);
             fpw.SetScale(0.333f);
+            fpw.IsShadowCaster = true;
             SetViewSpaceGameObject(fpw);
 
             HUDObject crosshair = new HUDObjectImage("./App/Textures/crosshair.png");
@@ -71,7 +72,7 @@ namespace KWEngine3_Tutorial.App.Worlds
             LightObject sun = new LightObject(LightType.Sun, ShadowQuality.High);
             sun.SetPosition(-25f, 50f, 10f);
             sun.SetTarget(0f, 0f, 0f);
-            sun.SetFOV(50f);
+            sun.SetFOV(20f);
             sun.SetNearFar(25f, 250f);
             sun.SetColor(1f, 1f, 1f, 2f);
             AddLightObject(sun);

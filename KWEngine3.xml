@@ -708,7 +708,7 @@
         </member>
         <member name="F:KWEngine3.ShadowQuality.Medium">
             <summary>
-            Mittlere Qualität
+            Mittlere Qualität (Standard)
             </summary>
         </member>
         <member name="F:KWEngine3.ShadowQuality.High">
@@ -783,17 +783,12 @@
         </member>
         <member name="F:KWEngine3.PostProcessingQuality.High">
             <summary>
-            Standard
+            Hoch
             </summary>
         </member>
-        <member name="F:KWEngine3.PostProcessingQuality.Low">
+        <member name="F:KWEngine3.PostProcessingQuality.Standard">
             <summary>
-            Niedrige Qualität (Artefaktbildung möglich)
-            </summary>
-        </member>
-        <member name="F:KWEngine3.PostProcessingQuality.Disabled">
-            <summary>
-            Ausgeschaltet
+            Standard (vorausgewählt)
             </summary>
         </member>
         <member name="T:KWEngine3.CubeSide">
@@ -2435,7 +2430,7 @@
             <summary>
             Feintuning für den Schatteneffekt des Lichts (im Bereich [-0.1f;+0.1f])
             </summary>
-            <param name="bias">Bias-Wert (Standardwert: 0.00006f)</param>
+            <param name="bias">Bias-Wert (Standardwert: 0.00002f)</param>
         </member>
         <member name="P:KWEngine3.GameObjects.LightObject.Type">
             <summary>
