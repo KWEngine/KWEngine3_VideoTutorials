@@ -166,6 +166,26 @@
             Frees all graphics resources used by the renderer.
             </summary>
         </member>
+        <member name="T:KWEngine3.TerrainThresholdValue">
+            <summary>
+            Gibt an, ab welcher Entfernung Terrain-Objekte weniger detailliert gezeichnet werden
+            </summary>
+        </member>
+        <member name="F:KWEngine3.TerrainThresholdValue.T32">
+            <summary>
+            Ab 32 Längeneinheiten
+            </summary>
+        </member>
+        <member name="F:KWEngine3.TerrainThresholdValue.T64">
+            <summary>
+            Ab 64 Längeneinheiten
+            </summary>
+        </member>
+        <member name="F:KWEngine3.TerrainThresholdValue.T128">
+            <summary>
+            Ab 128 Längeneinheiten
+            </summary>
+        </member>
         <member name="T:KWEngine3.WindowMode">
             <summary>
             Fenstermodus der Anwendung
@@ -2432,6 +2452,12 @@
             </summary>
             <param name="bias">Bias-Wert (Standardwert: 0.00002f)</param>
         </member>
+        <member name="M:KWEngine3.GameObjects.LightObject.SetShadowOffset(System.Single)">
+            <summary>
+            Feintuning für die Position des Schatteneffekts (Standardwert: 0.001f)
+            </summary>
+            <param name="offset">Erlaubte Werte zwischen 0.0f und 0.1f</param>
+        </member>
         <member name="P:KWEngine3.GameObjects.LightObject.Type">
             <summary>
             Art des Lichts
@@ -2683,18 +2709,31 @@
             Gibt an oder setzt fest, ob die Instanz sichtbar ist (Standard: true)
             </summary>
         </member>
+        <member name="P:KWEngine3.GameObjects.TerrainObject.Name">
+            <summary>
+            Name des Objekts
+            </summary>
+        </member>
+        <member name="P:KWEngine3.GameObjects.TerrainObject.Width">
+            <summary>
+            Breite des Terrain-Objekts
+            </summary>
+        </member>
+        <member name="P:KWEngine3.GameObjects.TerrainObject.Depth">
+            <summary>
+            Tiefe des Terrain-Objekts
+            </summary>
+        </member>
+        <member name="P:KWEngine3.GameObjects.TerrainObject.Height">
+            <summary>
+            Höhe des Terrain-Objekts
+            </summary>
+        </member>
         <member name="M:KWEngine3.GameObjects.TerrainObject.#ctor(System.String)">
             <summary>
             Standardkonstruktor für ein Terrain-Objekt
             </summary>
-            <param name="modelname">Terrain-Modellname</param>
-        </member>
-        <member name="M:KWEngine3.GameObjects.TerrainObject.SetModel(System.String)">
-            <summary>
-            Setzt das 3D-Modell des Terrains
-            </summary>
-            <param name="modelname">Name des Modells</param>
-            <returns>true, wenn das Setzen des Modells erfolgreich war</returns>
+            <param name="name">Name des Terrain-Modells</param>
         </member>
         <member name="M:KWEngine3.GameObjects.TerrainObject.SetColor(System.Single,System.Single,System.Single)">
             <summary>
@@ -2731,13 +2770,12 @@
             </summary>
             <param name="r">Rauheit</param>
         </member>
-        <member name="M:KWEngine3.GameObjects.TerrainObject.SetTexture(System.String,KWEngine3.TextureType,System.Int32)">
+        <member name="M:KWEngine3.GameObjects.TerrainObject.SetTexture(System.String,KWEngine3.TextureType)">
             <summary>
             Setzt die Textur des Objekts
             </summary>
             <param name="filename">Dateiname (inkl. relativem Pfad)</param>
             <param name="type">Texturtyp (Standard: Albedo)</param>
-            <param name="meshId">interne Nummer des 3D-Modellteils (Standard: 0)</param>
         </member>
         <member name="M:KWEngine3.GameObjects.TerrainObject.SetTextureOffset(System.Single,System.Single)">
             <summary>
@@ -2752,11 +2790,6 @@
             </summary>
             <param name="x">x</param>
             <param name="y">y</param>
-        </member>
-        <member name="P:KWEngine3.GameObjects.TerrainObject.Name">
-            <summary>
-            Name des Objekts
-            </summary>
         </member>
         <member name="M:KWEngine3.GameObjects.TerrainObject.SetPosition(System.Single,System.Single,System.Single)">
             <summary>
@@ -3604,6 +3637,17 @@
             <param name="lowerBound">Untergrenze</param>
             <param name="upperBound">Obergrenze</param>
             <param name="array">Werte (Achtung: Werden in-place manipuliert!)</param>
+        </member>
+        <member name="M:KWEngine3.Helper.HelperGeneral.ScaleToRange(System.Single,System.Single,System.Single,System.Single,System.Single)">
+            <summary>
+            Skaliert einen Wert dahingehend, dass er in den durch lowerBound und upperBound angegebenen Bereich passt
+            </summary>
+            <param name="inputValue">zu skalierender Wert</param>
+            <param name="inputLow">Minimalwert des nicht-skalierten Werts</param>
+            <param name="inputHigh">Maximalwert des nicht-skalierten Werts</param>
+            <param name="outputLow">Minimalwert des Ausgabewertebereichs</param>
+            <param name="outputHigh">Maximalwert des Ausgabewertebereichs</param>
+            <returns>skalierter Wert</returns>
         </member>
         <member name="M:KWEngine3.Helper.HelperGeneral.Clamp(System.Single,System.Single,System.Single)">
             <summary>
@@ -4591,6 +4635,11 @@
             Kernbibliothek der Engine
             </summary>
         </member>
+        <member name="P:KWEngine3.KWEngine.TerrainTessellationThreshold">
+            <summary>
+            Gibt an, ab welcher Entfernung Terrain-Geometrie weniger detailliert dargestellt werden soll (Standard: 32 Einheiten)
+            </summary>
+        </member>
         <member name="F:KWEngine3.KWEngine.MAXADDITIONALINSTANCECOUNT">
             <summary>
             Gibt die maximale Anzahl der Instanzen für RenderObjects an
@@ -4700,16 +4749,15 @@
             Empfindlichkeit des Mauszeigers im First-Person-Modus (Standard: 0.05f, negative Werte für die Invertierung der y-Achse)
             </summary>
         </member>
-        <member name="M:KWEngine3.KWEngine.BuildTerrainModel(System.String,System.String,System.String,System.Single,System.Single,System.Single)">
+        <member name="M:KWEngine3.KWEngine.BuildTerrainModel(System.String,System.String,System.Int32,System.Int32,System.Int32)">
             <summary>
             Baut ein Terrain-Modell
             </summary>
             <param name="name">Name des Modells</param>
-            <param name="heightmap">Height Map Textur</param>
-            <param name="texture">Textur der Oberfläche</param>
-            <param name="width">Breite</param>
-            <param name="height">Höhe</param>
-            <param name="depth">Tiefe</param>
+            <param name="heightmap">Heightmap Textur</param>
+            <param name="width">Breite (x-Achse, gültige Werte in 16er-Schritten bis max. 1024)</param>
+            <param name="depth">Tiefe (z-Achse, gültige Werte in 16er-Schritten bis max. 1024)</param>
+            <param name="height">Höhe (y-Achse, gültige Werte von 0 bis 64)</param>
         </member>
         <member name="M:KWEngine3.KWEngine.LoadAnimationIntoModel(System.String,System.String)">
             <summary>
