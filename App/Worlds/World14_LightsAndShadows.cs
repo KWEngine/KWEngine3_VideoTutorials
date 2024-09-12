@@ -19,7 +19,7 @@ namespace KWEngine3_Tutorial.App.Worlds
         public override void Prepare()
         {
             KWEngine.LoadModel("Robot", "./App/Models/robotERS.fbx");
-            KWEngine.BuildTerrainModel("Terrain #1", "./App/Textures/heightmap_world13.png", "./App/Textures/sand_albedo.dds", 40f, 3f, 40f);
+            KWEngine.BuildTerrainModel("Terrain #1", "./App/Textures/heightmap_world13.png", 48, 48, 3);
 
             SetCameraPosition(0f, 125f, 125f);
             SetCameraTarget(0f, 0f, 0f);
@@ -78,6 +78,7 @@ namespace KWEngine3_Tutorial.App.Worlds
         private void CreateTerrainAndFoliage()
         {
             TerrainObject t = new TerrainObject("Terrain #1");
+            t.SetTexture("./App/Textures/sand_albedo.dds");
             t.SetTexture("./App/Textures/sand_normal.dds", TextureType.Normal);
             t.SetTextureRepeat(5f, 5f);
             t.IsShadowCaster = true;
