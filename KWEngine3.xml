@@ -4678,6 +4678,21 @@
             Zusätzliches Padding für die Kollisionsvorhersage (Standard: 1.0f)
             </summary>
         </member>
+        <member name="P:KWEngine3.KWEngine.SSAO_Enabled">
+            <summary>
+            Aktiviert oder deaktiviert den Post-Processing-Effekt "Screen-Space Ambient Occlusion" (Standard: false)
+            </summary>
+        </member>
+        <member name="P:KWEngine3.KWEngine.SSAO_Radius">
+            <summary>
+            Weite des SSAO-Effekts (Standard: 0.4f, Bereich: 0.01f bis 1.0f)
+            </summary>
+        </member>
+        <member name="P:KWEngine3.KWEngine.SSAO_Bias">
+            <summary>
+            Intensität des SSAO-Effekts (Standard: 0.1f, Bereich: 0.00f bis 0.5f)
+            </summary>
+        </member>
         <member name="P:KWEngine3.KWEngine.WorldTime">
             <summary>
             Gibt an, wie lange die aktuelle Welt bereits aktiv ist
