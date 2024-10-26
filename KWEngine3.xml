@@ -186,6 +186,61 @@
             Ab 128 Längeneinheiten
             </summary>
         </member>
+        <member name="T:KWEngine3.DebugMode">
+            <summary>
+            Debug-Modus für den Viewport
+            </summary>
+        </member>
+        <member name="F:KWEngine3.DebugMode.None">
+            <summary>
+            Keine Debugging-Darstellung (Standard)
+            </summary>
+        </member>
+        <member name="F:KWEngine3.DebugMode.DepthBufferLinearized">
+            <summary>
+            Zeige Tiefenpufferwerte
+            </summary>
+        </member>
+        <member name="F:KWEngine3.DebugMode.Colors">
+            <summary>
+            Zeige Farbwerte (vor der Lichtberechnung)
+            </summary>
+        </member>
+        <member name="F:KWEngine3.DebugMode.SurfaceNormals">
+            <summary>
+            Zeige Oberflächenvektoren (farbkodiert)
+            </summary>
+        </member>
+        <member name="F:KWEngine3.DebugMode.ScreenSpaceAmbientOcclusion">
+            <summary>
+            Zeige SSAO-Post-Processing-Effekt
+            </summary>
+        </member>
+        <member name="F:KWEngine3.DebugMode.Glow">
+            <summary>
+            Zeige Glow-Post-Processing-Effekt
+            </summary>
+        </member>
+        <member name="F:KWEngine3.DebugMode.MetallicRoughness">
+            <summary>
+            Zeige Metallic/Roughness-Werte für die Lichtberechnung
+            </summary>
+        </member>
+        <member name="F:KWEngine3.DebugMode.DepthBufferShadowMap1">
+            <summary>
+            Zeige Tiefenpuffer für die erste Shadow-Map (falls vorhanden)
+            </summary>
+        </member>
+        <member name="F:KWEngine3.DebugMode.DepthBufferShadowMap2">
+            <summary>
+            Zeige Tiefenpuffer für die zweite Shadow-Map (falls vorhanden)
+            </summary>
+        </member>
+        <member name="F:KWEngine3.DebugMode.DepthBufferShadowMap3">
+            <summary>
+            Zeige Tiefenpuffer für die dritte Shadow-Map (falls vorhanden)
+            </summary>
+        </member>
         <member name="T:KWEngine3.WindowMode">
             <summary>
             Fenstermodus der Anwendung
@@ -4643,6 +4698,11 @@
         <member name="F:KWEngine3.KWEngine.MAXADDITIONALINSTANCECOUNT">
             <summary>
             Gibt die maximale Anzahl der Instanzen für RenderObjects an
+            </summary>
+        </member>
+        <member name="P:KWEngine3.KWEngine.DebugMode">
+            <summary>
+            Erfragt oder setzt den aktuellen Debug-Modus für den Viewport
             </summary>
         </member>
         <member name="P:KWEngine3.KWEngine.Window">
