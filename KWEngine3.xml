@@ -2597,7 +2597,7 @@
             <summary>
             Setzt die Nah- und Ferngrenze (Reichweite) des Lichts
             </summary>
-            <param name="near">Nahgrenze (mind. 0.1f)</param>
+            <param name="near">Nahgrenze (mind. 0.01f)</param>
             <param name="far">Ferngrenze (muss größer als die Nahgrenze sein, Standardwert: 100)</param>
         </member>
         <member name="P:KWEngine3.GameObjects.LightObject.Position">
