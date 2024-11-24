@@ -19,7 +19,7 @@ namespace KWEngine3_Tutorial.App.Worlds
         public override void Prepare()
         {
             KWEngine.LoadModel("Robot", "./App/Models/robotERS.fbx");
-            KWEngine.BuildTerrainModel("Terrain #1", "./App/Textures/heightmap_world13.png", 48, 48, 3);
+            KWEngine.BuildTerrainModel("Terrain #1", "./App/Textures/heightmap_world13.png", 3);
 
             SetCameraPosition(0f, 125f, 125f);
             SetCameraTarget(0f, 0f, 0f);
