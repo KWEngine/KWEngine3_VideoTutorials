@@ -5467,6 +5467,12 @@
             <param name="button">zu prüfende Taste</param>
             <returns>true, wenn die Taste gedrückt und im vorherigen Frame nicht gedrückt wurde</returns>
         </member>
+        <member name="M:KWEngine3.MouseExt.GetDelta">
+            <summary>
+            Gibt die Mausbewegung als Delta-Wert für beide Achsen zurück (Unterschied der Mausposition zum letzten Frame)
+            </summary>
+            <returns>Delta-Wert der Mauszeigerbewegung (Unterschied zum letzten Frame)</returns>
+        </member>
         <member name="T:KWEngine3.ScreenInfo">
             <summary>
             Informationen über die angeschlossenen Monitore
