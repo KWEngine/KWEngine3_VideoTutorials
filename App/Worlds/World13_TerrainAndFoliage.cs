@@ -72,7 +72,7 @@ namespace KWEngine3_Tutorial.App.Worlds
             TerrainObject t = new TerrainObject("Terrain #1");
             t.SetTexture("./App/Textures/sand_albedo.dds");
             t.SetTexture("./App/Textures/sand_normal.dds", TextureType.Normal);
-            t.SetTextureRepeat(5f, 5f);
+            t.SetTextureRepeat(0.5f, 0.5f);
             t.IsShadowCaster = true;
             AddTerrainObject(t);
 
