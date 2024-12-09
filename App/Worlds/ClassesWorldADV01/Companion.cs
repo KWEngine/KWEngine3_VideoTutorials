@@ -12,7 +12,7 @@ namespace KWEngine3_Tutorial.App.Worlds.ClassesWorldADV01
     {
         public override void Act()
         {
-            FlowField f = CurrentWorld.GetFlowField();
+            FlowField f = CurrentWorld.GetFlowFieldByName("FlowField #1");
             if (f != null)
             {
                 if(f.HasTarget)
@@ -31,7 +31,7 @@ namespace KWEngine3_Tutorial.App.Worlds.ClassesWorldADV01
 
         private void HandleTerrain()
         {
-            RayTerrainIntersection rti = RaytraceTerrainBelowPosition(this.Position + new Vector3(0f, 3f, 0f));
+            RayTerrainIntersection rti = RaytraceTerrainBelowPosition(this.Position);
             if (rti.IsValid)
             {
                 this.SetPosition(rti.IntersectionPoint + new Vector3(0f, 0.5f, 0f));

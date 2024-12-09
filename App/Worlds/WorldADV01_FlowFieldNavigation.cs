@@ -60,7 +60,8 @@ namespace KWEngine3_Tutorial.App.Worlds
         {
             FlowField f = new FlowField(0f, 2.5f, 0f, 40, 40, 0.5f, 5, FlowFieldMode.Box, typeof(Wall));
             f.IsVisible = false;
-            SetFlowField(f);
+            f.Name = "FlowField #1";
+            AddFlowField(f);
         }
 
         private void CreateWalls()
