@@ -31,7 +31,7 @@ namespace KWEngine3_Tutorial.App.Worlds.ClassesWorldADV01
 
         private void HandleTerrain()
         {
-            RayTerrainIntersection rti = RaytraceTerrainBelowPosition(this.Position);
+            RayTerrainIntersection rti = RaytraceTerrainBelowPosition(this.Position + new Vector3(0f, 3f, 0f));
             if (rti.IsValid)
             {
                 this.SetPosition(rti.IntersectionPoint + new Vector3(0f, 0.5f, 0f));
