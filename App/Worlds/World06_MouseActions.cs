@@ -13,7 +13,11 @@ namespace KWEngine3_Tutorial.App.Worlds
     {
         public override void Act()
         {
-            if (Keyboard.IsKeyPressed(Keys.Escape)) Window.SetWorld(new WorldSelect());
+            if (Keyboard.IsKeyPressed(Keys.Escape))
+            {
+                Window.SetCursor(null);
+                Window.SetWorld(new WorldSelect());
+            }
         }
 
         public override void Prepare()
