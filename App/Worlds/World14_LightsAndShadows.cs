@@ -34,7 +34,7 @@ namespace KWEngine3_Tutorial.App.Worlds
             p.IsShadowCaster = true;
             AddGameObject(p);
 
-            LightObject sun = new LightObject(LightType.Sun, ShadowQuality.Medium);
+            LightObject sun = new LightObject(LightType.Sun, ShadowQuality.High);
             sun.SetPosition(-50f, 50f, 50f);
             sun.SetTarget(0f, 0f, 0f);
             sun.SetNearFar(50f, 150f);
