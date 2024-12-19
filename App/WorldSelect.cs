@@ -62,9 +62,9 @@ namespace KWEngine3_Tutorial.App.Worlds
                 HUDObjectText h = new HUDObjectText("World #" + i.ToString().PadLeft(2) + ": " + _worldNamesStd[i - 1]);
                 h.Name = i.ToString();
                 h.SetFont(FontFace.XanhMono);
-                h.SetScale(20f);
+                h.SetScale(28f);
                 h.SetColorEmissive(0f, 1f, 0f);
-                h.SetCharacterDistanceFactor(0.75f);
+                h.SetCharacterDistanceFactor(0.55f);
                 h.SetTextAlignment(TextAlignMode.Left);
                 h.SetPosition(currentX, currentY);
                 h.SetColor(0, 0, 0);
@@ -73,7 +73,7 @@ namespace KWEngine3_Tutorial.App.Worlds
 
                 if(currentX > Window.Width - sizePerHUDObject * 1.25f)
                 {
-                    currentY += 24f;
+                    currentY += 28f;
                     currentX = 64f;
                 }
                 else
@@ -97,9 +97,9 @@ namespace KWEngine3_Tutorial.App.Worlds
                 HUDObjectText h = new HUDObjectText("World #ADV" + i.ToString().PadLeft(2) + ": " + _worldNamesAdv[i - 1]);
                 h.Name = "ADV" + i.ToString();
                 h.SetFont(FontFace.XanhMono);
-                h.SetScale(20f);
+                h.SetScale(28f);
                 h.SetColorEmissive(0f, 1f, 0f);
-                h.SetCharacterDistanceFactor(0.75f);
+                h.SetCharacterDistanceFactor(0.55f);
                 h.SetTextAlignment(TextAlignMode.Left);
                 h.SetPosition(currentX, currentY);
                 h.SetColor(0, 0, 0);
@@ -108,7 +108,7 @@ namespace KWEngine3_Tutorial.App.Worlds
 
                 if (currentX > Window.Width - sizePerHUDObject * 1.25f)
                 {
-                    currentY += 24f;
+                    currentY += 28f;
                     currentX = 64f;
                 }
                 else
