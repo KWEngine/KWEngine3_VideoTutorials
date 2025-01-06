@@ -2122,12 +2122,12 @@
             <param name="other">anderes GameObjekt</param>
             <returns>1, wenn das aufrufende Objekt näher an der Kamera ist, sonst -1</returns>
         </member>
-        <member name="M:KWEngine3.GameObjects.GameObject.SetHitboxToCapsule(System.Boolean,KWEngine3.CapsuleHitboxType)">
+        <member name="M:KWEngine3.GameObjects.GameObject.SetHitboxToCapsule(OpenTK.Mathematics.Vector3,KWEngine3.CapsuleHitboxType)">
             <summary>
             Ersetzt die eigentliche Hitbox-Form mit der für Spielfiguren gängigen Kapselform
             </summary>
-            <param name="adjustFootLevelToZero">Legt die Höhe der Unterkante stets auf Y=0 fest (wenn true)</param>
-            <param name="type">Variation der Kapsel</param>
+            <param name="offset">Verschiebt die Kapsel-Hitbox bei Bedarf. Hier sollte als Standardwert zunächst Vector3.Zero probiert werden.</param>
+            <param name="type">Variation der Kapsel (CapsuleHitboxType.Default oder CapsuleHitboxType.Sloped)</param>
         </member>
         <member name="M:KWEngine3.GameObjects.GameObject.SetHitboxToCapsule(System.Single,System.Single,System.Single,OpenTK.Mathematics.Vector3,KWEngine3.CapsuleHitboxType)">
             <summary>
