@@ -2664,6 +2664,11 @@
             Gibt die Blinkgeschwindigkeit des Eingabecursors an
             </summary>
         </member>
+        <member name="P:KWEngine3.GameObjects.HUDObjectTextInput.MaxInputLength">
+            <summary>
+            Setzt oder erfragt die Anzahl maximal einzugebender Zeichen im Bereich [1, 128] (Standardwert: 128)
+            </summary>
+        </member>
         <member name="M:KWEngine3.GameObjects.HUDObjectTextInput.AddCharacters(System.String)">
             <summary>
             Fügt die angegebenen Zeichen dem Text ab der Cursorposition hinzu
