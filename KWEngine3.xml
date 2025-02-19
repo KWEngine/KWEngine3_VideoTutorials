@@ -166,6 +166,56 @@
             Frees all graphics resources used by the renderer.
             </summary>
         </member>
+        <member name="T:KWEngine3.CardinalDirection">
+            <summary>
+            Himmelsrichtung
+            </summary>
+        </member>
+        <member name="F:KWEngine3.CardinalDirection.North">
+            <summary>
+            Nord
+            </summary>
+        </member>
+        <member name="F:KWEngine3.CardinalDirection.NorthEast">
+            <summary>
+            Nordost
+            </summary>
+        </member>
+        <member name="F:KWEngine3.CardinalDirection.East">
+            <summary>
+            Ost
+            </summary>
+        </member>
+        <member name="F:KWEngine3.CardinalDirection.SouthEast">
+            <summary>
+            Südost
+            </summary>
+        </member>
+        <member name="F:KWEngine3.CardinalDirection.South">
+            <summary>
+            Süd
+            </summary>
+        </member>
+        <member name="F:KWEngine3.CardinalDirection.SouthWest">
+            <summary>
+            Südwest
+            </summary>
+        </member>
+        <member name="F:KWEngine3.CardinalDirection.West">
+            <summary>
+            West
+            </summary>
+        </member>
+        <member name="F:KWEngine3.CardinalDirection.NorthWest">
+            <summary>
+            Nordwest
+            </summary>
+        </member>
+        <member name="F:KWEngine3.CardinalDirection.None">
+            <summary>
+            Keine
+            </summary>
+        </member>
         <member name="T:KWEngine3.KeyboardCursorType">
             <summary>
             Listet die Anzeigemöglichkeiten für Eingabecursor auf
@@ -2030,6 +2080,22 @@
             <param name="g">GameObject-Instanz</param>
             <param name="absolute">wenn true, wird die Position-Eigenschaft verwendet, andernfalls die Hitbox-Mitte</param>
             <returns>Distanz</returns>
+        </member>
+        <member name="M:KWEngine3.GameObjects.GameObject.GetDistanceToXZ(OpenTK.Mathematics.Vector3,System.Boolean)">
+            <summary>
+            Misst die Distanz zu einem Punkt entlang der XZ-Ebene
+            </summary>
+            <param name="position">Zielpunkt</param>
+            <param name="absolute">wenn true, wird die Position-Eigenschaft der Instanz verwendet, andernfalls die Hitbox-Mitte</param>
+            <returns>Distanz entlang der XZ-Ebene</returns>
+        </member>
+        <member name="M:KWEngine3.GameObjects.GameObject.GetDistanceToXZ(KWEngine3.GameObjects.GameObject,System.Boolean)">
+            <summary>
+            Misst die Distanz zu einem GameObject entlang der XZ-Ebene
+            </summary>
+            <param name="g">GameObject-Instanz</param>
+            <param name="absolute">wenn true, wird die Position-Eigenschaft der Instanz verwendet, andernfalls die Hitbox-Mitte</param>
+            <returns>Distanz entlang der XZ-Ebene</returns>
         </member>
         <member name="P:KWEngine3.GameObjects.GameObject.Keyboard">
             <summary>
@@ -3919,7 +3985,14 @@
             Gibt die bestmögliche Bewegungsrichtung gemäß der aktuellen Position zurück
             </summary>
             <param name="position">aktuelle Position</param>
-            <returns>bestmögliche Bewegungsrichtung</returns>
+            <returns>bestmögliche Bewegungsrichtung für die gegebene Position</returns>
+        </member>
+        <member name="M:KWEngine3.Helper.FlowField.GetBestCardinalDirectionForPosition(OpenTK.Mathematics.Vector3)">
+            <summary>
+            Gibt die bestmögliche Bewegungsrichtung als Himmelsrichtung gemäß der aktuellen Position zurück
+            </summary>
+            <param name="position">aktuelle Position</param>
+            <returns>bestmögliche Himmelsrichtung für die gegebene Position</returns>
         </member>
         <member name="M:KWEngine3.Helper.FlowField.GetCellForWorldPosition(OpenTK.Mathematics.Vector3,System.Boolean)">
             <summary>
@@ -3979,6 +4052,16 @@
             Gibt den vertikalen Index der Zelle im FlowField an (nullbasiert)
             </summary>
         </member>
+        <member name="P:KWEngine3.Helper.FlowFieldCell.BestDirection">
+            <summary>
+            Gibt die aktuelle Zielrichtung für diese Zelle an (kann der Nullvektor sein)
+            </summary>
+        </member>
+        <member name="P:KWEngine3.Helper.FlowFieldCell.BestDirectionCardinal">
+            <summary>
+            Gibt die aktuelle Zielrichtung in Form einer Himmelsrichtung an
+            </summary>
+        </member>
         <member name="M:KWEngine3.Helper.FlowFieldCell.GetNeighbourCellAtOffset(System.Int32,System.Int32)">
             <summary>
             Erfragt die Zelle, die von der aktuellen Zelle ausgehend am angegebenen Offset liegt
@@ -3991,6 +4074,36 @@
             <summary>
             Gibt die aktuell gemessenen Kosten der Zelle an
             </summary>
+        </member>
+        <member name="M:KWEngine3.Helper.FlowFieldCell.ContainsXZ(KWEngine3.GameObjects.GameObject,System.Boolean)">
+            <summary>
+            Prüft anhand der XZ-Achsen, ob ein Objekt ansatzweise innerhalb der Zelle liegt
+            </summary>
+            <param name="g">zu prüfendes Objekt</param>
+            <param name="partial">wenn true, zählen auch teilweise enthaltene Objekte (Standard: true)</param>
+            <returns>true, wenn das Objekt im Feld liegt</returns>
+        </member>
+        <member name="M:KWEngine3.Helper.FlowFieldCell.ContainsXZ(OpenTK.Mathematics.Vector3)">
+            <summary>
+            Prüft anhand der XZ-Achsen, ob eine Position innerhalb der Zelle liegt
+            </summary>
+            <param name="position">zu prüfende Position</param>
+            <returns>true, wenn die Position im Feld liegt</returns>
+        </member>
+        <member name="M:KWEngine3.Helper.FlowFieldCell.Contains(KWEngine3.GameObjects.GameObject,System.Boolean)">
+            <summary>
+            Prüft, ob ein Objekt ansatzweise innerhalb der Zelle liegt
+            </summary>
+            <param name="g">zu prüfendes Objekt</param>
+            <param name="partial">wenn true, zählen auch teilweise enthaltene Objekte (Standard: true)</param>
+            <returns>true, wenn das Objekt im Feld liegt</returns>
+        </member>
+        <member name="M:KWEngine3.Helper.FlowFieldCell.Contains(OpenTK.Mathematics.Vector3)">
+            <summary>
+            Prüft, ob eine Position innerhalb der Zelle liegt
+            </summary>
+            <param name="position">zu prüfende Position</param>
+            <returns>true, wenn die Position im Feld liegt</returns>
         </member>
         <member name="P:KWEngine3.Helper.HelperDDS.BitmapImage">
             <summary>
