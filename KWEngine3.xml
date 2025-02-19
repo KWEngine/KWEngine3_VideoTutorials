@@ -416,6 +416,21 @@
             Bezieht sich auf die unterste Kante der achsenparallelen Hitbox (z.B. für 2D-Platformer)
             </summary>
         </member>
+        <member name="T:KWEngine3.FlowFieldDirections">
+            <summary>
+            Gibt an, welche Richtungen die Flowfield-Instanz bei der Berechnung des kürzesten Wegs verwenden darf (Standard: CardinalAndIntercardinalDirections)
+            </summary>
+        </member>
+        <member name="F:KWEngine3.FlowFieldDirections.CardinalDirections">
+            <summary>
+            Es werden lediglich die Richtungen Nord, Ost, Süd und West verwendet
+            </summary>
+        </member>
+        <member name="F:KWEngine3.FlowFieldDirections.CardinalAndIntercardinalDirections">
+            <summary>
+            Es werden die Richtungen Nord, Nordost, Ost, Südost, Süd, Südwest, West, Nordwest verwendet
+            </summary>
+        </member>
         <member name="T:KWEngine3.FlowFieldMode">
             <summary>
             Modus, der bestimmt, wie genau das FlowField Hindernisse erkennt (Standard: Simple)
@@ -3767,6 +3782,12 @@
             Erfragt oder setzt den Namen der Instanz
             </summary>
         </member>
+        <member name="P:KWEngine3.Helper.FlowField.AllowPartialNesting">
+            <summary>
+            Erfragt oder setzt, ob beim Scan nach Objekten auch die Objekte zählen, die sich eine Kante mit einer Flowfield-Zelle teilen (Standard: true)
+            </summary>
+            <remarks>Wenn false, muss die Hitbox eines Objekts vollständig in einer Zelle eingeschlossen sein</remarks>
+        </member>
         <member name="P:KWEngine3.Helper.FlowField.GridCellCount">
             <summary>
             Anzahl der Zellen im Feld (in allen drei Dimensionen, wobei nur X- und Z-Dimension zählen)
@@ -3796,6 +3817,22 @@
             <summary>
             Messmodus für die Erstellung der Streckenkosten (Simple oder Box)
             </summary>
+        </member>
+        <member name="P:KWEngine3.Helper.FlowField.AllowedDirections">
+            <summary>
+            Gibt an, welche Richtungsanweisungen vom Flowfield ausgegeben werden (Standard: CardinalAndIntercardinalDirections)
+            </summary>
+        </member>
+        <member name="M:KWEngine3.Helper.FlowField.#ctor(System.Int32,System.Int32,System.Single,System.Int32,KWEngine3.FlowFieldMode,System.Type[])">
+            <summary>
+            Erzeugt ein FlowField für die angegebenen GameObject-Typen
+            </summary>
+            <param name="cellCountX">Anzahl Zellen in X-Richtung</param>
+            <param name="cellCountZ">Anzahl Zellen in Z-Richtung</param>
+            <param name="cellRadius">Radius je Zelle</param>
+            <param name="fieldHeight">Höhe des Felds</param>
+            <param name="mode">Genauigkeit bei der Messung der Hindernisse (Simple oder Box)</param>
+            <param name="types">Liste der Klassen, die das FlowField scannen soll</param>
         </member>
         <member name="M:KWEngine3.Helper.FlowField.#ctor(System.Single,System.Single,System.Single,System.Int32,System.Int32,System.Single,System.Int32,KWEngine3.FlowFieldMode,System.Type[])">
             <summary>
@@ -3905,6 +3942,12 @@
             </summary>
             <param name="x">Verschiebung des FlowField in x-Richtung</param>
             <param name="z">Verschiebung des FlowField in z-Richtung</param>
+        </member>
+        <member name="M:KWEngine3.Helper.FlowField.SetAllowedDirections(KWEngine3.FlowFieldDirections)">
+            <summary>
+            Setzt die vom Flowfield zu verwendenden Himmelsrichtungen (Standard: CardinalAndIntercardinal)
+            </summary>
+            <param name="directions">Zu verwendende Richtungen</param>
         </member>
         <member name="P:KWEngine3.Helper.FlowField.HasTarget">
             <summary>
