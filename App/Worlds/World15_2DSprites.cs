@@ -25,7 +25,7 @@ namespace KWEngine3_Tutorial.App.Worlds
             SetColorAmbient(1f, 1f, 1f);
             SetBackgroundFillColor(1f, 1f, 1f);
 
-            Platform platform = new Platform();
+            PlatformEntity platform = new PlatformEntity();
             platform.SetModel("KWQuad");
             platform.SetTexture("./App/Textures/brick_albedo.png");
             platform.SetScale(10f, 1f, 1f);

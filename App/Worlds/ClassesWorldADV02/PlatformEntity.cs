@@ -6,9 +6,9 @@ using KWEngine3.Helper;
 using OpenTK.Mathematics;
 using OpenTK.Windowing.GraphicsLibraryFramework;
 
-namespace KWEngine3_Tutorial.App.Worlds.ClassesWorld17
+namespace KWEngine3_Tutorial.App.Worlds.ClassesWorldADV02
 {
-    public class Platform : GameObject
+    public class PlatformEntity : Collider
     {
         public override void Act()
         {

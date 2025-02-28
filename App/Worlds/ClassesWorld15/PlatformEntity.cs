@@ -8,7 +8,7 @@ using OpenTK.Windowing.GraphicsLibraryFramework;
 
 namespace KWEngine3_Tutorial.App.Worlds.ClassesWorld15
 {
-    public class Platform : Collider
+    public class PlatformEntity : Collider
     {
         public override void Act()
         {

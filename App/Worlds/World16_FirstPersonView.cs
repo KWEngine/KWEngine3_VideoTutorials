@@ -23,7 +23,7 @@ namespace KWEngine3_Tutorial.App.Worlds
             SetBackgroundBrightnessMultiplier(2f);
             
 
-            Platform platform = new Platform();
+            PlatformEntity platform = new PlatformEntity();
             platform.SetModel("KWCube");
             platform.SetTexture("./App/Textures/sand_albedo.dds");
             platform.SetScale(10f, 1f, 10f);
@@ -63,7 +63,7 @@ namespace KWEngine3_Tutorial.App.Worlds
             fpw.IsShadowCaster = true;
             SetViewSpaceGameObject(fpw);
 
-            HUDObject crosshair = new HUDObjectImage("./App/Textures/crosshair.png");
+            HUDObjectImage crosshair = new HUDObjectImage("./App/Textures/crosshair.png");
             crosshair.Name = "Crosshair";
             crosshair.CenterOnScreen();
             crosshair.SetScale(32f);
