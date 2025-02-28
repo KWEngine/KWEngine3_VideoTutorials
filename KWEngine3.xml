@@ -231,9 +231,9 @@
             Unterstrich
             </summary>
         </member>
-        <member name="F:KWEngine3.KeyboardCursorType.Block">
+        <member name="F:KWEngine3.KeyboardCursorType.Dot">
             <summary>
-            Block
+            Vertikal zentrierter Punkt
             </summary>
         </member>
         <member name="T:KWEngine3.KeyboardCursorBehaviour">
@@ -984,6 +984,11 @@
         <member name="F:KWEngine3.FontFace.XanhMono">
             <summary>
             "Xanh Mono"
+            </summary>
+        </member>
+        <member name="F:KWEngine3.FontFace.OpenSans">
+            <summary>
+            "Open Sans"
             </summary>
         </member>
         <member name="T:KWEngine3.PostProcessingQuality">
@@ -2515,19 +2520,6 @@
             </summary>
             <param name="intensity">Intensität (zwischen 0 und 10)</param>
         </member>
-        <member name="M:KWEngine3.GameObjects.HUDObject.SetScale(System.Single,System.Single)">
-            <summary>
-            Setzt die Größe (bei Text gilt die Größe je Zeichen)
-            </summary>
-            <param name="width">Breite (gültige Werte zwischen 0.001 und 2048)</param>
-            <param name="height">Höhe (gültige Werte zwischen 0.001 und 2048)</param>
-        </member>
-        <member name="M:KWEngine3.GameObjects.HUDObject.SetScale(System.Single)">
-            <summary>
-            Setzt die Größe (Breite und Höhe gleichermaßen)
-            </summary>
-            <param name="scale">Größe der Buchstaben bzw. des Bilds (in Pixeln)</param>
-        </member>
         <member name="M:KWEngine3.GameObjects.HUDObject.CompareTo(KWEngine3.GameObjects.HUDObject)">
             <summary>
             Vergleicht diese Instanz mit einer anderen hinsichtlich des Z-Index (nur für interne Zwecke benötigt)
@@ -2574,6 +2566,19 @@
             Gibt die aktuelle Skalierung in Pixeln zurück
             </summary>
         </member>
+        <member name="M:KWEngine3.GameObjects.HUDObjectImage.SetScale(System.Single)">
+            <summary>
+            Setzt die Größe (Breite und Höhe gleichermaßen)
+            </summary>
+            <param name="scale">Größe des Bilds (in Pixeln)</param>
+        </member>
+        <member name="M:KWEngine3.GameObjects.HUDObjectImage.SetScale(System.Single,System.Single)">
+            <summary>
+            Setzt die Größe des Bildes in Pixeln
+            </summary>
+            <param name="width">Breite (gültige Werte zwischen 0.001 und 4096)</param>
+            <param name="height">Höhe (gültige Werte zwischen 0.001 und 4096)</param>
+        </member>
         <member name="M:KWEngine3.GameObjects.HUDObjectImage.IsMouseCursorOnMe">
             <summary>
             Prüft, ob der Mauszeiger über dem Bildobjekt liegt
@@ -2608,6 +2613,11 @@
             Klasse zur Darstellung von einfachen Textzeilen
             </summary>
         </member>
+        <member name="F:KWEngine3.GameObjects.HUDObjectText.MAX_CHARS">
+            <summary>
+            Anzahl der maximal je Instanz gleichzeitig verwendbarer Zeichen
+            </summary>
+        </member>
         <member name="M:KWEngine3.GameObjects.HUDObjectText.#ctor(System.String)">
             <summary>
             Standardkonstruktor der HUDObjectText-Instanz
@@ -2616,7 +2626,7 @@
         </member>
         <member name="P:KWEngine3.GameObjects.HUDObjectText.Font">
             <summary>
-            Schriftart des HUD-Objekts
+            Verwendeter Schriftartname des HUD-Objekts
             </summary>
         </member>
         <member name="M:KWEngine3.GameObjects.HUDObjectText.SetFont(KWEngine3.FontFace)">
@@ -2624,6 +2634,13 @@
             Setzt die Schriftart der Instanz
             </summary>
             <param name="fontFace">zu nutzende Schriftart</param>
+        </member>
+        <member name="M:KWEngine3.GameObjects.HUDObjectText.SetFont(System.String)">
+            <summary>
+            Setzt die Schriftart anhand des Namens
+            </summary>
+            <remarks>Schriftart muss zuvor via KWEngine.LoadFont() importiert worden sein</remarks>
+            <param name="fontname">Name der Schriftart</param>
         </member>
         <member name="P:KWEngine3.GameObjects.HUDObjectText.TextAlignment">
             <summary>
@@ -2643,7 +2660,7 @@
         </member>
         <member name="M:KWEngine3.GameObjects.HUDObjectText.SetText(System.String,System.Boolean)">
             <summary>
-            Setzt den Text (maximal 256 Zeichen)
+            Setzt den Text (maximal 127 Zeichen)
             </summary>
             <param name="text">zu setzender Text</param>
             <param name="trim">Leerzeichen zu Beginn und am Ende der Zeichenkette werden abgeschnitten (Standardwert: true)</param>
@@ -2658,6 +2675,12 @@
             <summary>
             Gibt den aktuellen Distanzfaktor für die Abstände zwischen Zeichen an
             </summary>
+        </member>
+        <member name="M:KWEngine3.GameObjects.HUDObjectText.SetScale(System.Single)">
+            <summary>
+            Setzt die Größe pro Zeichen in Pixeln (Standardwert: 32)
+            </summary>
+            <param name="scale">Größe (in Pixeln, Maximalwert: 512)</param>
         </member>
         <member name="M:KWEngine3.GameObjects.HUDObjectText.IsInsideScreenSpace">
             <summary>
@@ -2758,7 +2781,7 @@
         </member>
         <member name="P:KWEngine3.GameObjects.HUDObjectTextInput.MaxInputLength">
             <summary>
-            Setzt oder erfragt die Anzahl maximal einzugebender Zeichen im Bereich [1, 128] (Standardwert: 128)
+            Setzt oder erfragt die Anzahl maximal einzugebender Zeichen im Bereich [1, 127] (Standardwert: 127)
             </summary>
         </member>
         <member name="M:KWEngine3.GameObjects.HUDObjectTextInput.AddCharacters(System.String)">
@@ -3315,9 +3338,9 @@
             </summary>
             <param name="text">Anzuzeigender Text</param>
         </member>
-        <member name="P:KWEngine3.GameObjects.TextObject.IsShadowCaster">
+        <member name="P:KWEngine3.GameObjects.TextObject.IsShadowReceiver">
             <summary>
-            Gibt an, ob das Objekt Schatten werfen und empfangen kann (Standard: false)
+            Gibt an, ob das Objekt Schatten empfangen kann (Standard: false)
             </summary>
         </member>
         <member name="P:KWEngine3.GameObjects.TextObject.IsAffectedByLight">
@@ -3426,6 +3449,12 @@
             </summary>
             <param name="font">Name der zu benutzenden Schriftart</param>
         </member>
+        <member name="M:KWEngine3.GameObjects.TextObject.SetFont(System.String)">
+            <summary>
+            Setzt die anzuzeigende Schriftart anhand ihres Namens
+            </summary>
+            <param name="font">Name der zu benutzenden Schriftart</param>
+        </member>
         <member name="P:KWEngine3.GameObjects.TextObject.Color">
             <summary>
             Erfragt die aktuell gewählte Farbe der Instanz
@@ -3486,11 +3515,6 @@
             Gibt an, ob sich das Objekt aktuell im Blickfeld der Kamera befindet
             </summary>
         </member>
-        <member name="P:KWEngine3.GameObjects.TextObject.Width">
-            <summary>
-            Erfragt die aktuelle Breite des Objekts (mit Rücksicht auf CharacterSpreadFactor und Skalierung)
-            </summary>
-        </member>
         <member name="P:KWEngine3.GameObjects.TextObject.Keyboard">
             <summary>
             Verweis auf Keyboardeingaben
@@ -3499,6 +3523,11 @@
         <member name="P:KWEngine3.GameObjects.TextObject.Mouse">
             <summary>
             Verweis auf Mauseingaben
+            </summary>
+        </member>
+        <member name="F:KWEngine3.GameObjects.TextObject.MAX_CHARS">
+            <summary>
+            Anzahl der maximal je Instanz gleichzeitig verwendbarer Zeichen
             </summary>
         </member>
         <member name="T:KWEngine3.GameObjects.ViewSpaceGameObject">
@@ -3724,6 +3753,26 @@
             Wird ausgeführt, wenn sich das Fenster vergrößert/verkleinert
             </summary>
             <param name="e">Parameter</param>
+        </member>
+        <member name="P:KWEngine3.GLWindow.ProjectionMatrixHUD">
+            <summary>
+            Enthält die aktuelle Projektionsmatrix für HUD-Objekte
+            </summary>
+        </member>
+        <member name="P:KWEngine3.GLWindow.ViewMatrixHUD">
+            <summary>
+            Enthält die aktuelle Viewmatrix für HUD-Objekte
+            </summary>
+        </member>
+        <member name="P:KWEngine3.GLWindow.ViewProjectionMatrixHUD">
+            <summary>
+            Enthält die aktuelle View-Projektionsmatrix für HUD-Objekte
+            </summary>
+        </member>
+        <member name="P:KWEngine3.GLWindow.ViewProjectionMatrix">
+            <summary>
+            Enthält die aktuelle View-Projektionsmatrix für die In-Game-Kamera
+            </summary>
         </member>
         <member name="M:KWEngine3.GLWindow.OnRenderFrame(OpenTK.Windowing.Common.FrameEventArgs)">
             <summary>
@@ -5482,6 +5531,11 @@
             Kernbibliothek der Engine
             </summary>
         </member>
+        <member name="P:KWEngine3.KWEngine.MouseSensitivity">
+            <summary>
+            Empfindlichkeit des Mauszeigers im First-Person-Modus (Standard: 0.05f, negative Werte für die Invertierung der y-Achse)
+            </summary>
+        </member>
         <member name="P:KWEngine3.KWEngine.ViewSpaceGameObjectShakeFactor">
             <summary>
             Gibt an oder setzt den Faktor, der bei der Berechnung des Kameraschüttelns einer ViewSpaceGameObject-Instanz zugerechnet wird (Standard: 0.1f, gültiger Wertebereich liegt zwischen 0f und 1f)
@@ -5616,14 +5670,15 @@
             Steuert den Stil des Glühens (Faktor 2, erlaubte Werte zwischen 0 und 1, Standard: 0.75)
             </summary>
         </member>
+        <member name="P:KWEngine3.KWEngine.ScreenInformation">
+            <summary>
+            Erfragt Informationen über die aktuell angeschlossenen Monitore/Bildschirme
+            </summary>
+            <returns>Monitor-/Bildschirminformationen</returns>
+        </member>
         <member name="P:KWEngine3.KWEngine.WorldUp">
             <summary>
             Welt-Vektor, der angibt, wo 'oben' ist
-            </summary>
-        </member>
-        <member name="P:KWEngine3.KWEngine.MouseSensitivity">
-            <summary>
-            Empfindlichkeit des Mauszeigers im First-Person-Modus (Standard: 0.05f, negative Werte für die Invertierung der y-Achse)
             </summary>
         </member>
         <member name="M:KWEngine3.KWEngine.BuildTerrainModel(System.String,System.String,System.Int32)">
@@ -5648,6 +5703,14 @@
             <param name="name">Name, unter dem das Collider-Modell gespeichert werden soll</param>
             <param name="filename">Dateiname des Collider-Modells</param>
             <param name="colliderType">Art des Collider-Modells</param>
+            <returns>true, wenn der Import funktioniert hat</returns>
+        </member>
+        <member name="M:KWEngine3.KWEngine.LoadFont(System.String,System.String)">
+            <summary>
+            Lädt eine Truetype-Schriftart (TTF) aus einer Datei und speichert Sie intern unter dem im ersten Parameter angegebenen Namen ab
+            </summary>
+            <param name="name">Name der Schriftart (wird später zum Setzen der Schriftart bei textbasierten Objekten verwendet)</param>
+            <param name="filename">Dateiname der Schriftart (inkl. Pfad) - muss eine TTF-Datei sein</param>
         </member>
         <member name="M:KWEngine3.KWEngine.LoadModel(System.String,System.String)">
             <summary>
@@ -5662,12 +5725,6 @@
             </summary>
             <param name="modelname">Name des Modells (muss zuvor importiert worden sein)</param>
             <returns>Liste der Knochennamen</returns>
-        </member>
-        <member name="P:KWEngine3.KWEngine.ScreenInformation">
-            <summary>
-            Erfragt Informationen über die aktuell angeschlossenen Monitore/Bildschirme
-            </summary>
-            <returns>Monitor-/Bildschirminformationen</returns>
         </member>
         <member name="T:KWEngine3.Model.GeoAnimation">
             <summary>
