@@ -2902,11 +2902,6 @@
             Klasse für Sonnen-/Punktlichter und gerichtete Lichter (spot lights)
             </summary>
         </member>
-        <member name="P:KWEngine3.GameObjects.LightObject.IsInsideScreenSpace">
-            <summary>
-            Befinden sich das Lichtobjekt und seine Lichtstrahlen aktuell auf dem Bildschirm?
-            </summary>
-        </member>
         <member name="P:KWEngine3.GameObjects.LightObject.ID">
             <summary>
             Engine-interne ID
