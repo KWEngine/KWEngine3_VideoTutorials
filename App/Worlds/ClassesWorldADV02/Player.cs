@@ -109,7 +109,7 @@ namespace KWEngine3_Tutorial.App.Worlds.ClassesWorldADV02
 
         private void HandleGroundDetection()
         {
-            RayIntersectionExtSet result = RaytraceObjectsBelowPosition(RayMode.TwoRays2DPlatformerY, 1f, -0.05f, 0.01f, typeof(Platform));
+            RayIntersectionExtSet result = RaytraceObjectsBelowPosition(RayMode.TwoRays2DPlatformerY, 1f, -0.05f, 0.01f, typeof(PlatformEntity));
             if(result.IsValid)
             {
                 if(_mode == 0)
