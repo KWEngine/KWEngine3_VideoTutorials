@@ -25,7 +25,7 @@ namespace KWEngine3_Tutorial.App.Worlds
             SetColorAmbient(1f, 1f, 1f);
             SetBackgroundFillColor(1f, 1f, 1f);
 
-            Platform platformLeft = new Platform();
+            PlatformEntity platformLeft = new PlatformEntity();
             platformLeft.SetModel("KWQuad");
             platformLeft.SetTexture("./App/Textures/brick_albedo.png");
             platformLeft.SetScale(10f, 1f, 1f);
@@ -35,7 +35,7 @@ namespace KWEngine3_Tutorial.App.Worlds
             platformLeft.IsCollisionObject = true;
             AddGameObject(platformLeft);
 
-            Platform platformRight = new Platform();
+            PlatformEntity platformRight = new PlatformEntity();
             platformRight.SetModel("KWQuad");
             platformRight.SetTexture("./App/Textures/brick_albedo.png");
             platformRight.SetScale(10f, 1f, 1f);
@@ -45,7 +45,7 @@ namespace KWEngine3_Tutorial.App.Worlds
             platformRight.IsCollisionObject = true;
             AddGameObject(platformRight);
 
-            Platform platformHigh = new Platform();
+            PlatformEntity platformHigh = new PlatformEntity();
             platformHigh.SetModel("KWQuad");
             platformHigh.SetTexture("./App/Textures/brick_albedo.png");
             platformHigh.SetScale(1f, 0.125f, 1f);

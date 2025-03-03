@@ -8,7 +8,7 @@ using OpenTK.Windowing.GraphicsLibraryFramework;
 
 namespace KWEngine3_Tutorial.App.Worlds.ClassesWorld15
 {
-    public class Platform : GameObject
+    public class PlatformEntity : GameObject
     {
         public override void Act()
         {

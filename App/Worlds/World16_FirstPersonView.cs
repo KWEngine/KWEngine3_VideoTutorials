@@ -21,8 +21,8 @@ namespace KWEngine3_Tutorial.App.Worlds
             SetBackgroundSkybox("./App/Textures/background_skybox.png");
             SetColorAmbient(0.5f, 0.5f, 0.5f);
             SetBackgroundBrightnessMultiplier(2f);
-            
-            Platform platform = new Platform();
+
+            PlatformEntity platform = new PlatformEntity();
             platform.SetModel("KWCube");
             platform.SetTexture("./App/Textures/sand_albedo.dds");
             platform.SetScale(10f, 1f, 10f);
