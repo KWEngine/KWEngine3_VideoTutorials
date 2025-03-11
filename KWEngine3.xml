@@ -1782,7 +1782,7 @@
             <summary>
             Explosionskonstruktormethode
             </summary>
-            <param name="particleCount">Anzahl der Partikel</param>
+            <param name="particleCount">Anzahl der Partikel (max: 512)</param>
             <param name="particleSize">Größe der Partikel</param>
             <param name="explosionRadius">Radius der Explosion</param>
             <param name="durationInSeconds">Dauer der Explosion in Sekunden</param>
@@ -2656,6 +2656,11 @@
         <member name="F:KWEngine3.GameObjects.HUDObjectText.MAX_CHARS">
             <summary>
             Anzahl der maximal je Instanz gleichzeitig verwendbarer Zeichen
+            </summary>
+        </member>
+        <member name="P:KWEngine3.GameObjects.HUDObjectText.ForceMonospace">
+            <summary>
+            Wenn 'true', werden gleiche Abstände zwischen allen Zeichen erzwungen (Standard: false)
             </summary>
         </member>
         <member name="M:KWEngine3.GameObjects.HUDObjectText.#ctor(System.String)">
