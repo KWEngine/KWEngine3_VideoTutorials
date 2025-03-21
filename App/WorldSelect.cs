@@ -64,7 +64,7 @@ namespace KWEngine3_Tutorial.App.Worlds
                 h.SetFont(FontFace.Anonymous);
                 h.SetScale(28f);
                 h.SetColorEmissive(0f, 1f, 0f);
-                h.SetCharacterDistanceFactor(0.55f);
+                h.SetCharacterDistanceFactor(0.75f);
                 h.SetTextAlignment(TextAlignMode.Left);
                 h.SetPosition(currentX, currentY);
                 h.SetColor(0, 0, 0);
@@ -99,7 +99,7 @@ namespace KWEngine3_Tutorial.App.Worlds
                 h.SetFont(FontFace.Anonymous);
                 h.SetScale(28f);
                 h.SetColorEmissive(0f, 1f, 0f);
-                h.SetCharacterDistanceFactor(0.55f);
+                h.SetCharacterDistanceFactor(0.75f);
                 h.SetTextAlignment(TextAlignMode.Left);
                 h.SetPosition(currentX, currentY);
                 h.SetColor(0, 0, 0);
