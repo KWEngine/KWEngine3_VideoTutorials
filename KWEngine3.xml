@@ -166,6 +166,21 @@
             Frees all graphics resources used by the renderer.
             </summary>
         </member>
+        <member name="T:KWEngine3.GBufferLightingMode">
+            <summary>
+            Gibt an, wie der Beleuchtungsschritt in der Engine ablaufen soll
+            </summary>
+        </member>
+        <member name="F:KWEngine3.GBufferLightingMode.Default">
+            <summary>
+            Standard: Instanziiertes GBuffer-Grid
+            </summary>
+        </member>
+        <member name="F:KWEngine3.GBufferLightingMode.SeparateDrawCalls">
+            <summary>
+            Das GBuffer-Grid wird in separaten Draw-Calls gezeichnet
+            </summary>
+        </member>
         <member name="T:KWEngine3.RenderType">
             <summary>
             Art des Draw Calls (für das Debugging)
@@ -953,17 +968,52 @@
         </member>
         <member name="F:KWEngine3.ShadowQuality.Low">
             <summary>
-            Niedrige Qualität
+            Niedrige Qualität (512 * 512)
             </summary>
         </member>
         <member name="F:KWEngine3.ShadowQuality.Medium">
             <summary>
-            Mittlere Qualität (Standard)
+            Mittlere Qualität (Standard, 1024 * 1024)
             </summary>
         </member>
         <member name="F:KWEngine3.ShadowQuality.High">
             <summary>
-            Hohe Qualität
+            Hohe Qualität (2048 * 2048)
+            </summary>
+        </member>
+        <member name="T:KWEngine3.SunShadowType">
+            <summary>
+            Art des Schattentyps (nur für Sonnenlicht relevant)
+            </summary>
+        </member>
+        <member name="F:KWEngine3.SunShadowType.Default">
+            <summary>
+            Standard
+            </summary>
+        </member>
+        <member name="F:KWEngine3.SunShadowType.CascadedShadowMap">
+            <summary>
+            Cascaded: Schatten nahe des Lichtziels sind detaillierter, weiter weg liegende Objekte werfen gröbere Schatten
+            </summary>
+        </member>
+        <member name="T:KWEngine3.CSMFactor">
+            <summary>
+            Gibt an, wie viel größer die weiteste Shadow Map im CSM-Array als die innerste Shadow Map ist.
+            </summary>
+        </member>
+        <member name="F:KWEngine3.CSMFactor.Two">
+            <summary>
+            Zweimal so groß
+            </summary>
+        </member>
+        <member name="F:KWEngine3.CSMFactor.Four">
+            <summary>
+            Viermal so groß
+            </summary>
+        </member>
+        <member name="F:KWEngine3.CSMFactor.Eight">
+            <summary>
+            Achtmal so groß
             </summary>
         </member>
         <member name="T:KWEngine3.ProjectionType">
@@ -2431,6 +2481,11 @@
             </summary>
             <param name="deleteAttachments">wenn true, werden die anhaftenden Instanzen nicht nur abgekoppelt sondern auch aus der Welt gelöscht (Standard: false)</param>
         </member>
+        <member name="P:KWEngine3.GameObjects.GameObject.Diameter">
+            <summary>
+            Gibt den groben Durchmesser der Hitbox an
+            </summary>
+        </member>
         <member name="T:KWEngine3.GameObjects.HUDObject">
             <summary>
             HUD-Oberklasse
@@ -2957,17 +3012,23 @@
             Name des Objekts
             </summary>
         </member>
-        <member name="P:KWEngine3.GameObjects.LightObject.ShadowCasterType">
+        <member name="P:KWEngine3.GameObjects.LightObject.ShadowQualityLevel">
             <summary>
             Schattenqualität des Lichts (maximal 3 Schattenlichter pro Welt möglich)
             </summary>
         </member>
-        <member name="M:KWEngine3.GameObjects.LightObject.#ctor(KWEngine3.LightType,KWEngine3.ShadowQuality)">
+        <member name="P:KWEngine3.GameObjects.LightObject.ShadowType">
             <summary>
-            Standardkonstruktormethode für Lichtobjekte
+            Art der Schattenberechnung (Standard oder kaskadiert)
+            </summary>
+        </member>
+        <member name="M:KWEngine3.GameObjects.LightObject.Init(KWEngine3.LightType,KWEngine3.ShadowQuality,KWEngine3.SunShadowType)">
+            <summary>
+            Init-Methode für Lichtobjekte
             </summary>
             <param name="lightType">Art des Lichts (Sonne, Punktlicht oder gerichtetes Licht?)</param>
-            <param name="shadowType">Schattenqualität des Lichts</param>
+            <param name="shadowQuality">Schattenqualität des Lichts</param>
+            <param name="shadowType">Schattentyp</param>
         </member>
         <member name="M:KWEngine3.GameObjects.LightObject.SetShadowBias(System.Single)">
             <summary>
@@ -3077,6 +3138,46 @@
             <summary>
             Gibt die aktuelle Zielposition des Lichtobjekts zurück (nur für gerichtete Lichter gültig)
             </summary>
+        </member>
+        <member name="T:KWEngine3.GameObjects.LightObjectDirectional">
+            <summary>
+            Klasse für Lichter mit gerichtetem Lichtkegel
+            </summary>
+        </member>
+        <member name="M:KWEngine3.GameObjects.LightObjectDirectional.#ctor(KWEngine3.ShadowQuality)">
+            <summary>
+            Konstruktormethode für die Erstellung einer Lichtinstanz mit gerichtetem Lichtkegel
+            </summary>
+            <param name="shadowQuality">Schattenqualitätslevel</param>
+        </member>
+        <member name="T:KWEngine3.GameObjects.LightObjectPoint">
+            <summary>
+            Klasse für Punktlichter
+            </summary>
+        </member>
+        <member name="M:KWEngine3.GameObjects.LightObjectPoint.#ctor(KWEngine3.ShadowQuality)">
+            <summary>
+            Konstruktormethode für die Erstellung einer Punktlichtinstanz
+            </summary>
+            <param name="shadowQuality">Schattenqualitätslevel</param>
+        </member>
+        <member name="T:KWEngine3.GameObjects.LightObjectSun">
+            <summary>
+            Klasse für das Sonnenlicht
+            </summary>
+        </member>
+        <member name="M:KWEngine3.GameObjects.LightObjectSun.#ctor(KWEngine3.ShadowQuality,KWEngine3.SunShadowType)">
+            <summary>
+            Konstruktormethode für die Erstellung einer Sonnenlichtinstanz
+            </summary>
+            <param name="shadowQuality">Schattenqualitätslevel</param>
+            <param name="shadowType">Gibt die Art des Schattens an</param>
+        </member>
+        <member name="M:KWEngine3.GameObjects.LightObjectSun.SetCSMFactor(KWEngine3.CSMFactor)">
+            <summary>
+            Gibt an, wie viel größer die äußere Shadow Map für eine schattenwerfende Sonne ist
+            </summary>
+            <param name="factor">Vergrößerungsfaktor</param>
         </member>
         <member name="T:KWEngine3.GameObjects.ParticleObject">
             <summary>
@@ -5570,6 +5671,12 @@
             <summary>
             Kernbibliothek der Engine
             </summary>
+        </member>
+        <member name="P:KWEngine3.KWEngine.GBufferLighting">
+            <summary>
+            Gibt an, wie der Beleuchtungsschritt in der Engine ablaufen soll
+            </summary>
+            <remarks>Kann die Performance auf schwachen GPUs verbessern</remarks>
         </member>
         <member name="P:KWEngine3.KWEngine.MouseSensitivity">
             <summary>
