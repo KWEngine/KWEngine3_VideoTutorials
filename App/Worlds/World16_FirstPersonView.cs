@@ -69,7 +69,7 @@ namespace KWEngine3_Tutorial.App.Worlds
             crosshair.SetScale(32f);
             AddHUDObject(crosshair);
 
-            LightObject sun = new LightObject(LightType.Sun, ShadowQuality.High);
+            LightObject sun = new LightObjectSun(ShadowQuality.High, SunShadowType.Default);
             sun.SetPosition(-25f, 50f, 10f);
             sun.SetTarget(0f, 0f, 0f);
             sun.SetFOV(20f);

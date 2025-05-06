@@ -43,7 +43,7 @@ namespace KWEngine3_Tutorial.App.Worlds
             c.IsAffectedByLight = false;
             AddGameObject(c);
 
-            LightObject sun = new LightObject(LightType.Sun, ShadowQuality.High);
+            LightObject sun = new LightObjectSun(ShadowQuality.High, SunShadowType.Default);
             sun.SetPosition(-50f, 50f, 50f);
             sun.SetTarget(0f, 0f, 0f);
             sun.SetNearFar(50f, 150f);
