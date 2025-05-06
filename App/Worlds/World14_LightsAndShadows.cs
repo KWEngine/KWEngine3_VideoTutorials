@@ -36,7 +36,7 @@ namespace KWEngine3_Tutorial.App.Worlds
             CreateTerrainAndFoliage();
             CreateWalls();
 
-            LightObject sun = new LightObject(LightType.Sun, ShadowQuality.High);
+            LightObject sun = new LightObjectSun(ShadowQuality.High, SunShadowType.Default);
             sun.SetPosition(-50f, 50f, 50f);
             sun.SetTarget(0f, 0f, 0f);
             sun.SetNearFar(50f, 150f);
@@ -44,7 +44,7 @@ namespace KWEngine3_Tutorial.App.Worlds
             sun.SetColor(1f, 1f, 1f, 3f);
             AddLightObject(sun);
 
-            LightObject pointLight = new LightObject(LightType.Point);
+            LightObject pointLight = new LightObjectPoint(ShadowQuality.NoShadow);
             pointLight.SetColor(1f, 0f, 0f, 5f);
             pointLight.SetPosition(0f, 3f, 0f);
             pointLight.SetNearFar(0.1f, 3f);
