@@ -3338,9 +3338,26 @@
             Gibt an oder setzt fest, ob die Instanz sichtbar ist (Standard: true)
             </summary>
         </member>
+        <member name="M:KWEngine3.GameObjects.TerrainObject.SetTextureSlopeBlendFactor(System.Single)">
+            <summary>
+            Gibt an, ab welchem Steigungsfaktor (zwischen 0 und 1) die Slope-Textur statt der regulären Terrain-Textur verwendet wird
+            </summary>
+            <param name="factor">Steigungsfaktor (zwischen 0 und 1, Standardwert: 0.5f)</param>
+        </member>
+        <member name="M:KWEngine3.GameObjects.TerrainObject.SetTextureSlopeBlendSmoothingFactor(System.Single)">
+            <summary>
+            Gibt an, wie weich die Übergänge zwischen den beiden Texturen (reguläre und Slope-Textur) verlaufen sollen (Standard: 0.001f)
+            </summary>
+            <param name="factor">Glättungsfaktor (zwischen 0f und 1f)</param>
+        </member>
         <member name="P:KWEngine3.GameObjects.TerrainObject.Name">
             <summary>
             Name des Objekts
+            </summary>
+        </member>
+        <member name="P:KWEngine3.GameObjects.TerrainObject.TessellationThreshold">
+            <summary>
+            Gibt an, ab welcher Entfernung dieses Terrain weniger detailliert dargestellt werden soll (Standard: 64 Längeneinheiten)
             </summary>
         </member>
         <member name="P:KWEngine3.GameObjects.TerrainObject.Width">
@@ -3401,7 +3418,14 @@
         </member>
         <member name="M:KWEngine3.GameObjects.TerrainObject.SetTexture(System.String,KWEngine3.TextureType)">
             <summary>
-            Setzt die Textur des Objekts
+            Setzt die Haupttextur des Terrains
+            </summary>
+            <param name="filename">Dateiname (inkl. relativem Pfad)</param>
+            <param name="type">Texturtyp (Standard: Albedo)</param>
+        </member>
+        <member name="M:KWEngine3.GameObjects.TerrainObject.SetTextureForSlope(System.String,KWEngine3.TextureType)">
+            <summary>
+            Setzt die Textur des Terrains für Anstiege und Gefälle
             </summary>
             <param name="filename">Dateiname (inkl. relativem Pfad)</param>
             <param name="type">Texturtyp (Standard: Albedo)</param>
@@ -3416,6 +3440,20 @@
         <member name="M:KWEngine3.GameObjects.TerrainObject.SetTextureRepeat(System.Single,System.Single)">
             <summary>
             Setzt die Texturwiederholung in x-/y-Richtung (Standard: 1)
+            </summary>
+            <param name="x">x</param>
+            <param name="y">y</param>
+        </member>
+        <member name="M:KWEngine3.GameObjects.TerrainObject.SetTextureOffsetForSlope(System.Single,System.Single)">
+            <summary>
+            Setzt die Texturverschiebung für starke Steigungen / Gefälle
+            </summary>
+            <param name="x">x</param>
+            <param name="y">y</param>
+        </member>
+        <member name="M:KWEngine3.GameObjects.TerrainObject.SetTextureRepeatForSlope(System.Single,System.Single)">
+            <summary>
+            Setzt die Texturwiederholung in x-/y-Richtung (Standard: 1) für starke Steigungen / Gefälle
             </summary>
             <param name="x">x</param>
             <param name="y">y</param>
@@ -4603,6 +4641,7 @@
             <summary>
             Berechnet den ungefähren Schnittpunkt des Mauszeigers mit einem Terrain-Objekt.
             </summary>
+            <remarks>Terrain-Instanz MUSS dafür als Kollisionsobjekt markiert sein!</remarks>
             <param name="intersectionPoint">Ausgabe des Schnittpunkts (wenn der Mauszeiger über einem Terrain-Objekt liegt - sonst (0|0|0))</param>
             <returns>true, wenn der Mauszeiger über einem Terrain-Objekt liegt</returns>
         </member>
@@ -5706,11 +5745,6 @@
         <member name="P:KWEngine3.KWEngine.ViewSpaceGameObjectShakeFactor">
             <summary>
             Gibt an oder setzt den Faktor, der bei der Berechnung des Kameraschüttelns einer ViewSpaceGameObject-Instanz zugerechnet wird (Standard: 0.1f, gültiger Wertebereich liegt zwischen 0f und 1f)
-            </summary>
-        </member>
-        <member name="P:KWEngine3.KWEngine.TerrainTessellationThreshold">
-            <summary>
-            Gibt an, ab welcher Entfernung Terrain-Geometrie weniger detailliert dargestellt werden soll (Standard: 32 Einheiten)
             </summary>
         </member>
         <member name="F:KWEngine3.KWEngine.MAXADDITIONALINSTANCECOUNT">
