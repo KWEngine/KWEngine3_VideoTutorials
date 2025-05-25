@@ -1081,19 +1081,24 @@
             "Open Sans"
             </summary>
         </member>
-        <member name="T:KWEngine3.PostProcessingQuality">
+        <member name="T:KWEngine3.RenderQualityLevel">
             <summary>
-            Aktivierung von Post-Processing-Effekten (Standard: hohe Qualität)
+            Renderqualität [Standard: ausgeglichene Qualität]
             </summary>
         </member>
-        <member name="F:KWEngine3.PostProcessingQuality.High">
+        <member name="F:KWEngine3.RenderQualityLevel.High">
             <summary>
-            Hoch
+            Hohe Qualität (für leistungsstarke GPUs)
             </summary>
         </member>
-        <member name="F:KWEngine3.PostProcessingQuality.Standard">
+        <member name="F:KWEngine3.RenderQualityLevel.Default">
             <summary>
             Standard (vorausgewählt)
+            </summary>
+        </member>
+        <member name="F:KWEngine3.RenderQualityLevel.Low">
+            <summary>
+            Niedrige Qualität (für Onboard-GPUs)
             </summary>
         </member>
         <member name="T:KWEngine3.CubeSide">
@@ -3862,12 +3867,12 @@
             Basisklasse für das Programmfenster
             </summary>
         </member>
-        <member name="M:KWEngine3.GLWindow.#ctor(System.Boolean,KWEngine3.PostProcessingQuality,OpenTK.Windowing.Common.Input.WindowIcon)">
+        <member name="M:KWEngine3.GLWindow.#ctor(System.Boolean,KWEngine3.RenderQualityLevel,OpenTK.Windowing.Common.Input.WindowIcon)">
             <summary>
             Standardkonstruktor für den exklusiven Fullscreen-Modus
             </summary>
             <param name="vSync">Begrenzung der FPS an die Bildwiederholrate des Monitors?</param>
-            <param name="ppQuality">Qualität der Post-Processing-Pipeline (Standard: hohe Qualität)</param>
+            <param name="quality">Qualität der Render-Pipeline (Standard: ausbalancierte Qualität)</param>
             <param name="icon">Fenstersymbol</param>
         </member>
         <member name="M:KWEngine3.GLWindow.#ctor(System.Int32,System.Int32,System.Boolean,OpenTK.Windowing.Common.Input.WindowIcon)">
@@ -3879,25 +3884,25 @@
             <param name="vSync">Begrenzung der FPS an die Bildwiederholrate des Monitors?</param>
             <param name="icon">Fenstersymbol</param>
         </member>
-        <member name="M:KWEngine3.GLWindow.#ctor(System.Int32,System.Int32,System.Boolean,KWEngine3.PostProcessingQuality,KWEngine3.WindowMode,OpenTK.Windowing.Common.Input.WindowIcon)">
+        <member name="M:KWEngine3.GLWindow.#ctor(System.Int32,System.Int32,System.Boolean,KWEngine3.RenderQualityLevel,KWEngine3.WindowMode,OpenTK.Windowing.Common.Input.WindowIcon)">
             <summary>
             Standardkonstruktor für den Fenstermodus
             </summary>
             <param name="width">Breite des Fensterinhalts in Pixeln</param>
             <param name="height">Höhe des Fenterinhalts in Pixeln</param>
             <param name="vSync">Begrenzung der FPS an die Bildwiederholrate des Monitors?</param>
-            <param name="ppQuality">Qualität der Post-Processing-Pipeline (Standard: hohe Qualität)</param>
+            <param name="quality">Qualität der Render-Pipeline (Standard: ausbalancierte Qualität)</param>
             <param name="windowMode">Art des Fensters (Standard oder rahmenlos)</param>
             <param name="icon">Fenstersymbol</param>
         </member>
-        <member name="M:KWEngine3.GLWindow.#ctor(System.Int32,System.Int32,System.Boolean,KWEngine3.PostProcessingQuality,KWEngine3.WindowMode,System.IntPtr,OpenTK.Windowing.Common.Input.WindowIcon)">
+        <member name="M:KWEngine3.GLWindow.#ctor(System.Int32,System.Int32,System.Boolean,KWEngine3.RenderQualityLevel,KWEngine3.WindowMode,System.IntPtr,OpenTK.Windowing.Common.Input.WindowIcon)">
             <summary>
             Standardkonstruktor für den Fenstermodus
             </summary>
             <param name="width">Breite des Fensterinhalts in Pixeln</param>
             <param name="height">Höhe des Fenterinhalts in Pixeln</param>
             <param name="vSync">Begrenzung der FPS an die Bildwiederholrate des Monitors?</param>
-            <param name="ppQuality">Qualität der Post-Processing-Pipeline (Standard: hohe Qualität)</param>
+            <param name="quality">Qualität der Render-Pipeline (Standard: ausbalancierte Qualität)</param>
             <param name="windowMode">Art des Fensters (Standard oder rahmenlos)</param>
             <param name="monitorHandle">Handle des Monitors, auf dem das Fenster geöffnet werden soll</param>
             <param name="icon">Fenstersymbol</param>
@@ -4061,9 +4066,9 @@
             <param name="iconFile">Dateiname</param>
             <returns>WindowIcon-Instanz</returns>
         </member>
-        <member name="P:KWEngine3.GLWindow.Quality">
+        <member name="P:KWEngine3.GLWindow.RenderQuality">
             <summary>
-            Gibt die bei Programmstart gewählte Qualität für Post-Processing-Effekte zurück
+            Gibt die bei Programmstart gewählte Render-Qualität zurück
             </summary>
         </member>
         <member name="T:KWEngine3.Helper.FlowField">
