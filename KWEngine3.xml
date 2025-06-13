@@ -1777,6 +1777,20 @@
             </summary>
             <param name="p">relativer Fortschritt der Animation</param>
         </member>
+        <member name="M:KWEngine3.GameObjects.EngineObject.SetHue(System.Single,System.Int32)">
+            <summary>
+            Setzt die Farbverschiebung (Hue) in Grad
+            </summary>
+            <param name="hue">Farbverschiebung (in Grad)</param>
+            <param name="meshIndex">Index des Model-Meshs (Standard: 0)</param>
+        </member>
+        <member name="M:KWEngine3.GameObjects.EngineObject.GetHue(System.Int32)">
+            <summary>
+            Erfragt die aktuelle Farbverschiebung (Hue) in Grad
+            </summary>
+            <param name="meshIndex">Index des Model-Meshs (Standard: 0)</param>
+            <returns>Aktuelle Farbverschiebung (in Grad)</returns>
+        </member>
         <member name="T:KWEngine3.GameObjects.ExplosionObject">
             <summary>
             Explosionsklasse
@@ -3199,6 +3213,18 @@
             Setzt die Dauer der Loop-Partikel
             </summary>
             <param name="durationInSeconds">Dauer (in Sekunden)</param>
+        </member>
+        <member name="M:KWEngine3.GameObjects.ParticleObject.SetHue(System.Single)">
+            <summary>
+            Setzt die Farbverschiebung (Hue) in Grad
+            </summary>
+            <param name="hue">Farbverschiebung (in Grad)</param>
+        </member>
+        <member name="M:KWEngine3.GameObjects.ParticleObject.GetHue">
+            <summary>
+            Erfragt die aktuelle Farbverschiebung (Hue) in Grad
+            </summary>
+            <returns>Aktuelle Farbverschiebung (in Grad)</returns>
         </member>
         <member name="M:KWEngine3.GameObjects.ParticleObject.SetPosition(OpenTK.Mathematics.Vector3)">
             <summary>
