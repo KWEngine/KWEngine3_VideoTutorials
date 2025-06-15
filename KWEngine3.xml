@@ -1540,6 +1540,13 @@
             </summary>
             <param name="s">Skalierung</param>
         </member>
+        <member name="M:KWEngine3.GameObjects.EngineObject.SetScale(System.Single,System.Single)">
+            <summary>
+            Setzt die Größenskalierung des Objekts (muss > 0 sein)
+            </summary>
+            <param name="x">Skalierung entlang der x-Achse</param>
+            <param name="y">Skalierung entlang der y-Achse</param>
+        </member>
         <member name="M:KWEngine3.GameObjects.EngineObject.Move(System.Single)">
             <summary>
             Bewegt das Objekt in seiner Blickrichtung
@@ -4088,7 +4095,7 @@
             <summary>
             Konvertiert eine Grafikdatei in das WindowIcon-Format
             </summary>
-            <remarks>Method output may be null if file is invalid</remarks>
+            <remarks>Rückgabewert ist null, wenn die zu ladende Datei ungültig oder ungeeignet ist</remarks>
             <param name="iconFile">Dateiname</param>
             <returns>WindowIcon-Instanz</returns>
         </member>
