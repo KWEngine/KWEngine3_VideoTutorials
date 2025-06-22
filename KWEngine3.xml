@@ -1226,6 +1226,34 @@
             Kamerablickebene
             </summary>
         </member>
+        <member name="T:KWEngine3.HighlightMode">
+            <summary>
+            Gibt an, nach welcher Methodik eine GameObject-Instanz hervorgehoben werden soll
+            </summary>
+        </member>
+        <member name="F:KWEngine3.HighlightMode.Disabled">
+            <summary>
+            Deaktiviert (Standard)
+            </summary>
+        </member>
+        <member name="F:KWEngine3.HighlightMode.WhenOccluded">
+            <summary>
+            Hervorhebung findet nur dann statt, wenn das Objekt von anderen Objekten verdeckt wird
+            </summary>
+        </member>
+        <member name="F:KWEngine3.HighlightMode.WhenOccludedOutline">
+            <summary>
+            Hervorhebung als Silhouette findet nur dann statt, wenn das Objekt von anderen Objekten verdeckt wird
+            </summary>
+        </member>
+        <member name="F:KWEngine3.HighlightMode.Permanent">
+            <summary>
+            Hervorhebung findet permanent statt
+            </summary>
+        </member>
+        <member name="F:KWEngine3.HighlightMode.PermanentOutline">
+            Hervorhebung als Silhouette findet permanent statt
+        </member>
         <member name="T:KWEngine3.Exceptions.EngineException">
             <summary>
             Ausnahmefehlerklasse der Engine (noch nicht überall verwendet)
@@ -2046,6 +2074,29 @@
             <summary>
             Gibt an, ob das Objekt ein Kollisionen erzeugen und überprüfen kann
             </summary>
+        </member>
+        <member name="M:KWEngine3.GameObjects.GameObject.SetColorHighlight(System.Single,System.Single,System.Single,System.Single)">
+            <summary>
+            Setzt die Hervorhebungsfarbe für das Objekt (RGB und Intensität)
+            </summary>
+            <param name="r">Rotanteil (0.0f bis 1.0f)</param>
+            <param name="g">Grünanteil (0.0f bis 1.0f)</param>
+            <param name="b">Blauanteil (0.0f bis 1.0f)</param>
+            <param name="intensity">Intensität (0.0f bis 2.0f)</param>
+        </member>
+        <member name="P:KWEngine3.GameObjects.GameObject.ColorHighlight">
+            <summary>
+            Erfragt die aktuell gesetze Farbe (RGB und Intensität) für die Hervorhebung
+            </summary>
+        </member>
+        <member name="M:KWEngine3.GameObjects.GameObject.SetColorHighlightMode(KWEngine3.HighlightMode)">
+            <summary>
+            Setzt den Modus für das Hervorheben (Standard: Disabled)
+            </summary>
+            <remarks>
+            Wenn der Modus "Disabled" ist, hat die Eigenschaft ColorHighlight keine Wirkung
+            </remarks>
+            <param name="mode">gewünschter Modus</param>
         </member>
         <member name="M:KWEngine3.GameObjects.GameObject.ResetColliderModel">
             <summary>
