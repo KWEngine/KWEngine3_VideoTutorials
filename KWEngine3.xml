@@ -9,6 +9,12 @@
             Helfer-Klasse für Audioeffekte
             </summary>
         </member>
+        <member name="P:KWEngine3.Audio.Audio.BufferSizeMs">
+            <summary>
+            Gibt die Puffergröße in Millisekunden für alle Audiokanäle an (Minimum: 20ms, Standardwert: 50ms)
+            </summary>
+            <remarks>Es sind nur 10er-Schritte erlaubt (20, 30, usw.)</remarks>
+        </member>
         <member name="M:KWEngine3.Audio.Audio.PlaySound(System.String,System.Boolean,System.Single)">
             <summary>
             Spielt einen Ton ab
@@ -22,7 +28,7 @@
             <summary>
             Ändert die Lautstärke eines Tons
             </summary>
-            <param name="sourceId">id der Audiospur</param>
+            <param name="channel">Kanalnummer</param>
             <param name="gain">Lautstärke (0.0f bis 1.0f)</param>
         </member>
         <member name="M:KWEngine3.Audio.Audio.StopSound(System.String)">
@@ -41,11 +47,223 @@
             <summary>
             Stoppt den angegebenen Audiokanal
             </summary>
-            <param name="sourceId">Lanalnummer</param>
+            <param name="channel">Kanalnummer</param>
+        </member>
+        <member name="M:KWEngine3.Audio.Audio.PauseSound(System.String)">
+            <summary>
+            Pausiert den ersten Audiokanal, der die angegebene Datei gerade abspielt
+            </summary>
+            <param name="audiofile">zu pausierende Audiodatei</param>
+        </member>
+        <member name="M:KWEngine3.Audio.Audio.PauseSound(System.Int32)">
+            <summary>
+            Pausiert den angegebenen Audiokanal
+            </summary>
+            <param name="channel">Kanalnummer</param>
+        </member>
+        <member name="M:KWEngine3.Audio.Audio.IsChannelPlaying(System.Int32)">
+            <summary>
+            Erfragt, ob der angegebene Audiokanal gerade etwas abspielt
+            </summary>
+            <param name="channel">Kanalnummer</param>
+            <returns>true, wenn der Kanal abgespielt wird</returns>
+        </member>
+        <member name="M:KWEngine3.Audio.Audio.IsChannelPaused(System.Int32)">
+            <summary>
+            Erfragt, ob der angegebene Audiokanal gerade pausiert ist
+            </summary>
+            <param name="channel">Kanalnummer</param>
+            <returns>true, wenn der Kanal pausiert ist</returns>
+        </member>
+        <member name="M:KWEngine3.Audio.Audio.IsChannelPlayingOrPaused(System.Int32)">
+            <summary>
+            Erfragt, ob der angegebene Audiokanal gerade etwas abspielt oder pausiert ist
+            </summary>
+            <param name="channel">Kanalnummer</param>
+            <returns>true, wenn der Kanal abgespielt wird oder pausiert ist</returns>
+        </member>
+        <member name="M:KWEngine3.Audio.Audio.ContinueSound(System.String)">
+            <summary>
+            Setzt die Wiedergabe der angegebenen Audiodatei fort
+            </summary>
+            <param name="audiofile">fortzusetzende Audiodatei</param>
+        </member>
+        <member name="M:KWEngine3.Audio.Audio.ContinueSound(System.Int32)">
+            <summary>
+            Setzt die Wiedergabe des Audiokanals fort
+            </summary>
+            <param name="channel">Kanalnummer</param>
+        </member>
+        <member name="M:KWEngine3.Audio.Audio.PauseAllSound">
+            <summary>
+            Pausiert alle gerade wiedergegebenen Töne
+            </summary>
+        </member>
+        <member name="M:KWEngine3.Audio.Audio.ContinueAllSound">
+            <summary>
+            Setzt die Wiedergabe aller gerade pausierten Töne fort
+            </summary>
         </member>
         <member name="M:KWEngine3.Audio.Audio.StopAllSound">
             <summary>
             Stoppt alle Töne
+            </summary>
+        </member>
+        <member name="M:KWEngine3.Audio.Audio.GetAudioAnalysisForChannel(System.Int32)">
+            <summary>
+            Ruft die spektrografische Analysedaten für den angegebenen (gerade spielenden) Kanal ab
+            </summary>
+            <param name="channel">Kanalnummer</param>
+            <returns>Analysedaten</returns>
+        </member>
+        <member name="T:KWEngine3.Audio.AudioAnalysis">
+            <summary>
+            Analysedatencontainer für die spektrografische Audioanalyse
+            </summary>
+        </member>
+        <member name="P:KWEngine3.Audio.AudioAnalysis.IsValid">
+            <summary>
+            Gibt an, ob der Datensatz gültig ist
+            </summary>
+        </member>
+        <member name="P:KWEngine3.Audio.AudioAnalysis.TimestampApplication">
+            <summary>
+            Messzeitpunkt in Relation zum Anwendungsstartzeitpunkt
+            </summary>
+        </member>
+        <member name="P:KWEngine3.Audio.AudioAnalysis.TimestampWorld">
+            <summary>
+            Messzeitpunkt in Relation zum Weltstartzeitpunkt
+            </summary>
+        </member>
+        <member name="P:KWEngine3.Audio.AudioAnalysis.Volume">
+            <summary>
+            Lautstärkewert (0.0f = lautlos, 1.0f = laut)
+            </summary>
+        </member>
+        <member name="P:KWEngine3.Audio.AudioAnalysis.Band01">
+            <summary>
+            Daten zu Frequenzband 1
+            </summary>
+        </member>
+        <member name="P:KWEngine3.Audio.AudioAnalysis.Band02">
+            <summary>
+            Daten zu Frequenzband 2
+            </summary>
+        </member>
+        <member name="P:KWEngine3.Audio.AudioAnalysis.Band03">
+            <summary>
+            Daten zu Frequenzband 3
+            </summary>
+        </member>
+        <member name="P:KWEngine3.Audio.AudioAnalysis.Band04">
+            <summary>
+            Daten zu Frequenzband 4
+            </summary>
+        </member>
+        <member name="P:KWEngine3.Audio.AudioAnalysis.Band05">
+            <summary>
+            Daten zu Frequenzband 5
+            </summary>
+        </member>
+        <member name="P:KWEngine3.Audio.AudioAnalysis.Band06">
+            <summary>
+            Daten zu Frequenzband 6
+            </summary>
+        </member>
+        <member name="P:KWEngine3.Audio.AudioAnalysis.Band07">
+            <summary>
+            Daten zu Frequenzband 7
+            </summary>
+        </member>
+        <member name="P:KWEngine3.Audio.AudioAnalysis.Band08">
+            <summary>
+            Daten zu Frequenzband 8
+            </summary>
+        </member>
+        <member name="P:KWEngine3.Audio.AudioAnalysis.Band09">
+            <summary>
+            Daten zu Frequenzband 9
+            </summary>
+        </member>
+        <member name="P:KWEngine3.Audio.AudioAnalysis.Band10">
+            <summary>
+            Daten zu Frequenzband 10
+            </summary>
+        </member>
+        <member name="P:KWEngine3.Audio.AudioAnalysis.Band11">
+            <summary>
+            Daten zu Frequenzband 11
+            </summary>
+        </member>
+        <member name="P:KWEngine3.Audio.AudioAnalysis.Band12">
+            <summary>
+            Daten zu Frequenzband 12
+            </summary>
+        </member>
+        <member name="P:KWEngine3.Audio.AudioAnalysis.Band13">
+            <summary>
+            Daten zu Frequenzband 13
+            </summary>
+        </member>
+        <member name="P:KWEngine3.Audio.AudioAnalysis.Band14">
+            <summary>
+            Daten zu Frequenzband 14
+            </summary>
+        </member>
+        <member name="P:KWEngine3.Audio.AudioAnalysis.Band15">
+            <summary>
+            Daten zu Frequenzband 15
+            </summary>
+        </member>
+        <member name="P:KWEngine3.Audio.AudioAnalysis.Band16">
+            <summary>
+            Daten zu Frequenzband 16
+            </summary>
+        </member>
+        <member name="P:KWEngine3.Audio.AudioAnalysis.Band17">
+            <summary>
+            Daten zu Frequenzband 17
+            </summary>
+        </member>
+        <member name="P:KWEngine3.Audio.AudioAnalysis.Band18">
+            <summary>
+            Daten zu Frequenzband 18
+            </summary>
+        </member>
+        <member name="P:KWEngine3.Audio.AudioAnalysis.Band19">
+            <summary>
+            Daten zu Frequenzband 19
+            </summary>
+        </member>
+        <member name="P:KWEngine3.Audio.AudioAnalysis.Band20">
+            <summary>
+            Daten zu Frequenzband 20
+            </summary>
+        </member>
+        <member name="M:KWEngine3.Audio.AudioAnalysis.#ctor">
+            <summary>
+            Konstruktormethode
+            </summary>
+        </member>
+        <member name="T:KWEngine3.Audio.AudioAnalysisBand">
+            <summary>
+            Daten eines Frequenzbands bei der spektrografischen Analyse
+            </summary>
+        </member>
+        <member name="F:KWEngine3.Audio.AudioAnalysisBand.FrequencyStart">
+            <summary>
+            Startfrequenz des Bands
+            </summary>
+        </member>
+        <member name="F:KWEngine3.Audio.AudioAnalysisBand.FrequencyEnd">
+            <summary>
+            Endfrequenz des Bands
+            </summary>
+        </member>
+        <member name="F:KWEngine3.Audio.AudioAnalysisBand.Decibel">
+            <summary>
+            Gemessene Decibel
             </summary>
         </member>
         <member name="T:KWEngine3.Audio.CachedSound">
@@ -53,7 +271,7 @@
             Vorgeladener Audioton
             </summary>
         </member>
-        <member name="P:KWEngine3.Audio.CachedSound.AudioData">
+        <member name="F:KWEngine3.Audio.CachedSound.AudioData">
             <summary>
             Audiodaten
             </summary>
@@ -101,6 +319,112 @@
             <summary>
             Entlädt alle Audioressourcen aus dem Arbeitsspeicher
             </summary>
+        </member>
+        <member name="T:KWEngine3.Audio.Lomont.LomontFFT">
+            <summary>                                                                                                
+            Represent a class that performs real or complex valued Fast Fourier                                      
+            Transforms. Instantiate it and use the FFT or TableFFT methods to                                        
+            compute complex to complex FFTs. Use FFTReal for real to complex                                         
+            FFTs which are much faster than standard complex to complex FFTs.                                        
+            Properties A and B allow selecting various FFT sign and scaling                                          
+            conventions.                                                                                             
+            </summary>                                                                                               
+        </member>
+        <member name="M:KWEngine3.Audio.Lomont.LomontFFT.FFT(System.Double[],System.Boolean)">
+            <summary>                                                                                            
+            Compute the forward or inverse Fourier Transform of data, with                                       
+            data containing complex valued data as alternating real and                                          
+            imaginary parts. The length must be a power of 2. The data is                                        
+            modified in place.                                                                                   
+            </summary>                                                                                           
+            <param name="data">The complex data stored as alternating real                                       
+            and imaginary parts</param>                                                                          
+            <param name="forward">true for a forward transform, false for                                        
+            inverse transform</param>                                                                            
+        </member>
+        <member name="M:KWEngine3.Audio.Lomont.LomontFFT.TableFFT(System.Double[],System.Boolean)">
+            <summary>                                                                                            
+            Compute the forward or inverse Fourier Transform of data, with data                                  
+            containing complex valued data as alternating real and imaginary                                     
+            parts. The length must be a power of 2. This method caches values                                    
+            and should be slightly faster on than the FFT method for repeated uses.                              
+            It is also slightly more accurate. Data is transformed in place.                                     
+            </summary>                                                                                           
+            <param name="data">The complex data stored as alternating real                                       
+            and imaginary parts</param>                                                                          
+            <param name="forward">true for a forward transform, false for                                        
+            inverse transform</param>                                                                            
+        </member>
+        <member name="M:KWEngine3.Audio.Lomont.LomontFFT.RealFFT(System.Double[],System.Boolean)">
+            <summary>                                                                                            
+            Compute the forward or inverse Fourier Transform of data, with                                       
+            data containing real valued data only. The output is complex                                         
+            valued after the first two entries, stored in alternating real                                       
+            and imaginary parts. The first two returned entries are the real                                     
+            parts of the first and last value from the conjugate symmetric                                       
+            output, which are necessarily real. The length must be a power                                       
+            of 2.                                                                                                
+            </summary>                                                                                           
+            <param name="data">The complex data stored as alternating real                                       
+            and imaginary parts</param>                                                                          
+            <param name="forward">true for a forward transform, false for                                        
+            inverse transform</param>                                                                            
+        </member>
+        <member name="P:KWEngine3.Audio.Lomont.LomontFFT.A">
+            <summary>                                                                                            
+            Determine how scaling works on the forward and inverse transforms.                                   
+            For size N=2^n transforms, the forward transform gets divided by                                     
+            N^((1-a)/2) and the inverse gets divided by N^((1+a)/2). Common                                      
+            values for (A,B) are                                                                                 
+                ( 0, 1)  - default                                                                               
+                (-1, 1)  - data processing                                                                       
+                ( 1,-1)  - signal processing                                                                     
+            Usual values for A are 1, 0, or -1                                                                   
+            </summary>                                                                                           
+        </member>
+        <member name="P:KWEngine3.Audio.Lomont.LomontFFT.B">
+            <summary>                                                                                            
+            Determine how phase works on the forward and inverse transforms.                                     
+            For size N=2^n transforms, the forward transform uses an                                             
+            exp(B*2*pi/N) term and the inverse uses an exp(-B*2*pi/N) term.                                      
+            Common values for (A,B) are                                                                          
+                ( 0, 1)  - default                                                                               
+                (-1, 1)  - data processing                                                                       
+                ( 1,-1)  - signal processing                                                                     
+            Abs(B) should be relatively prime to N.                                                              
+            Setting B=-1 effectively corresponds to conjugating both input and                                   
+            output data.                                                                                         
+            Usual values for B are 1 or -1.                                                                      
+            </summary>                                                                                           
+        </member>
+        <member name="M:KWEngine3.Audio.Lomont.LomontFFT.Scale(System.Double[],System.Int32,System.Boolean)">
+            <summary>                                                                                            
+            Scale data using n samples for forward and inverse transforms as needed                              
+            </summary>                                                                                           
+            <param name="data"></param>                                                                          
+            <param name="n"></param>                                                                             
+            <param name="forward"></param>                                                                       
+        </member>
+        <member name="M:KWEngine3.Audio.Lomont.LomontFFT.Initialize(System.Int32)">
+            <summary>                                                                                            
+            Call this with the size before using the TableFFT version                                            
+            Fills in tables for speed. Done automatically in TableFFT                                            
+            </summary>                                                                                           
+            <param name="size">The size of the FFT in samples</param>                                            
+        </member>
+        <member name="M:KWEngine3.Audio.Lomont.LomontFFT.Reverse(System.Double[],System.Int32)">
+            <summary>                                                                                            
+            Swap data indices whenever index i has binary                                                        
+            digits reversed from index j, where data is                                                          
+            two doubles per index.                                                                               
+            </summary>                                                                                           
+            <param name="data"></param>                                                                          
+            <param name="n"></param>                                                                             
+        </member>
+        <member name="F:KWEngine3.Audio.Lomont.LomontFFT.cosTable">
+            <summary>                                                                                            
+            Pre-computed sine/cosine tables for speed                                                            
+            </summary>                                                                                           
         </member>
         <member name="P:KWEngine3.Audio.OggDecoder.OggDecodeStream.BitsPerSample">
             <summary>
@@ -1176,6 +1500,11 @@
             Transparency Map
             </summary>
         </member>
+        <member name="F:KWEngine3.TextureType.Height">
+            <summary>
+            Height Map (wird aus Performance-Gründen via Parallax Occlusion Mapping umgesetzt)
+            </summary>
+        </member>
         <member name="T:KWEngine3.Plane">
             <summary>
             Bezeichnet die beiden Achsen, die die gewünschte Ebene aufspannen.
@@ -1514,6 +1843,13 @@
             <param name="filename">Dateiname der Textur (inkl. relativem Pfad)</param>
             <param name="type">Art der Textur (Standard: Albedo)</param>
             <param name="meshId">ID des 3D-Modellanteils (Standard: 0)</param>
+        </member>
+        <member name="M:KWEngine3.GameObjects.EngineObject.SetParallaxOcclusionMappingScale(System.Single)">
+            <summary>
+            Setzt die Skalierung für das Parallax-Occlusion-Mapping (falls eine Height-Textur für das Objekt verwendet wird)
+            </summary>
+            <remarks>RenderQuality muss auf 'Default' oder höher eingestellt sein, damit dieser Effekt eintritt</remarks>
+            <param name="scale">Skalierungsfaktor (Standardwert: 0.0f, Wertebereich: 0.0f bis 1.0f)</param>
         </member>
         <member name="M:KWEngine3.GameObjects.EngineObject.SetTextureOffset(System.Single,System.Single)">
             <summary>
@@ -3435,9 +3771,9 @@
         </member>
         <member name="M:KWEngine3.GameObjects.TerrainObject.SetTextureSlopeBlendSmoothingFactor(System.Single)">
             <summary>
-            Gibt an, wie weich die Übergänge zwischen den beiden Texturen (reguläre und Slope-Textur) verlaufen sollen (Standard: 0.001f)
+            Gibt an, wie weich die Übergänge zwischen den beiden Texturen (reguläre und Slope-Textur) verlaufen sollen (Standard: 0.05f)
             </summary>
-            <param name="factor">Glättungsfaktor (zwischen 0f und 1f)</param>
+            <param name="factor">Glättungsfaktor (zwischen 0f und 1.0f)</param>
         </member>
         <member name="P:KWEngine3.GameObjects.TerrainObject.Name">
             <summary>
@@ -3574,6 +3910,13 @@
             Bewegt das Objekt relativ zur ursprünglichen Position
             </summary>
             <param name="offset">Verschiebung</param>
+        </member>
+        <member name="M:KWEngine3.GameObjects.TerrainObject.SetHeightmapScale(System.Single)">
+            <summary>
+            Setzt die Skalierung für das Parallax-Occlusion-Mapping (falls eine Height-Textur für das Objekt verwendet wird)
+            </summary>
+            <remarks>RenderQuality muss auf 'Default' oder höher eingestellt sein, damit dieser Effekt eintritt</remarks>
+            <param name="scale">Skalierungsfaktor (Standardwert: 0.0f, Wertebereich: 0.0f bis 1.0f)</param>
         </member>
         <member name="T:KWEngine3.GameObjects.TextObject">
             <summary>
