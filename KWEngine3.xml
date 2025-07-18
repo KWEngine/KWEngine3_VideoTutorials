@@ -116,6 +116,14 @@
             <param name="channel">Kanalnummer</param>
             <returns>Analysedaten</returns>
         </member>
+        <member name="M:KWEngine3.Audio.Audio.IsNewAudioAnalysisDataAvailable(System.Int32,System.Single)">
+            <summary>
+            Prüft, ob neue Analysedaten für den gegebenen Kanal verfügbar sind
+            </summary>
+            <param name="channel">Kanalnummer</param>
+            <param name="timestampWorldOfPreviousData">Zeitstempel (Weltzeit) der vorherigen Daten</param>
+            <returns></returns>
+        </member>
         <member name="T:KWEngine3.Audio.AudioAnalysis">
             <summary>
             Analysedatencontainer für die spektrografische Audioanalyse
@@ -6143,11 +6151,17 @@
             Kernbibliothek der Engine
             </summary>
         </member>
+        <member name="P:KWEngine3.KWEngine.AudioBuffersPerChannel">
+            <summary>
+            Gibt an, wie viele Puffer pro Audiokanal verwendet werden sollen (Minimum: 2, Standardwert: 2, Maximum: 4)
+            </summary>
+            <remarks>Je mehr Puffer, desto verlässlicher ist die Wiedergabe auf langsamen CPUs, aber die Auswertung der Audiodaten kann dadurch leicht verzögert werden</remarks>
+        </member>
         <member name="P:KWEngine3.KWEngine.GBufferLighting">
             <summary>
             Gibt an, wie der Beleuchtungsschritt in der Engine ablaufen soll
             </summary>
-            <remarks>Kann die Performance auf schwachen GPUs verbessern</remarks>
+            <remarks>Kann die Performance auf schwachen GPUs verbessern, muss aber vor Erstellung des Fensters gesetzt werden</remarks>
         </member>
         <member name="P:KWEngine3.KWEngine.MouseSensitivity">
             <summary>
