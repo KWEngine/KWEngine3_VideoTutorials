@@ -3919,7 +3919,7 @@
             </summary>
             <param name="offset">Verschiebung</param>
         </member>
-        <member name="M:KWEngine3.GameObjects.TerrainObject.SetHeightmapScale(System.Single)">
+        <member name="M:KWEngine3.GameObjects.TerrainObject.SetParallaxOcclusionMappingScale(System.Single)">
             <summary>
             Setzt die Skalierung für das Parallax-Occlusion-Mapping (falls eine Height-Textur für das Objekt verwendet wird)
             </summary>
