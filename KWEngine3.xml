@@ -5487,6 +5487,33 @@
             </summary>
             <returns>Rotation</returns>
         </member>
+        <member name="T:KWEngine3.Helper.HelperTexture">
+            <summary>
+            Helferklasse für Texturen
+            </summary>
+        </member>
+        <member name="M:KWEngine3.Helper.HelperTexture.RoundUpToPowerOf2(System.Int32)">
+            <summary>
+            Rundet eine Ganzzahl auf, so dass sie der nächsthöheren Zweierpotenz entspricht
+            </summary>
+            <param name="value">aufzurundende Zahl</param>
+            <returns>nächsthöhere Zweierpotenz</returns>
+        </member>
+        <member name="M:KWEngine3.Helper.HelperTexture.GetResolutionFromImage(System.String)">
+            <summary>
+            Erfragt die Auflösung einer Bilddatei in Pixeln
+            </summary>
+            <remarks>Ist das Bild ungültig, wird eine Auflösung von 0 Pixeln zurückgegeben</remarks>
+            <param name="filename">Bilddateiname</param>
+            <returns>Auflösung in Pixeln</returns>
+        </member>
+        <member name="M:KWEngine3.Helper.HelperTexture.RoundDownToPowerOf2(System.Int32)">
+            <summary>
+            Rundet eine Ganzzahl ab, so dass sie der nächstniedrigeren Zweierpotenz entspricht
+            </summary>
+            <param name="value">abzurundende Zahl</param>
+            <returns>nächstniedrigere Zweierpotenz</returns>
+        </member>
         <member name="T:KWEngine3.Helper.HelperVector">
             <summary>
             Helferklasse für Vektoroperationen
@@ -6328,13 +6355,17 @@
             Welt-Vektor, der angibt, wo 'oben' ist
             </summary>
         </member>
-        <member name="M:KWEngine3.KWEngine.BuildTerrainModel(System.String,System.String,System.Int32)">
+        <member name="M:KWEngine3.KWEngine.BuildTerrainModel(System.String,System.String,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
             <summary>
             Baut ein Terrain-Modell
             </summary>
             <param name="name">Name des Modells</param>
             <param name="heightmap">Heightmap Textur (maximal: 1024x1024px)</param>
             <param name="height">Höhe (y-Achse, gültige Werte von 0 bis 128)</param>
+            <param name="imageOffsetX">(optional) gibt an, ab welchem horizontalen Pixel die Heightmap gelesen werden soll (nullbasiert)</param>
+            <param name="imageOffsetY">(optional) gibt an, ab welchem vertikalen Pixel die Heightmap gelesen werden soll (nullbasiert)</param>
+            <param name="imageSliceWidth">(optional) gibt an, wie viele Pixel horizontal ab x-Offset gelesen werden sollen (-1, falls alle Pixel gelesen werden sollen)</param>
+            <param name="imageSliceHeight">(optional) gibt an, wie viele Pixel vertikal ab y-Offset gelesen werden sollen (-1, falls alle Pixel gelesen werden sollen)</param>
         </member>
         <member name="M:KWEngine3.KWEngine.LoadAnimationIntoModel(System.String,System.String)">
             <summary>
