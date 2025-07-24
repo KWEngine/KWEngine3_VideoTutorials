@@ -2522,6 +2522,7 @@
             <summary>
             Prüft auf eine Strahlenkollision mit einem Terrain-Objekt direkt unterhalb der angegebenen Position
             </summary>
+            <remarks>Die TerrainObject-Instanzen müssen als Kollisionsobjekte markiert sein, damit sie für die Messung berücksichtigt werden</remarks>
             <param name="position">Startposition des nach unten gerichteten Teststrahls</param>
             <param name="rayMode">Art der Messung (Standard: SingleY)</param>
             <param name="sizeFactor">Skalierungsfaktor der Strahlen (falls mehrere Strahlen verwendet werden)</param>
