@@ -2510,15 +2510,14 @@
             <param name="y">Position auf y-Achse</param>
             <param name="mode">Bestimmt, auf welchen Fixpunkt des Objekts sich die Positionsangaben beziehen sollen</param>
         </member>
-        <member name="M:KWEngine3.GameObjects.GameObject.RaytraceTerrainBelowPosition(OpenTK.Mathematics.Vector3,System.Boolean)">
+        <member name="M:KWEngine3.GameObjects.GameObject.RaytraceTerrainBelowPosition(OpenTK.Mathematics.Vector3)">
             <summary>
             Prüft auf eine Strahlenkollision mit einem Terrain-Objekt direkt unterhalb der angegebenen Position
             </summary>
             <param name="position">Startposition des nach unten gerichteten Teststrahls</param>
-            <param name="scanBothDirections">Soll ein weiterer Teststrahl nach oben geschossen werden, falls ein nach unten gerichteter Strahl keinen Treffer findet? (Standard: false)</param>
             <returns>Ergebnis der Strahlenkollisionsmessung</returns>
         </member>
-        <member name="M:KWEngine3.GameObjects.GameObject.RaytraceTerrainBelowPositionExt(OpenTK.Mathematics.Vector3,KWEngine3.RayMode,System.Single,System.Boolean)">
+        <member name="M:KWEngine3.GameObjects.GameObject.RaytraceTerrainBelowPositionExt(OpenTK.Mathematics.Vector3,KWEngine3.RayMode,System.Single)">
             <summary>
             Prüft auf eine Strahlenkollision mit einem Terrain-Objekt direkt unterhalb der angegebenen Position
             </summary>
@@ -2526,7 +2525,6 @@
             <param name="position">Startposition des nach unten gerichteten Teststrahls</param>
             <param name="rayMode">Art der Messung (Standard: SingleY)</param>
             <param name="sizeFactor">Skalierungsfaktor der Strahlen (falls mehrere Strahlen verwendet werden)</param>
-            <param name="scanBothDirections">Soll ein weiterer Teststrahl nach oben geschossen werden, falls ein nach unten gerichteter Strahl keinen Treffer findet? (Standard: false)</param>
             <returns>Ergebnis der Strahlenkollisionsmessung</returns>
         </member>
         <member name="M:KWEngine3.GameObjects.GameObject.GetIntersection(KWEngine3.IntersectionTestMode)">
