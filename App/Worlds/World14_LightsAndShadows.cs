@@ -90,6 +90,7 @@ namespace KWEngine3_Tutorial.App.Worlds
             t.SetTexture("./App/Textures/sand_normal.dds", TextureType.Normal);
             t.SetTextureRepeat(5f, 5f);
             t.IsShadowCaster = true;
+            t.IsCollisionObject = true;
             AddTerrainObject(t);
 
             FoliageObject f = new FoliageObject(FoliageType.GrassDry);
