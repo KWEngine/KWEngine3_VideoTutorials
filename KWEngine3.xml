@@ -3829,11 +3829,6 @@
             </summary>
             <param name="modelname">Name des zu verwendenden 3D-Modells</param>
         </member>
-        <member name="M:KWEngine3.GameObjects.RenderObject.Finalize">
-            <summary>
-            Destruktor
-            </summary>
-        </member>
         <member name="M:KWEngine3.GameObjects.RenderObject.SetAdditionalInstanceCount(System.Int32,KWEngine3.InstanceMode)">
             <summary>
             Konfiguriert die Anzahl der gewünschten Instanzen (Kopien) für das Objekt. 
