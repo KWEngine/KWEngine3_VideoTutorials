@@ -16,7 +16,7 @@
         </member>
         <member name="P:KWEngine3.Audio.Audio.BufferSizeMs">
             <summary>
-            Gibt die Puffergröße in Millisekunden für alle Audiokanäle an (Minimum: 20ms, Standardwert: 50ms)
+            Gibt die Puffergröße in Millisekunden für alle Audiokanäle an (Minimum: 20ms, Maximum: 100ms, Standardwert: 50ms)
             </summary>
             <remarks>Es sind nur 10er-Schritte erlaubt (20, 30, usw.)</remarks>
         </member>
