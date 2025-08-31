@@ -2711,6 +2711,22 @@
             <param name="mode">Gibt an, ob die Kollisionsmessung auf einen bestimmten Hitboxtyp eingegrenzt werden soll (Standard: CheckAllHitboxTypes)</param>
             <returns>Liste mit gefundenen Kollisionen</returns>
         </member>
+        <member name="M:KWEngine3.GameObjects.GameObject.GetIntersections(OpenTK.Mathematics.Vector3,KWEngine3.IntersectionTestMode,System.Type[])">
+            <summary>
+            Prüft auf Kollisionen mit umgebenden GameObject-Instanzen bestimmter Typen
+            </summary>
+            <param name="offset">Optionale Verschiebung der Hitbox</param>
+            <param name="mode">Gibt an, ob die Kollisionsmessung auf einen bestimmten Hitboxtyp eingegrenzt werden soll (Standard: CheckAllHitboxTypes)</param>
+            <param name="types">Liste der zu betrachtenden Klassen</param>
+            <returns>Liste mit gefundenen Kollisionen</returns>
+        </member>
+        <member name="M:KWEngine3.GameObjects.GameObject.GetIntersections(System.Type[])">
+            <summary>
+            Prüft auf Kollisionen mit umgebenden GameObject-Instanzen bestimmter Typen
+            </summary>
+            <param name="types">Liste der zu betrachtenden Klassen</param>
+            <returns>Liste mit gefundenen Kollisionen</returns>
+        </member>
         <member name="M:KWEngine3.GameObjects.GameObject.GetIntersections``1(OpenTK.Mathematics.Vector3,KWEngine3.IntersectionTestMode)">
             <summary>
             Prüft auf Kollisionen mit umgebenden GameObject-Instanzen eines bestimmten Typs
