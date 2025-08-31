@@ -4671,6 +4671,37 @@
             Gibt die bei Programmstart gewählte Render-Qualität zurück
             </summary>
         </member>
+        <member name="T:KWEngine3.Helper.ArcballRotation">
+            <summary>
+            Gibt eine Arcball-Rotation an
+            </summary>
+        </member>
+        <member name="F:KWEngine3.Helper.ArcballRotation.Distance">
+            <summary>
+            Distanz zum Drehpunkt
+            </summary>
+        </member>
+        <member name="F:KWEngine3.Helper.ArcballRotation.XAngle">
+            <summary>
+            X-Winkel in Grad
+            </summary>
+        </member>
+        <member name="F:KWEngine3.Helper.ArcballRotation.YAngle">
+            <summary>
+            Y-Winkel in Grad
+            </summary>
+        </member>
+        <member name="F:KWEngine3.Helper.ArcballRotation.IsValid">
+            <summary>
+            Gibt an, ob das Ergebnis gültig ist
+            </summary>
+        </member>
+        <member name="M:KWEngine3.Helper.ArcballRotation.ToString">
+            <summary>
+            Gibt eine menschenlesbare Version der Werte zurück
+            </summary>
+            <returns>Lesbare Version der Instanz</returns>
+        </member>
         <member name="T:KWEngine3.Helper.FlowField">
             <summary>
             Klasse zum Erstellen einer FlowField-Instanz für KI-Navigation
@@ -5132,6 +5163,13 @@
             Helferklasse für Kollisionen und Schnittoperationen
             </summary>
         </member>
+        <member name="M:KWEngine3.Helper.HelperIntersection.RaytraceTerrainBelowPosition(OpenTK.Mathematics.Vector3)">
+            <summary>
+            Prüft auf eine Strahlenkollision mit einem Terrain-Objekt direkt unterhalb der angegebenen Position
+            </summary>
+            <param name="position">Startposition des nach unten gerichteten Teststrahls</param>
+            <returns>Ergebnis der Strahlenkollisionsmessung</returns>
+        </member>
         <member name="M:KWEngine3.Helper.HelperIntersection.GetIntersectionPointOnPlaneFromScreenSpace(System.Int32,System.Int32,KWEngine3.Plane,System.Single)">
             <summary>
             Ermittelt für die angegebenen Bildschirmkoordinaten, wo diese Koordinaten in der 3D-Welt liegen
@@ -5201,9 +5239,9 @@
         </member>
         <member name="M:KWEngine3.Helper.HelperIntersection.GetIntersectionsForAllObjects``1(KWEngine3.GameObjects.GameObject)">
             <summary>
-            Prüft auf Kollisionen für ein Objekt g in Kombinationen mit allen (auch geplanten) anderen GameObject-Instanzen
+            Prüft auf Kollisionen für das im Parameter angegebene GameObject in Kombinationen mit allen anderen GameObject-Instanzen
             </summary>
-            <typeparam name="T"></typeparam>
+            <typeparam name="T">GameObject-Datentyp, der geprüft werden soll (nur Objekte dieses Typs werden berücksichtigt)</typeparam>
             <param name="gameObject">Instanz, für die auf Kollisionen geprüft werden soll</param>
             <returns>Liste der Kollisionen</returns>
         </member>
@@ -5586,6 +5624,19 @@
             </summary>
             <param name="q">zu konvertierendes Quaternion</param>
             <returns>XYZ-Rotation als Vector3 (in Grad)</returns>
+        </member>
+        <member name="M:KWEngine3.Helper.HelperRotation.GetArcballRotation(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3,System.Boolean,System.Boolean)">
+            <summary>
+            Berechnet aus einem Welt-Punkt und dem dazugehörigen Drehpunkt die Arcball-Rotation
+            in Grad (pitch = X-Winkel, yaw = Y-Winkel).
+            </summary>
+            <param name="point">Position des Punktes</param>
+            <param name="pivot">Drehpunkt</param>
+            <param name="invertX">invertiert die Links-Rechts-Rotation, wenn aktiv</param>
+            <param name="invertY">invertiert die Oben-Unten-Rotation, wenn aktiv</param>
+            <returns>
+            Informationsobjekt mit den berechneten Werten
+            </returns>
         </member>
         <member name="M:KWEngine3.Helper.HelperRotation.CalculateRotationForArcBallCamera(OpenTK.Mathematics.Vector3,System.Single,System.Single,System.Single,System.Boolean,System.Boolean)">
             <summary>
