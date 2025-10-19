@@ -4548,6 +4548,12 @@
             Standard-Initialisierungen
             </summary>
         </member>
+        <member name="M:KWEngine3.GLWindow.OnClosing(System.ComponentModel.CancelEventArgs)">
+            <summary>
+            Wird ausgeführt, kurz bevor sich das Fenster schließt
+            </summary>
+            <param name="e">Parameter</param>
+        </member>
         <member name="M:KWEngine3.GLWindow.OnResize(OpenTK.Windowing.Common.ResizeEventArgs)">
             <summary>
             Wird ausgeführt, wenn sich das Fenster vergrößert/verkleinert
@@ -5179,6 +5185,14 @@
             Helferklasse für Kollisionen und Schnittoperationen
             </summary>
         </member>
+        <member name="M:KWEngine3.Helper.HelperIntersection.IsAABBIntersectingXZ(KWEngine3.GameObjects.GameObject,KWEngine3.GameObjects.GameObject)">
+            <summary>
+            Prüft, ob sich die achsenparallelen Hitboxen zweier Objekte in den XZ-Achsen schneiden
+            </summary>
+            <param name="a">Objekt A</param>
+            <param name="b">Objekt B</param>
+            <returns>true, wenn sich die AABB-Hitboxen in den XZ-Achsen überschneiden</returns>
+        </member>
         <member name="M:KWEngine3.Helper.HelperIntersection.RaytraceTerrainBelowPosition(OpenTK.Mathematics.Vector3)">
             <summary>
             Prüft auf eine Strahlenkollision mit einem Terrain-Objekt direkt unterhalb der angegebenen Position
@@ -5774,7 +5788,14 @@
         </member>
         <member name="M:KWEngine3.Helper.HelperVector.IsVectorPointingUpward(OpenTK.Mathematics.Vector3)">
             <summary>
-            Prüft, ob die Richtung dieses Vektors hauptsächlich in die positive Y-Achse zeigt (also aufwärts)
+            Prüft, ob die Richtung dieses Vektors hauptsächlich in die positive Y-Achse (also aufwärts) zeigt 
+            </summary>
+            <param name="v">zu prüfender Vektor</param>
+            <returns>true, wenn dieser Vektor hauptsächlich nach oben zeigt</returns>
+        </member>
+        <member name="M:KWEngine3.Helper.HelperVector.IsVectorPointingDownward(OpenTK.Mathematics.Vector3)">
+            <summary>
+            Prüft, ob die Richtung dieses Vektors hauptsächlich in die negative Y-Achse (also abwärts) zeigt 
             </summary>
             <param name="v">zu prüfender Vektor</param>
             <returns>true, wenn dieser Vektor hauptsächlich nach oben zeigt</returns>
@@ -6384,6 +6405,11 @@
         <member name="T:KWEngine3.Helper.TimeBasedObject">
             <summary>
             Basisklasse für Explosions und Partikeleffekte
+            </summary>
+        </member>
+        <member name="P:KWEngine3.Helper.TimeBasedObject.Finished">
+            <summary>
+            Gibt an, ob die Animationsphase des Objekts abgeschlossen ist. Abgeschlossene Objekte dieses Typs werden automatisch von der Engine entfernt.
             </summary>
         </member>
         <member name="T:KWEngine3.KeyboardExt">
@@ -7075,6 +7101,12 @@
             </summary>
             <param name="g">Objekt</param>
         </member>
+        <member name="M:KWEngine3.World.RemoveParticleObject(KWEngine3.GameObjects.ParticleObject)">
+            <summary>
+            Entfernt ein Partikelobjekt (vorzeitig) aus der Welt
+            </summary>
+            <param name="p">zu entfernendes Partikelobjekt</param>
+        </member>
         <member name="M:KWEngine3.World.RemoveGameObject(KWEngine3.GameObjects.GameObject)">
             <summary>
             Löscht das angegebene Objekt aus der Welt
@@ -7391,6 +7423,11 @@
         <member name="P:KWEngine3.World.Window">
             <summary>
             Verweis auf das aktuelle Programmfenster
+            </summary>
+        </member>
+        <member name="P:KWEngine3.World.CameraFOV">
+            <summary>
+            FOV-Wert der Kamera
             </summary>
         </member>
         <member name="P:KWEngine3.World.CameraLookAtVector">
