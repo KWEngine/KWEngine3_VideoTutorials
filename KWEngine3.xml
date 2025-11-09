@@ -1917,6 +1917,14 @@
             Erfragt die aktuellen Werte für die Texturverschiebung
             </summary>
         </member>
+        <member name="M:KWEngine3.GameObjects.EngineObject.SetScale(System.Single,System.Single,System.Single)">
+            <summary>
+            Setzt die Größenskalierung des Objekts entlang seiner lokalen drei Achsen
+            </summary>
+            <param name="x">Skalierung in x-Richtung</param>
+            <param name="y">Skalierung in y-Richtung</param>
+            <param name="z">Skalierung in z-Richtung</param>
+        </member>
         <member name="M:KWEngine3.GameObjects.EngineObject.SetScale(System.Single)">
             <summary>
             Setzt die Größenskalierung des Objekts (muss > 0 sein)
@@ -2062,14 +2070,6 @@
             Setzt die Rotation mit Hilfe eines Quaternion-Objekts
             </summary>
             <param name="rotation">Rotation</param>
-        </member>
-        <member name="M:KWEngine3.GameObjects.EngineObject.SetScale(System.Single,System.Single,System.Single)">
-            <summary>
-            Setzt die Größenskalierung des Objekts entlang seiner lokalen drei Achsen
-            </summary>
-            <param name="x">Skalierung in x-Richtung</param>
-            <param name="y">Skalierung in y-Richtung</param>
-            <param name="z">Skalierung in z-Richtung</param>
         </member>
         <member name="M:KWEngine3.GameObjects.EngineObject.GetRotationToTarget(OpenTK.Mathematics.Vector3)">
             <summary>
@@ -3068,6 +3068,12 @@
             Gibt den groben Durchmesser der Hitbox an
             </summary>
         </member>
+        <member name="M:KWEngine3.GameObjects.GameObject.GetIntersectionWithTerrain">
+            <summary>
+            Prüft auf Kollisionen mit TerrainObject-Instanzen in der Nähe
+            </summary>
+            <returns>Angaben zur Auflösung der Kollision oder: null, wenn keine Kollision gefunden werden konnte</returns>
+        </member>
         <member name="T:KWEngine3.GameObjects.HUDObject">
             <summary>
             HUD-Oberklasse
@@ -3526,6 +3532,26 @@
             Funktioniert lediglich, wenn beide Hitboxen vom Typ ConvexHull sind
             </remarks>
             <returns>IntersectionVolume-Instanz mit genaueren Angaben zum Volumen</returns>
+        </member>
+        <member name="T:KWEngine3.GameObjects.IntersectionTerrain">
+            <summary>
+            Kollisionsklasse für Terrain-Kollisionen
+            </summary>
+        </member>
+        <member name="P:KWEngine3.GameObjects.IntersectionTerrain.Object">
+            <summary>
+            TerrainObject-Instanz, die für die Kollision maßgeblich verantwortlich ist
+            </summary>
+        </member>
+        <member name="P:KWEngine3.GameObjects.IntersectionTerrain.MTV">
+            <summary>
+            Minimal-Translation-Vector (für Kollisionskorrektur)
+            </summary>
+        </member>
+        <member name="P:KWEngine3.GameObjects.IntersectionTerrain.ColliderSurfaceNormal">
+            <summary>
+            Gibt den Ebenenvektor der Oberfläche des Objekts an, mit dem die Kollision stattfand
+            </summary>
         </member>
         <member name="T:KWEngine3.GameObjects.IntersectionVolume">
             <summary>
@@ -5185,6 +5211,27 @@
             Helferklasse für Kollisionen und Schnittoperationen
             </summary>
         </member>
+        <member name="M:KWEngine3.Helper.HelperIntersection.CalculateWeightedTerrainMTV(System.Collections.Generic.List{KWEngine3.GameObjects.IntersectionTerrain})">
+            <summary>
+            Berechnet einen gewichteten MTV-Vektor aus mehreren Terrain-Kollisionsintersektionen
+            </summary>
+            <param name="intersections">Liste mit gemessenen Terrain-Kollisionen</param>
+            <returns>Gewichteter MTV</returns>
+        </member>
+        <member name="M:KWEngine3.Helper.HelperIntersection.CalculateWeightedMTV(System.Collections.Generic.List{OpenTK.Mathematics.Vector3})">
+            <summary>
+            Berechnet einen gewichteten MTV-Vektor aus einer Liste mehrerer MTV-Vektoren
+            </summary>
+            <param name="mtvs">Liste von MTV-Vektoren</param>
+            <returns>Gewichteter MTV</returns>
+        </member>
+        <member name="M:KWEngine3.Helper.HelperIntersection.CalculateMaxTerrainMTVPerAxis(System.Collections.Generic.List{KWEngine3.GameObjects.IntersectionTerrain})">
+            <summary>
+            Berechnet einen gewichteten MTV-Vektor aus mehreren Terrain-Kollisionsintersektionen
+            </summary>
+            <param name="intersections">Liste mit gemessenen Terrain-Kollisionen</param>
+            <returns>Gewichteter MTV</returns>
+        </member>
         <member name="M:KWEngine3.Helper.HelperIntersection.IsAABBIntersectingXZ(KWEngine3.GameObjects.GameObject,KWEngine3.GameObjects.GameObject)">
             <summary>
             Prüft, ob sich die achsenparallelen Hitboxen zweier Objekte in den XZ-Achsen schneiden
@@ -5393,6 +5440,80 @@
             <param name="caller">Aufrufendes Objekt, das bei Nennung ignoriert wird</param>
             <param name="typelist">Liste der Klassen, die getestet werden sollen</param>
             <returns>Liste der GameObjectDistance-Instanzen</returns>
+        </member>
+        <member name="M:KWEngine3.Helper.HelperIntersection.CheckAABBCollision(System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)">
+            <summary>
+            Prüft, ob sich zwei AABB-Hitboxen schneiden oder berühren
+            </summary>
+            <param name="minX1">Linke   X-Position von Objekt 1</param>
+            <param name="maxX1">Rechte  X-Position von Objekt 1</param>
+            <param name="minY1">Untere  Y-Position von Objekt 1</param>
+            <param name="maxY1">Obere   Y-Position von Objekt 1</param>
+            <param name="minZ1">Hintere Z-Position von Objekt 1</param>
+            <param name="maxZ1">Vordere Z-Position von Objekt 1</param>
+            <param name="minX2">Linke   X-Position von Objekt 2</param>
+            <param name="maxX2">Rechte  X-Position von Objekt 2</param>
+            <param name="minY2">Untere  Y-Position von Objekt 2</param>
+            <param name="maxY2">Obere   Y-Position von Objekt 2</param>
+            <param name="minZ2">Hintere Z-Position von Objekt 2</param>
+            <param name="maxZ2">Vordere Z-Position von Objekt 2</param>
+            <returns>true, wenn sich die zwei Hitboxen schneiden/berühren oder eine der beiden Hitboxen in der anderen enthalten ist</returns>
+        </member>
+        <member name="M:KWEngine3.Helper.HelperIntersection.CheckAABBCollisionNoTouch(System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)">
+            <summary>
+            Prüft, ob sich zwei AABB-Hitboxen schneiden (und explizit NICHT berühren)
+            </summary>
+            <param name="minX1">Linke   X-Position von Objekt 1</param>
+            <param name="maxX1">Rechte  X-Position von Objekt 1</param>
+            <param name="minY1">Untere  Y-Position von Objekt 1</param>
+            <param name="maxY1">Obere   Y-Position von Objekt 1</param>
+            <param name="minZ1">Hintere Z-Position von Objekt 1</param>
+            <param name="maxZ1">Vordere Z-Position von Objekt 1</param>
+            <param name="minX2">Linke   X-Position von Objekt 2</param>
+            <param name="maxX2">Rechte  X-Position von Objekt 2</param>
+            <param name="minY2">Untere  Y-Position von Objekt 2</param>
+            <param name="maxY2">Obere   Y-Position von Objekt 2</param>
+            <param name="minZ2">Hintere Z-Position von Objekt 2</param>
+            <param name="maxZ2">Vordere Z-Position von Objekt 2</param>
+            <returns>true, wenn sich die zwei Hitboxen schneiden oder eine der beiden Hitboxen in der anderen enthalten ist</returns>
+        </member>
+        <member name="M:KWEngine3.Helper.HelperIntersection.CheckAABBCollisionNoTouch(System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)">
+            <summary>
+             Prüft, ob sich zwei AABB-Hitboxen auf der XZ-Ebene schneiden (der Höhenunterschied wird somit ignoriert)
+            </summary>
+            <param name="minX1">Linke   X-Position von Objekt 1</param>
+            <param name="maxX1">Rechte  X-Position von Objekt 1</param>
+            <param name="minZ1">Hintere Z-Position von Objekt 1</param>
+            <param name="maxZ1">Vordere Z-Position von Objekt 1</param>
+            <param name="minX2">Linke   X-Position von Objekt 2</param>
+            <param name="maxX2">Rechte  X-Position von Objekt 2</param>
+            <param name="minZ2">Hintere Z-Position von Objekt 2</param>
+            <param name="maxZ2">Vordere Z-Position von Objekt 2</param>
+            <returns>true, wenn sich die zwei Hitboxen auf der XZ-Ebene schneiden oder eine der beiden Hitboxen in der anderen in dieser Ebene enthalten ist</returns>
+        </member>
+        <member name="M:KWEngine3.Helper.HelperIntersection.CheckAABBCollision(System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)">
+            <summary>
+             Prüft, ob sich zwei AABB-Hitboxen auf der XZ-Ebene schneiden oder berühren (der Höhenunterschied wird somit ignoriert)
+            </summary>
+            <param name="minX1">Linke   X-Position von Objekt 1</param>
+            <param name="maxX1">Rechte  X-Position von Objekt 1</param>
+            <param name="minZ1">Hintere Z-Position von Objekt 1</param>
+            <param name="maxZ1">Vordere Z-Position von Objekt 1</param>
+            <param name="minX2">Linke   X-Position von Objekt 2</param>
+            <param name="maxX2">Rechte  X-Position von Objekt 2</param>
+            <param name="minZ2">Hintere Z-Position von Objekt 2</param>
+            <param name="maxZ2">Vordere Z-Position von Objekt 2</param>
+            <returns>true, wenn sich die zwei Hitboxen auf der XZ-Ebene schneiden/berühren oder eine der beiden Hitboxen in der anderen in dieser Ebene enthalten ist</returns>
+        </member>
+        <member name="M:KWEngine3.Helper.HelperIntersection.CheckSphereCollision(System.Single,OpenTK.Mathematics.Vector3,System.Single,OpenTK.Mathematics.Vector3)">
+            <summary>
+            Prüft, ob sich zwei Kugeln schneiden oder eine Kugel die andere enthält
+            </summary>
+            <param name="d1">Durchmesser von Kugel #1</param>
+            <param name="pos1">Mitte von Kugel #1</param>
+            <param name="d2">Durchmesser von Kugel #2</param>
+            <param name="pos2">Mitte von Kugel #2</param>
+            <returns>true, wenn sich die Kugeln überschneiden oder eine die andere enthält</returns>
         </member>
         <member name="M:KWEngine3.Helper.HelperIntersection.RaytraceObject(KWEngine3.GameObjects.GameObject,OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3@,OpenTK.Mathematics.Vector3@,System.String@,System.Boolean)">
             <summary>
@@ -6757,6 +6878,39 @@
             <summary>
             Handelt es sich bei dem Modell um Terrain?
             </summary>
+        </member>
+        <member name="T:KWEngine3.Model.GeoTerrainTriangle">
+            <summary>
+            Klasse, die Dreiecke eines Terrain-Objekts repräsentiert
+            </summary>
+        </member>
+        <member name="M:KWEngine3.Model.GeoTerrainTriangle.ToString">
+            <summary>
+            Einfache Darstellung der Dreieckskoordinaten
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:KWEngine3.Model.GeoTerrainTriangle.IsPointInTriangle(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)">
+            <summary>
+            Prüft, ob ein Punkt innerhalb eines durch drei Punkte aufgespanntes Dreieck liegt (die Punkte müssen gegen den Uhrzeigersinn angegeben werden)
+            </summary>
+            <remarks>Die Methode prüft NICHT, ob die Punkte exakt auf der Dreiecksfläche liegen; nur, ob sie entlang des Ebenenvektors irgendwo innerhalb der äußeren Ränder liegen</remarks>
+            <param name="pt">zu prüfender Punkt</param>
+            <param name="v1">Dreieckspunkt 1</param>
+            <param name="v2">Dreieckspunkt 2</param>
+            <param name="v3">Dreieckspunkt 3</param>
+            <returns>true, wenn der Punkt innerhalb der Dreiecksränder liegt</returns>
+        </member>
+        <member name="M:KWEngine3.Model.GeoTerrainTriangle.IsPointOnTriangle(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3)">
+            <summary>
+            Prüft, ob ein Punkt exakt auf der durch drei Punkte aufgespannten Dreiecksfläche liegt (die Punkte müssen gegen den Uhrzeigersinn angegeben werden)
+            </summary>
+            <param name="p">zu prüfender Punkt</param>
+            <param name="a">Dreieckspunkt 1</param>
+            <param name="b">Dreieckspunkt 2</param>
+            <param name="c">Dreieckspunkt 3</param>
+            <param name="n">Dreiecksebenenvektor</param>
+            <returns>true, wenn der Punkt exakt auf der Dreiecksfläche liegt</returns>
         </member>
         <member name="T:KWEngine3.MouseExt">
             <summary>
