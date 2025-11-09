@@ -3548,6 +3548,11 @@
             Minimal-Translation-Vector (für Kollisionskorrektur)
             </summary>
         </member>
+        <member name="P:KWEngine3.GameObjects.IntersectionTerrain.ContactPoint">
+            <summary>
+            Gibt den dazugehörigen Punkt auf der Kollisionsebene an
+            </summary>
+        </member>
         <member name="P:KWEngine3.GameObjects.IntersectionTerrain.ColliderSurfaceNormal">
             <summary>
             Gibt den Ebenenvektor der Oberfläche des Objekts an, mit dem die Kollision stattfand
