@@ -3550,7 +3550,12 @@
         </member>
         <member name="P:KWEngine3.GameObjects.IntersectionTerrain.ContactPoint">
             <summary>
-            Gibt den dazugehörigen Punkt auf der Kollisionsebene an
+            Gibt den maßgeblich beteiligten Kollisionspunkt an
+            </summary>
+        </member>
+        <member name="P:KWEngine3.GameObjects.IntersectionTerrain.ContactPoints">
+            <summary>
+            Eine Liste aller relevanten Schnittpunkte mit dem Terrain-Objekt
             </summary>
         </member>
         <member name="P:KWEngine3.GameObjects.IntersectionTerrain.ColliderSurfaceNormal">
