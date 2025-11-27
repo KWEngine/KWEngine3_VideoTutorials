@@ -4652,16 +4652,16 @@
             </summary>
             <param name="e">Parameter</param>
         </member>
+        <member name="M:KWEngine3.GLWindow.Close">
+            <summary>
+            Schließt das Anwendungsfenster
+            </summary>
+        </member>
         <member name="M:KWEngine3.GLWindow.OnKeyDown(OpenTK.Windowing.Common.KeyboardKeyEventArgs)">
             <summary>
             Event-Handler, der ausgelöst wird, wenn eine Taste im Fenster gedrückt wird
             </summary>
             <param name="e">Event-Infos</param>
-        </member>
-        <member name="M:KWEngine3.GLWindow.Close">
-            <summary>
-            Schließt das Anwendungsfenster
-            </summary>
         </member>
         <member name="M:KWEngine3.GLWindow.OnKeyUp(OpenTK.Windowing.Common.KeyboardKeyEventArgs)">
             <summary>
@@ -6555,11 +6555,12 @@
             <param name="key">zu prüfende Taste</param>
             <returns>true, wenn Taste gedrückt wird</returns>
         </member>
-        <member name="M:KWEngine3.KeyboardExt.IsKeyPressed(OpenTK.Windowing.GraphicsLibraryFramework.Keys)">
+        <member name="M:KWEngine3.KeyboardExt.IsKeyPressed(OpenTK.Windowing.GraphicsLibraryFramework.Keys,System.Boolean)">
             <summary>
             Prüft, ob die angegebene Taste gerade gedrückt wird und im vorherigen Frame nicht gedrückt wurde
             </summary>
             <param name="key">zu prüfende Taste</param>
+            <param name="limitToOneConsumption">Wenn true, wird die Taste nur vom ersten Objekt fragenden Objekt als gedrückt erkannt (sollte nur in absoluten Sonderfällen verwendet werden)</param>
             <returns>true, wenn die Taste gedrückt und im vorherigen Frame nicht gedrückt wurde</returns>
         </member>
         <member name="T:KWEngine3.KWEngine">
@@ -6949,11 +6950,12 @@
             <param name="button">zu prüfende Taste</param>
             <returns>true, wenn Taste gedrückt wird</returns>
         </member>
-        <member name="M:KWEngine3.MouseExt.IsButtonPressed(OpenTK.Windowing.GraphicsLibraryFramework.MouseButton)">
+        <member name="M:KWEngine3.MouseExt.IsButtonPressed(OpenTK.Windowing.GraphicsLibraryFramework.MouseButton,System.Boolean)">
             <summary>
             Prüft, ob die angegebene Maustaste gerade gedrückt wird und im vorherigen Frame nicht gedrückt wurde
             </summary>
             <param name="button">zu prüfende Taste</param>
+            <param name="limitToOneConsumption">Wenn true, wird die Taste nur vom ersten Objekt fragenden Objekt als gedrückt erkannt (sollte nur in absoluten Sonderfällen verwendet werden)</param>
             <returns>true, wenn die Taste gedrückt und im vorherigen Frame nicht gedrückt wurde</returns>
         </member>
         <member name="M:KWEngine3.MouseExt.GetDelta">
