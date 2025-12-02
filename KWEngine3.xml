@@ -5430,9 +5430,33 @@
             <param name="sort">Wenn true, wird die Ergebnisliste aufsteigend nach Objektentfernung sortiert</param>
             <returns>Liste der Strahlentreffer</returns>
         </member>
+        <member name="M:KWEngine3.Helper.HelperIntersection.RayTraceObjectsForViewVectorInScreenSpaceFast(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3,KWEngine3.GameObjects.GameObject,System.Single,System.Boolean,System.Type[])">
+            <summary>
+            Prüft, ob der angegebene Strahl (origin, direction) auf die Hitbox von auf dem Bildschirm sichtbaren Objekten bestimmter Klassen trifft
+            </summary>
+            <param name="origin">Ausgangspunkt des Strahls</param>
+            <param name="direction">Richtung des Strahls (MUSS normalisiert sein)</param>
+            <param name="caller">Aufruferinstanz, damit die Instanz sich nicht selbst überprüft</param>
+            <param name="maxDistance">maximale Länge des Strahls</param>
+            <param name="typelist">Klassen, deren Objekte geprüft werden sollen (mehrere möglich)</param>
+            <param name="sort">Wenn true, wird die Ergebnisliste aufsteigend nach Objektentfernung sortiert</param>
+            <returns>Liste der Strahlentreffer</returns>
+        </member>
         <member name="M:KWEngine3.Helper.HelperIntersection.RayTraceObjectsForViewVectorFastest(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3,KWEngine3.GameObjects.GameObject,System.Single,System.Boolean,System.Type[])">
             <summary>
             Prüft, ob der angegebene Strahl (origin, direction) auf die achsenparallele Hitbox von Objekten bestimmter Klassen trifft
+            </summary>
+            <param name="origin">Ausgangspunkt des Strahls</param>
+            <param name="direction">Richtung des Strahls (MUSS normalisiert sein)</param>
+            <param name="caller">Aufruferinstanz, damit die Instanz sich nicht selbst überprüft</param>
+            <param name="maxDistance">maximale Länge des Strahls</param>
+            <param name="typelist">Klassen, deren Objekte geprüft werden sollen (mehrere möglich)</param>
+            <param name="sort">Wenn true, wird die Ergebnisliste aufsteigend nach Objektentfernung sortiert</param>
+            <returns>Liste der Strahlentreffer</returns>
+        </member>
+        <member name="M:KWEngine3.Helper.HelperIntersection.RayTraceObjectsForViewVectorInScreenSpaceFastest(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3,KWEngine3.GameObjects.GameObject,System.Single,System.Boolean,System.Type[])">
+            <summary>
+            Prüft, ob der angegebene Strahl (origin, direction) auf die achsenparallele Hitbox von auf dem Bildschirm sichtbaren Objekten bestimmter Klassen trifft
             </summary>
             <param name="origin">Ausgangspunkt des Strahls</param>
             <param name="direction">Richtung des Strahls (MUSS normalisiert sein)</param>
@@ -5452,7 +5476,19 @@
             <param name="sort">true, falls die Objekte ihrer Entfernung nach aufsteigend sortiert werden sollen</param>
             <param name="caller">Aufrufendes Objekt, das bei Nennung ignoriert wird</param>
             <param name="typelist">Liste der Klassen, die getestet werden sollen</param>
-            <returns>Liste der GameObjectDistance-Instanzen</returns>
+            <returns>Liste der Messungen</returns>
+        </member>
+        <member name="M:KWEngine3.Helper.HelperIntersection.RayTraceObjectsForViewVectorInScreenSpace(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3,System.Single,System.Boolean,KWEngine3.GameObjects.GameObject,System.Type[])">
+            <summary>
+            Prüft, welche auf dem Bildschirm sichtbaren Objekte (bzw. deren Hitboxen) in der angegebenen Blickrichtung liegen und gibt diese als Liste zurück
+            </summary>
+            <param name="origin">Ursprung des Strahls</param>
+            <param name="direction">Blickrichtung des Strahls (MUSS normalisiert sein!)</param>
+            <param name="maxDistance">Objekte weiter weg als dieser Wert werden ignoriert (Standard: 0 = unendliche Entfernung)</param>
+            <param name="sort">true, falls die Objekte ihrer Entfernung nach aufsteigend sortiert werden sollen</param>
+            <param name="caller">Aufrufendes Objekt, das bei Nennung ignoriert wird</param>
+            <param name="typelist">Liste der Klassen, die getestet werden sollen</param>
+            <returns>Liste der Messungen</returns>
         </member>
         <member name="M:KWEngine3.Helper.HelperIntersection.CheckAABBCollision(System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)">
             <summary>
