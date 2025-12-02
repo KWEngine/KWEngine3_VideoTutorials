@@ -503,6 +503,21 @@
             Frees all graphics resources used by the renderer.
             </summary>
         </member>
+        <member name="T:KWEngine3.ZOrderMode">
+            <summary>
+            Bestimmt wie transparente Objekte für das Rendern sortiert werden (Standard: NearestEdge)
+            </summary>
+        </member>
+        <member name="F:KWEngine3.ZOrderMode.NearestEdge">
+            <summary>
+            Sortiert transparente Objekte für das Rendern gemäß der Entfernung ihrer zur Kamera am wenigsten entfernten Ecke
+            </summary>
+        </member>
+        <member name="F:KWEngine3.ZOrderMode.CameraMainPlane">
+            <summary>
+            Sortiert transparente Objekte für das Rendern gemäß der Hauptblickrichtung der Kamera (gut für 2D bzw. 2,5D Games)
+            </summary>
+        </member>
         <member name="T:KWEngine3.GBufferLightingMode">
             <summary>
             Gibt an, wie der Beleuchtungsschritt in der Engine ablaufen soll
@@ -6556,9 +6571,20 @@
             Kernbibliothek der Engine
             </summary>
         </member>
+        <member name="P:KWEngine3.KWEngine.ZOrderModeThreshold">
+            <summary>
+            Gibt an, wie groß der Durchmesser eines Objekts sein muss, damit bei der Bestimmung der Render-Sortierreihenfolge genauere Berechnungen stattfinden (Standardwert: 10f)
+            </summary>
+            <remarks>Dieser Wert muss verringert werden, wenn Objekte hinter transparenten Objekten nicht korrekt gezeichnet werden. Der Wert kann testweise erhöht werden, wenn dies nicht der Fall ist.</remarks>
+        </member>
+        <member name="P:KWEngine3.KWEngine.ZOderMode">
+            <summary>
+            Bestimmt wie transparente Objekte für das Rendern sortiert werden (Standard: NearestEdge)
+            </summary>
+        </member>
         <member name="P:KWEngine3.KWEngine.AudioBuffersPerChannel">
             <summary>
-            Gibt an, wie viele Puffer pro Audiokanal verwendet werden sollen (Minimum: 2, Standardwert: 2, Maximum: 4)
+            Gibt an, wie viele Puffer pro Audiokanal verwendet werden sollen (Minimum: 2, Standardwert: 3, Maximum: 4)
             </summary>
             <remarks>Je mehr Puffer, desto verlässlicher ist die Wiedergabe auf langsamen CPUs, aber die Auswertung der Audiodaten kann dadurch leicht verzögert werden</remarks>
         </member>
