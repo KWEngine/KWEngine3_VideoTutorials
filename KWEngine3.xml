@@ -6613,7 +6613,7 @@
             </summary>
             <remarks>Dieser Wert muss verringert werden, wenn Objekte hinter transparenten Objekten nicht korrekt gezeichnet werden. Der Wert kann testweise erhöht werden, wenn dies nicht der Fall ist.</remarks>
         </member>
-        <member name="P:KWEngine3.KWEngine.ZOderMode">
+        <member name="P:KWEngine3.KWEngine.ZOrderMode">
             <summary>
             Bestimmt wie transparente Objekte für das Rendern sortiert werden (Standard: NearestEdge)
             </summary>
