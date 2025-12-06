@@ -1802,11 +1802,29 @@
             </summary>
             <returns>Modellname</returns>
         </member>
-        <member name="M:KWEngine3.GameObjects.EngineObject.SetOpacity(System.Single)">
+        <member name="M:KWEngine3.GameObjects.EngineObject.SetOpacity(System.Single,System.Int32)">
             <summary>
-            Setzt die Sichtbarkeit des Objekts (Standard: 1)
+            Setzt die Sichtbarkeit des Objekts (Standardwert: 1)
+            </summary>
+            <remarks>Ist der optionale zweite Parameter leer bzw. behält er seinen Standardwert, wird die Transparenz für das gesamte Objekt gesetzt (Standard)</remarks>
+            <param name="o">Sichtbarkeit (0 bis 1)</param>
+            <param name="materialId">Index des Instanzmaterials (nullbasiert)</param>
+        </member>
+        <member name="M:KWEngine3.GameObjects.EngineObject.SetOpacity(System.Single,System.String)">
+            <summary>
+            Setzt die Sichtbarkeit des Objekts (Standardwert: 1)
+            </summary>
+            <remarks>Ist der zweite Parameter leer, wird die Transparenz für das gesamte Objekt gesetzt (Standard)</remarks>
+            <param name="o">Sichtbarkeit (0 bis 1)</param>
+            <param name="materialName">Name des Materials, für das die Transparenz gesetzt werden soll</param>
+        </member>
+        <member name="M:KWEngine3.GameObjects.EngineObject.SetOpacityForMesh(System.Single,System.String,System.Boolean)">
+            <summary>
+            Setzt die Sichtbarkeit für ein Teil des Objekts (Standardwert: 1)
             </summary>
             <param name="o">Sichtbarkeit (0 bis 1)</param>
+            <param name="meshName">Names des Objektteils (Mesh)</param>
+            <param name="matchNameExactly">wenn false, muss der Mesh-Name nicht exakt übereinstimmen, sondern es reicht eine Teilübereinstimmung (Standardwert: true)</param>
         </member>
         <member name="P:KWEngine3.GameObjects.EngineObject.Color">
             <summary>
@@ -5181,6 +5199,18 @@
             </summary>
             <param name="file">Datei als FileInfo-Objekt</param>
             <returns>true, wenn es sich um eine Datei mit 3D-Modell handelt</returns>
+        </member>
+        <member name="M:KWEngine3.Helper.HelperGeneral.PrintMeshNames(System.String)">
+            <summary>
+            Gibt alle Mesh-Namen des angegebenen Modells auf der Entwicklerkonsole aus
+            </summary>
+            <param name="modelName">Name des Modells</param>
+        </member>
+        <member name="M:KWEngine3.Helper.HelperGeneral.PrintMaterialNames(System.String)">
+            <summary>
+            Gibt alle Materialnamen des angegebenen Modells auf der Entwicklerkonsole aus (Materialnamen können in der Liste öfters auftauchen, wenn es mehrere Meshes gibt, die dasselbe Material teilen)
+            </summary>
+            <param name="modelName">Name des Modells</param>
         </member>
         <member name="M:KWEngine3.Helper.HelperGeneral.NormalizeValueToRange(System.Single,System.Single,System.Single)">
             <summary>
