@@ -1868,6 +1868,24 @@
             </summary>
             <param name="ce">RGB- und Intensitätsanteil (Intensität von 0 bis 10)</param>
         </member>
+        <member name="M:KWEngine3.GameObjects.EngineObject.SetColorEmissive(OpenTK.Mathematics.Vector3,System.Single,System.Int32)">
+            <summary>
+            Setzt die selbstleuchtende Farbtönung des Objekts für ein individuelles Mesh
+            </summary>
+            <param name="color">RGB-Anteil (Werte jeweils zwischen 0 und 1)</param>
+            <param name="intensity">Intensitätsanteil (Intensität von 0 bis 10)</param>
+            <param name="meshId">Nullbasierter Index des Modell-Mesh</param>
+        </member>
+        <member name="M:KWEngine3.GameObjects.EngineObject.SetColorEmissive(System.Single,System.Single,System.Single,System.Single,System.Int32)">
+            <summary>
+            Setzt die selbstleuchtende Farbtönung des Objekts für ein individuelles Mesh
+            </summary>
+            <param name="r">Rotanteil (zwischen 0 und 1)</param>
+            <param name="g">Grünanteil (zwischen 0 und 1)</param>
+            <param name="b">Blauanteil (zwischen 0 und 1)</param>
+            <param name="intensity">Intensitätsanteil (Intensität von 0 bis 10)</param>
+            <param name="meshId">Nullbasierter Index des Modell-Mesh</param>
+        </member>
         <member name="M:KWEngine3.GameObjects.EngineObject.SetMetallic(System.Single,System.Int32)">
             <summary>
             Setzt fest, wie metallisch das Objekt ist
