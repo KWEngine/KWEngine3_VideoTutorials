@@ -254,6 +254,13 @@
             Daten zu Frequenzband 20
             </summary>
         </member>
+        <member name="M:KWEngine3.Audio.AudioAnalysis.GetBand(System.Int32)">
+            <summary>
+            Erfragt die Daten zu einem nullbasierten Frequenzbandindex (0 = Band #1, 1 = Band #2, usw.)
+            </summary>
+            <param name="band">Nullbasierter Band-Index</param>
+            <returns>Daten zum erfragten Frequenzband</returns>
+        </member>
         <member name="M:KWEngine3.Audio.AudioAnalysis.#ctor">
             <summary>
             Konstruktormethode
@@ -277,6 +284,11 @@
         <member name="F:KWEngine3.Audio.AudioAnalysisBand.Decibel">
             <summary>
             Gemessene Decibel
+            </summary>
+        </member>
+        <member name="F:KWEngine3.Audio.AudioAnalysisBand.Index">
+            <summary>
+            Index des Bands
             </summary>
         </member>
         <member name="T:KWEngine3.Audio.CachedSound">
