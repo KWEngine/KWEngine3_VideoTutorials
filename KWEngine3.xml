@@ -4247,6 +4247,12 @@
             </summary>
             <param name="f">Entfernungsfaktor (Werte zwischen 0.75f und 2f)</param>
         </member>
+        <member name="M:KWEngine3.GameObjects.TextObject.SetTextAlignment(KWEngine3.TextAlignMode)">
+            <summary>
+            Setzt den Modus der Textanordnung (Standard: Center)
+            </summary>
+            <param name="mode">neuer Modus</param>
+        </member>
         <member name="P:KWEngine3.GameObjects.TextObject.CharacterDistanceFactor">
             <summary>
             Gibt den aktuell verwendeten Distanzfaktor für den Zeichenzwischenraum an
