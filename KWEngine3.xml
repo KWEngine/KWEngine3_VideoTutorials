@@ -6776,12 +6776,12 @@
         </member>
         <member name="P:KWEngine3.KWEngine.SSAO_Radius">
             <summary>
-            Weite des SSAO-Effekts (Standard: 0.35f, Bereich: 0.01f bis 1.0f)
+            Weite des SSAO-Effekts (Standard: 0.05f, Bereich: 0.01f bis 1.0f)
             </summary>
         </member>
         <member name="P:KWEngine3.KWEngine.SSAO_Bias">
             <summary>
-            Intensität des SSAO-Effekts (Standard: 0.4f, Bereich: 0.00f bis 0.5f)
+            Intensität des SSAO-Effekts (Standard: 0.04f, Bereich: 0.00f bis 1.0f)
             </summary>
         </member>
         <member name="P:KWEngine3.KWEngine.SSAO_KernelSize">
