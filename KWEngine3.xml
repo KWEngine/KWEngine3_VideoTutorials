@@ -80,6 +80,57 @@
             <param name="channel">Kanalnummer</param>
             <returns>true, wenn der Kanal pausiert ist</returns>
         </member>
+        <member name="M:KWEngine3.Audio.Audio.IsAudioFilePaused(System.String)">
+            <summary>
+            Erfragt, ob die angegebene Audiodatei gerade pausiert wird
+            </summary>
+            <remarks>Sollte ausschließlich bei Audiodateien verwendet werden, die als Loop abgespielt werden!</remarks>
+            <param name="audiofile">Audiodatei, nach deren Abspielstatus gesucht werden soll</param>
+            <returns>true, wenn die angegebene Datei gerade pausiert wird</returns>
+        </member>
+        <member name="M:KWEngine3.Audio.Audio.IsAudioFilePaused(System.String,System.Int32@)">
+            <summary>
+            Erfragt, ob die angegebene Audiodatei gerade pausiert wird und gibt ggf. den abspielenden Kanal via out-Parameter zurück
+            </summary>
+            <remarks>Sollte ausschließlich bei Audiodateien verwendet werden, die als Loop abgespielt werden!</remarks>
+            <param name="audiofile">Audiodatei, nach deren Abspielstatus gesucht werden soll</param>
+            <param name="channelIndex">enthält die ID des Audiokanals, der die Datei gerade abspielt (ist -1, falls die Methode false zurückgibt)</param>
+            <returns>true, wenn die angegebene Datei gerade pausiert wird</returns>
+        </member>
+        <member name="M:KWEngine3.Audio.Audio.IsAudioFilePlaying(System.String)">
+            <summary>
+            Erfragt, ob die angegebene Audiodatei gerade abgespielt wird und gibt ggf. den abspielenden Kanal via out-Parameter zurück
+            </summary>
+            <remarks>Sollte ausschließlich bei Audiodateien verwendet werden, die als Loop abgespielt werden!</remarks>
+            <param name="audiofile">Audiodatei, nach deren Abspielstatus gesucht werden soll</param>
+            <returns>true, wenn die angegebene Datei gerade abgespielt wird</returns>
+        </member>
+        <member name="M:KWEngine3.Audio.Audio.IsAudioFilePlaying(System.String,System.Int32@)">
+            <summary>
+            Erfragt, ob die angegebene Audiodatei gerade abgespielt wird
+            </summary>
+            <remarks>Sollte ausschließlich bei Audiodateien verwendet werden, die als Loop abgespielt werden!</remarks>
+            <param name="audiofile">Audiodatei, nach deren Abspielstatus gesucht werden soll</param>
+            <param name="channelIndex">enthält die ID des Audiokanals, der die Datei gerade abspielt (ist -1, falls die Methode false zurückgibt)</param>
+            <returns>true, wenn die angegebene Datei gerade abgespielt wird</returns>
+        </member>
+        <member name="M:KWEngine3.Audio.Audio.IsAudioFilePlayingOrPaused(System.String)">
+            <summary>
+            Erfragt, ob die angegebene Audiodatei gerade abgespielt oder pausiert wird
+            </summary>
+            <remarks>Sollte ausschließlich bei Audiodateien verwendet werden, die als Loop abgespielt werden!</remarks>
+            <param name="audiofile">Audiodatei, nach deren Abspielstatus gesucht werden soll</param>
+            <returns>true, wenn die angegebene Datei gerade abgespielt oder pausiert wird</returns>
+        </member>
+        <member name="M:KWEngine3.Audio.Audio.IsAudioFilePlayingOrPaused(System.String,System.Int32@)">
+            <summary>
+            Erfragt, ob die angegebene Audiodatei gerade abgespielt oder pausiert wird
+            </summary>
+            <remarks>Sollte ausschließlich bei Audiodateien verwendet werden, die als Loop abgespielt werden!</remarks>
+            <param name="audiofile">Audiodatei, nach deren Abspielstatus gesucht werden soll</param>
+            <param name="channelIndex">enthält die ID des Audiokanals, der die Datei gerade abspielt (ist -1, falls die Methode false zurückgibt)</param>
+            <returns>true, wenn die angegebene Datei gerade abgespielt oder pausiert wird</returns>
+        </member>
         <member name="M:KWEngine3.Audio.Audio.IsChannelPlayingOrPaused(System.Int32)">
             <summary>
             Erfragt, ob der angegebene Audiokanal gerade etwas abspielt oder pausiert ist
