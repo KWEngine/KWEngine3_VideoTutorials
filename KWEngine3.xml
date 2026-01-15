@@ -1909,6 +1909,15 @@
             <param name="g">Grünanteil (zwischen 0 und 1)</param>
             <param name="b">Blauanteil (zwischen 0 und 1)</param>
         </member>
+        <member name="M:KWEngine3.GameObjects.EngineObject.SetColor(System.Single,System.Single,System.Single,System.Int32)">
+            <summary>
+            Setzt die Farbtönung für ein Teil-Mesh des Objekts
+            </summary>
+            <param name="r">Rotanteil (zwischen 0 und 1)</param>
+            <param name="g">Grünanteil (zwischen 0 und 1)</param>
+            <param name="b">Blauanteil (zwischen 0 und 1)</param>
+            <param name="meshId">(nullbasierter) Mesh-Index</param>
+        </member>
         <member name="M:KWEngine3.GameObjects.EngineObject.SetColorEmissive(System.Single,System.Single,System.Single,System.Single)">
             <summary>
             Setzt die selbstleuchtende Farbtönung des Objekts
