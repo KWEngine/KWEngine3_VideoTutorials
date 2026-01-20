@@ -1883,11 +1883,11 @@
         </member>
         <member name="M:KWEngine3.GameObjects.EngineObject.SetOpacityForMesh(System.Single,System.String,System.Boolean)">
             <summary>
-            Setzt die Sichtbarkeit für ein Teil des Objekts (Standardwert: 1)
+            Setzt die Sichtbarkeit für ein Teil des Objekts
             </summary>
             <param name="o">Sichtbarkeit (0 bis 1)</param>
-            <param name="meshName">Names des Objektteils (Mesh)</param>
-            <param name="matchNameExactly">wenn false, muss der Mesh-Name nicht exakt übereinstimmen, sondern es reicht eine Teilübereinstimmung (Standardwert: true)</param>
+            <param name="meshName">Names des Objektteils (kann Mesh- oder Materialname sein)</param>
+            <param name="matchNameExactly">wenn false, muss der Name nicht exakt übereinstimmen, sondern es reicht eine Teilübereinstimmung (Standardwert: true)</param>
         </member>
         <member name="P:KWEngine3.GameObjects.EngineObject.Color">
             <summary>
