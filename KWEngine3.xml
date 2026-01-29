@@ -2309,11 +2309,6 @@
             Explosionsklasse
             </summary>
         </member>
-        <member name="P:KWEngine3.GameObjects.ExplosionObject.Position">
-            <summary>
-            Position der Explosion
-            </summary>
-        </member>
         <member name="P:KWEngine3.GameObjects.ExplosionObject.ColorEmissive">
             <summary>
             Glühfarbe der Explosion
@@ -2918,19 +2913,25 @@
             </summary>
             <param name="s">Skalierung</param>
         </member>
-        <member name="M:KWEngine3.GameObjects.GameObject.SetHitboxScale(System.Single,System.Single,System.Single)">
+        <member name="M:KWEngine3.GameObjects.GameObject.SetHitboxScale(OpenTK.Mathematics.Vector3,System.Single,System.Single,System.Single)">
+            <summary>
+            Setzt die Größenskalierung der Objekt-Hitbox (muss > 0 sein)
+            </summary>
+            <param name="s">Skalierung in lokaler x-/y-z-Richtung</param>
+            <param name="offsetX">Optionale x-Verschiebung der Hitbox</param>
+            <param name="offsetY">Optionale y-Verschiebung der Hitbox</param>
+            <param name="offsetZ">Optionale z-Verschiebung der Hitbox</param>
+        </member>
+        <member name="M:KWEngine3.GameObjects.GameObject.SetHitboxScale(System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)">
             <summary>
             Setzt die Größenskalierung der Objekt-Hitbox (muss > 0 sein)
             </summary>
             <param name="x">Skalierung in lokale x-Richtung</param>
             <param name="y">Skalierung in lokale x-Richtung</param>
             <param name="z">Skalierung in lokale x-Richtung</param>
-        </member>
-        <member name="M:KWEngine3.GameObjects.GameObject.SetHitboxScale(OpenTK.Mathematics.Vector3)">
-            <summary>
-            Setzt die Größenskalierung der Objekt-Hitbox (muss > 0 sein)
-            </summary>
-            <param name="s">Skalierung in lokaler x-/y-z-Richtung</param>
+            <param name="offsetX">Optionale x-Verschiebung der Hitbox</param>
+            <param name="offsetY">Optionale y-Verschiebung der Hitbox</param>
+            <param name="offsetZ">Optionale z-Verschiebung der Hitbox</param>
         </member>
         <member name="M:KWEngine3.GameObjects.GameObject.MoveAndStrafeAlongCamera(System.Int32,System.Int32,System.Single)">
             <summary>
@@ -3923,11 +3924,6 @@
         <member name="T:KWEngine3.GameObjects.ParticleObject">
             <summary>
             Partikelklasse
-            </summary>
-        </member>
-        <member name="P:KWEngine3.GameObjects.ParticleObject.Position">
-            <summary>
-            Position des Partikels
             </summary>
         </member>
         <member name="M:KWEngine3.GameObjects.ParticleObject.SetDuration(System.Single)">
@@ -6707,6 +6703,18 @@
             <summary>
             Gibt an, ob die Animationsphase des Objekts abgeschlossen ist. Abgeschlossene Objekte dieses Typs werden automatisch von der Engine entfernt.
             </summary>
+        </member>
+        <member name="P:KWEngine3.Helper.TimeBasedObject.Position">
+            <summary>
+            Position der Instanz
+            </summary>
+        </member>
+        <member name="M:KWEngine3.Helper.TimeBasedObject.CompareTo(KWEngine3.Helper.TimeBasedObject)">
+            <summary>
+            Vergleicht die aktuelle Instanz mit einem anderen TimeBasedObject basierend auf der Distanz zur Kamera.
+            </summary>
+            <param name="other">andere Instanz</param>
+            <returns>-1, 0 oder 1</returns>
         </member>
         <member name="T:KWEngine3.KeyboardExt">
             <summary>
