@@ -1716,6 +1716,12 @@
             Setzt bzw. gibt an, ob das Objekt von anderen Objekten aufgrund der Entfernung zur Kamera verdeckt werden kann (Standard: true)
             </summary>
         </member>
+        <member name="P:KWEngine3.GameObjects.EngineObject.BlendTextureStates">
+            <summary>
+            Gibt an, ob Änderungen an TextureOffset-Werten für die Render-Phase interpoliert werden (Standard: true) 
+            (für 2D-Objekte mit Spritesheet-Animationen sollte dieser Wert auf 'false' gesetzt werden)
+            </summary>
+        </member>
         <member name="P:KWEngine3.GameObjects.EngineObject.DisableBackfaceCulling">
             <summary>
             Gibt an, ob für das Objekt auch die der Kamera abgewandten Seiten gerendet werden sollen. Dies kann helfen, einseitige Meshes korrekt zu rendern.
@@ -3054,12 +3060,6 @@
         <member name="P:KWEngine3.GameObjects.GameObject.AnimationID">
             <summary>
             Gibt an, welche Animations-ID für diese Instanz aktuell gewählt ist. Beträgt der Wert -1, ist keine Animation gewählt.
-            </summary>
-        </member>
-        <member name="P:KWEngine3.GameObjects.GameObject.BlendTextureStates">
-            <summary>
-            Gibt an, ob Änderungen an TextureOffset-Werten für die Render-Phase interpoliert werden (Standard: true) 
-            (für 2D-Objekte mit Spritesheet-Animationen sollte dieser Wert auf 'false' gesetzt werden)
             </summary>
         </member>
         <member name="M:KWEngine3.GameObjects.GameObject.RaytraceObjectsNearby(OpenTK.Mathematics.Vector3,OpenTK.Mathematics.Vector3,System.Type[])">
