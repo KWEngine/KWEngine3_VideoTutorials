@@ -1696,6 +1696,54 @@
             </summary>
             <param name="message">Fehlernachricht</param>
         </member>
+        <member name="P:KWEngine3.FontGenerator.AtlasInfo.Type">
+            <summary>
+            z. B. "msdf", "mtsdf", "sdf" ...
+            </summary>
+        </member>
+        <member name="P:KWEngine3.FontGenerator.AtlasInfo.Size">
+            <summary>
+            Font-Größe in px per em (aus msdf-atlas-gen JSON "size").
+            </summary>
+        </member>
+        <member name="P:KWEngine3.FontGenerator.AtlasInfo.YOrigin">
+            <summary>
+            "bottom" oder "top"
+            </summary>
+        </member>
+        <member name="P:KWEngine3.FontGenerator.Glyph.Unicode">
+            <summary>
+            Unicode-Codepoint (dezimal).
+            </summary>
+        </member>
+        <member name="P:KWEngine3.FontGenerator.Glyph.Advance">
+            <summary>
+            Horizontal Advance in em.
+            </summary>
+        </member>
+        <member name="P:KWEngine3.FontGenerator.Glyph.PlaneBounds">
+            <summary>
+            Glyph-Quad in em relativ zur Baseline/Cursorposition.
+            Kann fehlen (z. B. für Space).
+            </summary>
+        </member>
+        <member name="P:KWEngine3.FontGenerator.Glyph.AtlasBounds">
+            <summary>
+            Glyph-Rechteck im Atlas (Pixel).
+            Kann fehlen (z. B. für Space).
+            </summary>
+        </member>
+        <member name="T:KWEngine3.FontGenerator.KerningPair">
+            <summary>
+            Typische Darstellung von Kerning-Paaren in msdf-atlas-gen:
+            (Beispielstruktur – falls deine Datei andere Feldnamen nutzt, anpassen.)
+            </summary>
+        </member>
+        <member name="P:KWEngine3.FontGenerator.KerningPair.Advance">
+            <summary>
+            Kerning-Adjust in em (additiv zum Advance des ersten Zeichens).
+            </summary>
+        </member>
         <member name="T:KWEngine3.GameObjects.EngineObject">
             <summary>
             Oberklasse aller GameObject- und RenderObject-Instanzen
@@ -3488,6 +3536,33 @@
             Gibt den aktuellen Distanzfaktor für die Abstände zwischen Zeichen an
             </summary>
         </member>
+        <member name="M:KWEngine3.GameObjects.HUDObjectText.SetColorOutline(System.Single,System.Single,System.Single)">
+            <summary>
+            Setzt die (optionale) Outline des Texts
+            </summary>
+            <param name="r">Rotanteil (0 bis 2)</param>
+            <param name="g">Grünanteil (0 bis 2)</param>
+            <param name="b">Blauanteil (0 bis 2)</param>
+        </member>
+        <member name="M:KWEngine3.GameObjects.HUDObjectText.SetColorOutline(System.Single,System.Single,System.Single,System.Single)">
+            <summary>
+            Setzt die (optionale) Outline des Texts
+            </summary>
+            <param name="r">Rotanteil (0 bis 2)</param>
+            <param name="g">Grünanteil (0 bis 2)</param>
+            <param name="b">Blauanteil (0 bis 2)</param>
+            <param name="width">Outline-Breite (0 bis 1)</param>
+        </member>
+        <member name="P:KWEngine3.GameObjects.HUDObjectText.ColorOutline">
+            <summary>
+            Gibt die aktuell gesetzte Farbe für die Outline an
+            </summary>
+        </member>
+        <member name="P:KWEngine3.GameObjects.HUDObjectText.ColorOutlineWidth">
+            <summary>
+            Gibt die aktuelle Breite für die Outline an
+            </summary>
+        </member>
         <member name="M:KWEngine3.GameObjects.HUDObjectText.SetScale(System.Single)">
             <summary>
             Setzt die Größe pro Zeichen in Pixeln (Standardwert: 32)
@@ -3595,18 +3670,6 @@
             <summary>
             Setzt oder erfragt die Anzahl maximal einzugebender Zeichen im Bereich [1, 127] (Standardwert: 127)
             </summary>
-        </member>
-        <member name="M:KWEngine3.GameObjects.HUDObjectTextInput.AddCharacters(System.String)">
-            <summary>
-            Fügt die angegebenen Zeichen dem Text ab der Cursorposition hinzu
-            </summary>
-            <param name="characters">Hinzuzufügende Zeichen</param>
-        </member>
-        <member name="M:KWEngine3.GameObjects.HUDObjectTextInput.MoveCursor(System.Int32)">
-            <summary>
-            Bewegt den Cursor relativ zu seiner jetztigen Position
-            </summary>
-            <param name="offset"></param>
         </member>
         <member name="T:KWEngine3.GameObjects.Intersection">
             <summary>
@@ -4425,9 +4488,28 @@
             <summary>
             Setzt die Farbe der Instanz
             </summary>
-            <param name="r">Rotanteil (zwischen 0 und 1)</param>
-            <param name="g">Grünanteil (zwischen 0 und 1)</param>
-            <param name="b">Blauanteil (zwischen 0 und 1)</param>
+            <param name="r">Rotanteil (zwischen 0 und 2)</param>
+            <param name="g">Grünanteil (zwischen 0 und 2)</param>
+            <param name="b">Blauanteil (zwischen 0 und 2)</param>
+        </member>
+        <member name="M:KWEngine3.GameObjects.TextObject.SetColorOutline(System.Single,System.Single,System.Single,System.Single)">
+            <summary>
+            Setzt die (optionale) Outline des Texts
+            </summary>
+            <param name="r">Rotanteil (0 bis 2)</param>
+            <param name="g">Grünanteil (0 bis 2)</param>
+            <param name="b">Blauanteil (0 bis 2)</param>
+            <param name="width">Outline-Breite (0 bis 1)</param>
+        </member>
+        <member name="P:KWEngine3.GameObjects.TextObject.ColorOutline">
+            <summary>
+            Gibt die aktuell gesetzte Farbe für die Outline an
+            </summary>
+        </member>
+        <member name="P:KWEngine3.GameObjects.TextObject.ColorOutlineWidth">
+            <summary>
+            Gibt die aktuelle Breite für die Outline an
+            </summary>
         </member>
         <member name="P:KWEngine3.GameObjects.TextObject.Scale">
             <summary>
@@ -6736,6 +6818,22 @@
             <param name="limitToOneConsumption">Wenn true, wird die Taste nur vom ersten Objekt fragenden Objekt als gedrückt erkannt (sollte nur in absoluten Sonderfällen verwendet werden)</param>
             <returns>true, wenn die Taste gedrückt und im vorherigen Frame nicht gedrückt wurde</returns>
         </member>
+        <member name="T:KWEngine3.KWDebugAttribute">
+            <summary>
+            Attribut zur Anzeige eines benutzerdefinierten Labels für ein Feld oder eine Eigenschaft
+            </summary>
+        </member>
+        <member name="P:KWEngine3.KWDebugAttribute.Label">
+            <summary>
+            Das anzuzeigende Label
+            </summary>
+        </member>
+        <member name="M:KWEngine3.KWDebugAttribute.#ctor(System.String)">
+            <summary>
+            Initialisiert eine neue Instanz des <see cref="T:KWEngine3.KWDebugAttribute"/> mit einem optionalen Label
+            </summary>
+            <param name="label">Das anzuzeigende Label (optional).</param>
+        </member>
         <member name="T:KWEngine3.KWEngine">
             <summary>
             Kernbibliothek der Engine
@@ -6773,6 +6871,12 @@
             <summary>
             Gibt an, ob die Performance für alle draw calls gemessen wird und mit der Methode KWEngine.GetRenderTime() abgefragt werden kann (Standard: false)
             </summary>
+        </member>
+        <member name="P:KWEngine3.KWEngine.DebugOverlayEnabled">
+            <summary>
+            Gibt an, ob im Debug-Modus stets ein Overlay angezeigt wird, in dem markierte Felder inkl. deren aktuellen Werten angezeigt werden (Standard: false)
+            </summary>
+            <remarks>Achtung: Kann Mausradeingaben ggf. abfangen oder doppeln</remarks>
         </member>
         <member name="M:KWEngine3.KWEngine.GetRenderTime(KWEngine3.RenderType)">
             <summary>
@@ -6962,12 +7066,13 @@
             <param name="colliderType">Art des Collider-Modells</param>
             <returns>true, wenn der Import funktioniert hat</returns>
         </member>
-        <member name="M:KWEngine3.KWEngine.LoadFont(System.String,System.String)">
+        <member name="M:KWEngine3.KWEngine.LoadFont(System.String,System.String,System.String)">
             <summary>
             Lädt eine Truetype-Schriftart (TTF) aus einer Datei und speichert Sie intern unter dem im ersten Parameter angegebenen Namen ab
             </summary>
             <param name="name">Name der Schriftart (wird später zum Setzen der Schriftart bei textbasierten Objekten verwendet)</param>
-            <param name="filename">Dateiname der Schriftart (inkl. Pfad) - muss eine TTF-Datei sein</param>
+            <param name="msdf">Dateiname des MSDF-Schriftart-Atlas (inkl. Pfad) - muss eine RGB8-Bitmap-Datei sein</param>
+            <param name="jsonfile">Beschreibungsdatei zum MSDF-Atlas</param>
         </member>
         <member name="M:KWEngine3.KWEngine.LoadModel(System.String,System.String)">
             <summary>
