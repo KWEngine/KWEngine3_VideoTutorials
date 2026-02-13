@@ -5360,6 +5360,11 @@
             Helferklasse für Mathefunktionen
             </summary>
         </member>
+        <member name="P:KWEngine3.Helper.HelperGeneral.IsDebugBuild">
+            <summary>
+            Gibt an, ob die aktuell ausgeführte App as Debug-Build läuft
+            </summary>
+        </member>
         <member name="M:KWEngine3.Helper.HelperGeneral.IsModelFile(System.String)">
             <summary>
             Prüft, ob der Dateiname darauf hindeutet, dass ein 3D-Modell in der Datei gespeichert ist
