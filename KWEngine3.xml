@@ -2514,7 +2514,7 @@
             <summary>
             Setzt die Tönung und Leuchtkraft des Bodengewächses
             </summary>
-            <param name="color">Tönung (RGB zwischen 0 und 1) und Leuchtkraft (zwischen 0 und 8, Standardwert: 0)</param>
+            <param name="color">Tönung (RGB zwischen 0 und 1) und Leuchtkraft (zwischen 0 und 2, Standardwert: 0)</param>
         </member>
         <member name="M:KWEngine3.GameObjects.FoliageObject.SetPosition(OpenTK.Mathematics.Vector3)">
             <summary>
@@ -2537,7 +2537,7 @@
             <param name="r">Rotanteil (zwischen 0 und 1)</param>
             <param name="g">Rotanteil (zwischen 0 und 1)</param>
             <param name="b">Rotanteil (zwischen 0 und 1)</param>
-            <param name="intensity">Leuchtkraft (zwischen 0 und 8, Standardwert: 0)</param>
+            <param name="intensity">Leuchtkraft (zwischen 0 und 2, Standardwert: 0)</param>
         </member>
         <member name="M:KWEngine3.GameObjects.FoliageObject.SetPatchSize(System.Single,System.Single)">
             <summary>
@@ -2640,7 +2640,7 @@
             <summary>
             Setzt die Tönung und Leuchtkraft des Bodengewächses
             </summary>
-            <param name="color">Tönung (RGB zwischen 0 und 1) und Leuchtkraft (zwischen 0 und 8, Standardwert: 0)</param>
+            <param name="color">Tönung (RGB zwischen 0 und 1) und Leuchtkraft (zwischen 0 und 2, Standardwert: 0)</param>
         </member>
         <member name="M:KWEngine3.GameObjects.FoliageObjectCustom.SetColor(System.Single,System.Single,System.Single,System.Single)">
             <summary>
@@ -2649,7 +2649,7 @@
             <param name="r">Rotanteil (zwischen 0 und 1)</param>
             <param name="g">Rotanteil (zwischen 0 und 1)</param>
             <param name="b">Rotanteil (zwischen 0 und 1)</param>
-            <param name="intensity">Leuchtkraft (zwischen 0 und 8, Standardwert: 0)</param>
+            <param name="intensity">Leuchtkraft (zwischen 0 und 2, Standardwert: 0)</param>
         </member>
         <member name="M:KWEngine3.GameObjects.FoliageObjectCustom.SetPosition(System.Int32,OpenTK.Mathematics.Vector3)">
             <summary>
