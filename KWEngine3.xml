@@ -2375,7 +2375,7 @@
             <param name="red">Rot (0 bis 1)</param>
             <param name="green">Grün (0 bis 1)</param>
             <param name="blue">Blau (0 bis 1)</param>
-            <param name="intensity">Helligkeit (0 bis 10)</param>
+            <param name="intensity">Helligkeit (0 bis 2)</param>
         </member>
         <member name="M:KWEngine3.GameObjects.ExplosionObject.SetPosition(System.Single,System.Single,System.Single)">
             <summary>
