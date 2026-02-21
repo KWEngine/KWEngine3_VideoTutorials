@@ -59,12 +59,13 @@ namespace KWEngine3_Tutorial.App.Worlds
             float currentY = 64f;
             for(int i = 1; i <= _worldNamesStd.Count; i++)
             {
-                HUDObjectText h = new HUDObjectText("World #" + i.ToString().PadLeft(2) + ": " + _worldNamesStd[i - 1]);
+                HUDObjectText h = new HUDObjectText("World #" + i.ToString().PadLeft(2, '0') + ": " + _worldNamesStd[i - 1]);
                 h.Name = i.ToString();
-                h.SetFont(FontFace.Anonymous);
+                h.SetFont(FontFace.OpenSans);
                 h.SetScale(28f);
-                h.SetColorEmissive(0f, 1f, 0f);
-                h.SetCharacterDistanceFactor(0.75f);
+                h.SetColorEmissive(0f, 0.5f, 0f);
+                h.SetColorOutline(0.75f, 0.75f, 0.75f, 0.25f);
+                h.SetCharacterDistanceFactor(1.0f);
                 h.SetTextAlignment(TextAlignMode.Left);
                 h.SetPosition(currentX, currentY);
                 h.SetColor(0, 0, 0);
@@ -94,12 +95,13 @@ namespace KWEngine3_Tutorial.App.Worlds
             currentX = 64f;
             for (int i = 1; i <= _worldNamesAdv.Count; i++)
             {
-                HUDObjectText h = new HUDObjectText("World #ADV" + i.ToString().PadLeft(2) + ": " + _worldNamesAdv[i - 1]);
+                HUDObjectText h = new HUDObjectText("World #ADV" + i.ToString().PadLeft(2, '0') + ": " + _worldNamesAdv[i - 1]);
                 h.Name = "ADV" + i.ToString();
-                h.SetFont(FontFace.Anonymous);
+                h.SetFont(FontFace.OpenSans);
                 h.SetScale(28f);
-                h.SetColorEmissive(0f, 1f, 0f);
-                h.SetCharacterDistanceFactor(0.75f);
+                h.SetColorEmissive(0f, 0.5f, 0f);
+                h.SetColorOutline(0.75f, 0.75f, 0.75f, 0.25f);
+                h.SetCharacterDistanceFactor(1.0f);
                 h.SetTextAlignment(TextAlignMode.Left);
                 h.SetPosition(currentX, currentY);
                 h.SetColor(0, 0, 0);
