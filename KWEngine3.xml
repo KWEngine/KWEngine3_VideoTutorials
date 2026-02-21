@@ -1053,17 +1053,27 @@
         </member>
         <member name="F:KWEngine3.ExplosionAnimation.Spread">
             <summary>
-            Standard-Animationsalgorithmus
+            Standard-Animationsalgorithmus (Partikel fliegen in randomisierte Richtungen)
             </summary>
         </member>
         <member name="F:KWEngine3.ExplosionAnimation.WindUp">
             <summary>
-            Partikel wandern entlang der positiven y-Achse nach oben
+            Partikel wandern in die durch SetDirection() vorgegebene Richtung
             </summary>
         </member>
         <member name="F:KWEngine3.ExplosionAnimation.WhirlwindUp">
             <summary>
-            Partikel wirbeln entlang der positiven y-Achse nach oben
+            Partikel wirbeln entlang der durch SetDirection() vorgegebenen Richtung
+            </summary>
+        </member>
+        <member name="F:KWEngine3.ExplosionAnimation.Exhaust">
+            <summary>
+            Partikel fliegen entlang der durch SetDirection() vorgegebenen Richtung 
+            </summary>
+        </member>
+        <member name="F:KWEngine3.ExplosionAnimation.Spark">
+            <summary>
+            Partikel simulieren einen Funkenflug entlang der durch SetDirection() vorgegebenen Richtung
             </summary>
         </member>
         <member name="T:KWEngine3.CapsuleHitboxType">
@@ -1284,6 +1294,21 @@
         <member name="F:KWEngine3.ExplosionType.DollarRingZ">
             <summary>
             Dollarpartikel um die Z-Achse
+            </summary>
+        </member>
+        <member name="F:KWEngine3.ExplosionType.Shard">
+            <summary>
+            Scherbenpartikel in alle Richtungen
+            </summary>
+        </member>
+        <member name="F:KWEngine3.ExplosionType.ShardRingY">
+            <summary>
+            Scherbenpartikel um die Y-Achse
+            </summary>
+        </member>
+        <member name="F:KWEngine3.ExplosionType.ShardRingZ">
+            <summary>
+            Scherbenpartikel um die Z-Achse
             </summary>
         </member>
         <member name="T:KWEngine3.MetallicType">
@@ -2368,6 +2393,11 @@
             Glühfarbe der Explosion
             </summary>
         </member>
+        <member name="P:KWEngine3.GameObjects.ExplosionObject.Color">
+            <summary>
+            Basisfarbe der Explosion (wird mit der Umgebungshelligkeit vermischt)
+            </summary>
+        </member>
         <member name="M:KWEngine3.GameObjects.ExplosionObject.SetColorEmissive(System.Single,System.Single,System.Single,System.Single)">
             <summary>
             Setzt die Glühfarbe der Explosionspartikel
@@ -2376,6 +2406,22 @@
             <param name="green">Grün (0 bis 1)</param>
             <param name="blue">Blau (0 bis 1)</param>
             <param name="intensity">Helligkeit (0 bis 2)</param>
+        </member>
+        <member name="M:KWEngine3.GameObjects.ExplosionObject.SetColorEmissive(System.Single,System.Single,System.Single)">
+            <summary>
+            Setzt die Glühfarbe der Explosionspartikel
+            </summary>
+            <param name="red">Rot (0 bis 2)</param>
+            <param name="green">Grün (0 bis 2)</param>
+            <param name="blue">Blau (0 bis 2)</param>
+        </member>
+        <member name="M:KWEngine3.GameObjects.ExplosionObject.SetColor(System.Single,System.Single,System.Single)">
+            <summary>
+            Setzt die Basisfarbe der Explosionspartikel (wird mit der Umgebungshelligkeit vermischt)
+            </summary>
+            <param name="red">Rot (0 bis 1)</param>
+            <param name="green">Grün (0 bis 1)</param>
+            <param name="blue">Blau (0 bis 1)</param>
         </member>
         <member name="M:KWEngine3.GameObjects.ExplosionObject.SetPosition(System.Single,System.Single,System.Single)">
             <summary>
@@ -2418,6 +2464,22 @@
             <param name="explosionRadius">Radius der Explosion</param>
             <param name="durationInSeconds">Dauer der Explosion in Sekunden</param>
             <param name="type">Art der Explosion</param>
+        </member>
+        <member name="M:KWEngine3.GameObjects.ExplosionObject.SetDirection(System.Single,System.Single,System.Single)">
+            <summary>
+            Setzt die Richtung der Explosion
+            </summary>
+            <remarks>Wirkt nicht für alle Explosionsalgorithmen gleich</remarks>
+            <param name="x">x-Komponente des relativen Richtungsvektors</param>
+            <param name="y">y-Komponente des relativen Richtungsvektors</param>
+            <param name="z">z-Komponente des relativen Richtungsvektors</param>
+        </member>
+        <member name="M:KWEngine3.GameObjects.ExplosionObject.SetDirection(OpenTK.Mathematics.Vector3)">
+            <summary>
+            Setzt die Richtung der Explosion
+            </summary>
+            <remarks>Wirkt nicht für alle Explosionsalgorithmen gleich</remarks>
+            <param name="direction">relativer Richtungsvektor</param>
         </member>
         <member name="T:KWEngine3.GameObjects.FoliageObject">
             <summary>
