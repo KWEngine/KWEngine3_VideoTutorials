@@ -3551,6 +3551,18 @@
             Verwendeter Schriftartname des HUD-Objekts
             </summary>
         </member>
+        <member name="M:KWEngine3.GameObjects.HUDObjectText.SetMaxLineWidth(System.Single)">
+            <summary>
+            Setzt die maximale Breite einer Textzeile. Der Text wird mehrzeilig, wenn die Textbreite die maximale Breite überschreitet.
+            </summary>
+            <param name="lineWidth">Maximale Textzeilenbreite (in Pixeln, Mindestwert: 256)</param>
+        </member>
+        <member name="M:KWEngine3.GameObjects.HUDObjectText.SetLineHeightFactor(System.Single)">
+            <summary>
+            Wenn die Instanz mehrzeiligen Text enthält, regelt dieser Faktor den Zeilenabstand.
+            </summary>
+            <param name="lhf">Zeilenabstandsfaktor (Ab 0.25f; Standardwert ist 1f für einen einfachen Zeilenabstand)</param>
+        </member>
         <member name="M:KWEngine3.GameObjects.HUDObjectText.SetFont(KWEngine3.FontFace)">
             <summary>
             Setzt die Schriftart der Instanz
@@ -3573,6 +3585,7 @@
             <summary>
             Setzt den Modus der Textanordnung
             </summary>
+            <remarks>Funktioniert nicht für Multiline-Instanzen</remarks>
             <param name="textAlignment">neuer Modus</param>
         </member>
         <member name="P:KWEngine3.GameObjects.HUDObjectText.Text">
@@ -4056,6 +4069,12 @@
             Setzt die Dauer der Loop-Partikel
             </summary>
             <param name="durationInSeconds">Dauer (in Sekunden)</param>
+        </member>
+        <member name="M:KWEngine3.GameObjects.ParticleObject.SetColorIntensity(System.Single)">
+            <summary>
+            Setzt, wie stark die Pixelfarben des Partikeleffekts verstärkt werden
+            </summary>
+            <param name="intensity">Verstärkungswert (zwischen 0 und 100; Standardwert: 1f)</param>
         </member>
         <member name="M:KWEngine3.GameObjects.ParticleObject.SetHue(System.Single)">
             <summary>
