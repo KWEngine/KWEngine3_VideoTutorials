@@ -4867,6 +4867,11 @@
             Verweis auf Mauseingaben
             </summary>
         </member>
+        <member name="P:KWEngine3.GLWindow.MouseMovement">
+            <summary>
+            Gibt die Strecke an, die der Mauszeiger seit der letzten Überprüfung zurückgelegt hat
+            </summary>
+        </member>
         <member name="M:KWEngine3.GLWindow.OnLoad">
             <summary>
             Standard-Initialisierungen
@@ -6951,6 +6956,21 @@
         <member name="P:KWEngine3.KWEngine.MouseSensitivity">
             <summary>
             Empfindlichkeit des Mauszeigers im First-Person-Modus (Standard: 0.05f, negative Werte für die Invertierung der y-Achse)
+            </summary>
+        </member>
+        <member name="P:KWEngine3.KWEngine.Mouse">
+            <summary>
+            Verweis auf Mauseingaben
+            </summary>
+        </member>
+        <member name="P:KWEngine3.KWEngine.Keyboard">
+            <summary>
+            Verweis auf Keyboardeingaben
+            </summary>
+        </member>
+        <member name="P:KWEngine3.KWEngine.MouseMovement">
+            <summary>
+            Gibt die Strecke an, die der Mauszeiger seit der letzten Überprüfung zurückgelegt hat
             </summary>
         </member>
         <member name="P:KWEngine3.KWEngine.DebugPerformanceEnabled">
