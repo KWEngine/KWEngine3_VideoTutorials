@@ -6,6 +6,7 @@ using KWEngine3.Helper;
 using KWEngine3_Tutorial.App.Worlds.ClassesWorldADV02;
 using OpenTK.Mathematics;
 using OpenTK.Windowing.GraphicsLibraryFramework;
+using Platform = KWEngine3_Tutorial.App.Worlds.ClassesWorldADV02.Platform;
 
 namespace KWEngine3_Tutorial.App.Worlds
 {

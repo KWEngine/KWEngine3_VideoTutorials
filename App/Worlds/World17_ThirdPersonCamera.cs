@@ -6,6 +6,7 @@ using KWEngine3.Helper;
 using KWEngine3_Tutorial.App.Worlds.ClassesWorld17;
 using OpenTK.Mathematics;
 using OpenTK.Windowing.GraphicsLibraryFramework;
+using Platform = KWEngine3_Tutorial.App.Worlds.ClassesWorld17.Platform;
 
 namespace KWEngine3_Tutorial.App.Worlds
 {
@@ -42,7 +43,7 @@ namespace KWEngine3_Tutorial.App.Worlds
             p.IsShadowCaster = true;
             AddGameObject(p);
 
-            LightObject sun = new LightObject(LightType.Sun, ShadowQuality.High);
+            LightObject sun = new LightObjectSun(ShadowQuality.High, SunShadowType.Default);
             sun.SetPosition(-25f, 50f, 10f);
             sun.SetTarget(0f, 0f, 0f);
             sun.SetFOV(50f);
