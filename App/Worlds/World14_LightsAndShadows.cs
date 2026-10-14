@@ -1,11 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using KWEngine3;
+﻿using KWEngine3;
 using KWEngine3.GameObjects;
 using KWEngine3.Helper;
 using KWEngine3_Tutorial.App.Worlds.ClassesWorld14;
 using OpenTK.Mathematics;
 using OpenTK.Windowing.GraphicsLibraryFramework;
+using System;
+using System.Collections.Generic;
 
 namespace KWEngine3_Tutorial.App.Worlds
 {
@@ -102,6 +102,7 @@ namespace KWEngine3_Tutorial.App.Worlds
             f.SetSwayFactor(0.1f);
             f.IsShadowReceiver = true;
             f.IsSizeReducedAtCorners = true;
+            f.SetCameraDrawDistance(256);
             AddFoliageObject(f);
         }
     }
