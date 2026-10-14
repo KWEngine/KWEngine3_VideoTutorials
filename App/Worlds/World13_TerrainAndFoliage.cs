@@ -1,11 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using KWEngine3;
+﻿using KWEngine3;
 using KWEngine3.GameObjects;
 using KWEngine3.Helper;
 using KWEngine3_Tutorial.App.Worlds.ClassesWorld13;
 using OpenTK.Mathematics;
 using OpenTK.Windowing.GraphicsLibraryFramework;
+using System;
+using System.Collections.Generic;
 
 namespace KWEngine3_Tutorial.App.Worlds
 {
@@ -79,13 +79,14 @@ namespace KWEngine3_Tutorial.App.Worlds
 
             FoliageObject f = new FoliageObject(FoliageType.GrassDry);
             f.SetInstanceCount(10000);
-            f.AttachToTerrain(t);
+            f.SetCameraDrawDistance(256);
             f.SetPosition(-10f, 0f, 12.5f);
             f.SetScale(5f, 1.5f, 5f);
             f.SetPatchSize(17.5f, 12.5f);
             f.SetSwayFactor(0.1f);
             f.IsShadowReceiver = true;
             f.IsSizeReducedAtCorners = true;
+            f.AttachToTerrain(t);
             AddFoliageObject(f);
         }
     }
