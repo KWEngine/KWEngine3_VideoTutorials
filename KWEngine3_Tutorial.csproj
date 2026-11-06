@@ -16,7 +16,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="KWEngine" Version="3.0.9.3" />
+    <PackageReference Include="KWEngine" Version="3.0.9.5" />
   </ItemGroup>
 
   <ItemGroup>
